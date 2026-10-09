@@ -1,0 +1,2031 @@
+<!doctype html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="web_dashboard" name="shell-type" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,600;0,8..60,700;1,8..60,600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      @layer base {
+        html,
+        body {
+          margin: 0;
+          padding: 0;
+        }
+        body {
+          overscroll-behavior: none;
+        }
+        main > :first-child {
+          margin-top: 0 !important;
+        }
+        main > :last-child {
+          margin-bottom: 0 !important;
+        }
+      }
+      ::-webkit-scrollbar {
+        display: none;
+      }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-container": "#4a2c21",
+              primary: "#31170e",
+              "on-primary-container": "#bd9283",
+              "secondary-fixed-dim": "#ffb4ac",
+              "on-secondary-fixed": "#410002",
+              "on-secondary-fixed-variant": "#8e1214",
+              "inverse-on-surface": "#ffede8",
+              "on-secondary": "#ffffff",
+              "primary-fixed": "#ffdbcf",
+              tertiary: "#3e0d00",
+              "surface-variant": "#fbdcd3",
+              "surface-container": "#ffe9e3",
+              "on-tertiary-fixed-variant": "#832600",
+              "error-container": "#ffdad6",
+              "on-primary-fixed-variant": "#603f33",
+              "on-error-container": "#93000a",
+              "inverse-primary": "#ebbcac",
+              error: "#ba1a1a",
+              "on-tertiary-container": "#ff6f3c",
+              "on-tertiary-fixed": "#390c00",
+              "surface-container-high": "#ffe2da",
+              "tertiary-fixed-dim": "#ffb59d",
+              "on-surface": "#281813",
+              "on-error": "#ffffff",
+              background: "#fff8f6",
+              surface: "#fff8f6",
+              "secondary-fixed": "#ffdad6",
+              "surface-container-lowest": "#ffffff",
+              "secondary-container": "#ff665c",
+              secondary: "#b02d29",
+              "on-primary-fixed": "#2e150b",
+              "inverse-surface": "#3f2c26",
+              "on-tertiary": "#ffffff",
+              "tertiary-container": "#621a00",
+              "surface-bright": "#fff8f6",
+              "on-surface-variant": "#504440",
+              "on-primary": "#ffffff",
+              "primary-fixed-dim": "#ebbcac",
+              outline: "#82746f",
+              "outline-variant": "#d4c3bd",
+              "surface-tint": "#7a5649",
+              "tertiary-fixed": "#ffdbd0",
+              "surface-dim": "#f2d3cb",
+              "surface-container-highest": "#fbdcd3",
+              "on-background": "#281813",
+              "surface-container-low": "#fff1ed",
+              "on-secondary-container": "#690007",
+            },
+            borderRadius: {
+              DEFAULT: "0.125rem",
+              lg: "0.25rem",
+              xl: "0.5rem",
+              full: "0.75rem",
+            },
+            spacing: {
+              margin: "2.5rem",
+              "space-xs": "0.25rem",
+              "margin-mobile": "1rem",
+              gutter: "1.5rem",
+              "gutter-mobile": "1rem",
+              "space-sm": "0.5rem",
+              "space-xl": "2.5rem",
+              "space-lg": "1.5rem",
+              "space-md": "1rem",
+            },
+            fontFamily: {
+              "title-md": ["Plus Jakarta Sans"],
+              "title-sm": ["Plus Jakarta Sans"],
+              "body-lg": ["Plus Jakarta Sans"],
+              "headline-lg": ['"Source Serif 4"'],
+              "body-md": ["Plus Jakarta Sans"],
+              "label-lg": ["Plus Jakarta Sans"],
+              "headline-xl-mobile": ['"Source Serif 4"'],
+              "label-sm": ["Plus Jakarta Sans"],
+              "body-sm": ["Plus Jakarta Sans"],
+              "headline-lg-mobile": ['"Source Serif 4"'],
+              "headline-md": ['"Source Serif 4"'],
+              "headline-xl": ['"Source Serif 4"'],
+              "label-md": ["Plus Jakarta Sans"],
+              "headline-sm": ['"Source Serif 4"'],
+            },
+            fontSize: {
+              "title-md": ["18px", { lineHeight: "26px", fontWeight: "600" }],
+              "title-sm": ["16px", { lineHeight: "24px", fontWeight: "600" }],
+              "body-lg": ["16px", { lineHeight: "26px", fontWeight: "400" }],
+              "headline-lg": [
+                "32px",
+                {
+                  lineHeight: "40px",
+                  letterSpacing: "-0.015em",
+                  fontWeight: "600",
+                },
+              ],
+              "body-md": ["14px", { lineHeight: "22px", fontWeight: "400" }],
+              "label-lg": [
+                "14px",
+                {
+                  lineHeight: "20px",
+                  letterSpacing: "0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "headline-xl-mobile": [
+                "30px",
+                {
+                  lineHeight: "36px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "700",
+                },
+              ],
+              "label-sm": [
+                "10px",
+                {
+                  lineHeight: "14px",
+                  letterSpacing: "0.05em",
+                  fontWeight: "700",
+                },
+              ],
+              "body-sm": ["12px", { lineHeight: "18px", fontWeight: "400" }],
+              "headline-lg-mobile": [
+                "24px",
+                {
+                  lineHeight: "32px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "headline-md": [
+                "24px",
+                { lineHeight: "32px", fontWeight: "600" },
+              ],
+              "headline-xl": [
+                "40px",
+                {
+                  lineHeight: "48px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "label-md": [
+                "12px",
+                {
+                  lineHeight: "16px",
+                  letterSpacing: "0.02em",
+                  fontWeight: "600",
+                },
+              ],
+              "headline-sm": [
+                "20px",
+                { lineHeight: "28px", fontWeight: "600" },
+              ],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body
+    class="bg-background font-body-md text-body-md text-on-surface antialiased"
+  >
+    <aside
+      class="fixed left-0 top-0 h-full w-72 bg-surface-container-low shadow-[0_1px_8px_rgba(38,22,17,0.06)] z-50 flex flex-col justify-between overflow-y-auto"
+    >
+      <div class="flex flex-col">
+        <div
+          class="h-20 px-space-lg flex items-center gap-space-sm bg-primary text-on-primary"
+        >
+          <div
+            class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary font-headline-md text-headline-sm font-bold shadow-[0_2px_8px_rgba(38,22,17,0.12)]"
+          >
+            <span class="material-symbols-outlined text-[24px]">school</span>
+          </div>
+          <div class="flex flex-col min-w-0">
+            <div class="flex items-center gap-1.5">
+              <span
+                class="font-headline-sm text-headline-sm tracking-tight text-on-primary leading-none"
+                >JUNO</span
+              ><span
+                class="px-1.5 py-0.5 rounded bg-secondary text-on-secondary font-label-sm text-label-sm tracking-wider uppercase leading-none"
+                >TUTOR</span
+              >
+            </div>
+            <span
+              class="font-label-sm text-label-sm text-on-primary-container truncate mt-1"
+              >ESTIS No. 70 · DGEST Veracruz</span
+            >
+          </div>
+        </div>
+        <div class="px-space-md py-space-sm">
+          <div
+            class="px-space-sm py-2 rounded-lg bg-surface-container flex items-center justify-between"
+          >
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-secondary"></span
+              ><span
+                class="font-label-sm text-label-sm text-on-surface-variant font-bold uppercase tracking-wider"
+                >Ciclo 2024-2025</span
+              >
+            </div>
+            <span class="font-label-sm text-label-sm text-primary font-semibold"
+              >Periodo II</span
+            >
+          </div>
+        </div>
+        <div class="px-space-md py-1">
+          <span
+            class="px-space-sm font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest"
+            >Portal Institucional</span
+          >
+        </div>
+        <nav
+          class="flex flex-col gap-1 px-space-md mt-1"
+          data-active-classes="bg-primary-container text-on-primary font-semibold rounded-lg shadow-[0_2px_8px_rgba(38,22,17,0.06)]"
+        >
+          <a
+            class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all"
+            data-path="dashboard"
+            href="#"
+            ><span class="material-symbols-outlined text-[20px]">grid_view</span
+            ><span class="font-label-lg text-label-lg">Resumen General</span></a
+          ><a
+            class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all"
+            data-path="avisos-circulares"
+            href="#"
+            ><span class="material-symbols-outlined text-[20px]">campaign</span
+            ><span class="font-label-lg text-label-lg"
+              >Avisos y Circulares</span
+            ></a
+          ><a
+            aria-current="page"
+            class="flex items-center gap-space-sm px-space-md py-2.5 transition-all bg-primary-container text-on-primary font-semibold rounded-lg shadow-[0_2px_8px_rgba(38,22,17,0.06)]"
+            data-path="asistencia-torniquetes"
+            href="#"
+            ><span class="material-symbols-outlined text-[20px]"
+              >fact_check</span
+            ><span class="font-label-lg text-label-lg"
+              >Asistencia y Torniquetes</span
+            ></a
+          ><a
+            class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all"
+            data-path="calificaciones-boletas"
+            href="#"
+            ><span class="material-symbols-outlined text-[20px]"
+              >history_edu</span
+            ><span class="font-label-lg text-label-lg"
+              >Calificaciones y Boletas</span
+            ></a
+          ><a
+            class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all"
+            data-path="citatorios-justificantes"
+            href="#"
+            ><span class="material-symbols-outlined text-[20px]"
+              >assignment_turned_in</span
+            ><span class="font-label-lg text-label-lg"
+              >Citatorios y Firmas</span
+            ></a
+          ><a
+            class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all"
+            data-path="finanzas-cuotas"
+            href="#"
+            ><span class="material-symbols-outlined text-[20px]"
+              >account_balance_wallet</span
+            ><span class="font-label-lg text-label-lg"
+              >Finanzas y Talleres</span
+            ></a
+          ><a
+            class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all"
+            data-path="contacto-docentes-prefectura"
+            href="#"
+            ><span class="material-symbols-outlined text-[20px]">badge</span
+            ><span class="font-label-lg text-label-lg"
+              >Docentes y Prefectura</span
+            ></a
+          ><a
+            class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all"
+            data-path="perfil-credencial"
+            href="#"
+            ><span class="material-symbols-outlined text-[20px]"
+              >contact_emergency</span
+            ><span class="font-label-lg text-label-lg"
+              >Perfil y Credencial</span
+            ></a
+          >
+        </nav>
+      </div>
+      <div
+        class="p-space-md bg-surface-container-high/60 m-space-md rounded-xl shadow-[0_1px_4px_rgba(38,22,17,0.04)]"
+      >
+        <div class="flex items-center gap-2 text-secondary mb-1">
+          <span class="material-symbols-outlined text-[18px]">verified</span
+          ><span
+            class="font-label-sm text-label-sm font-bold uppercase tracking-wider"
+            >Mesa de Ayuda</span
+          >
+        </div>
+        <p class="font-body-sm text-body-sm text-on-surface-variant mb-2">
+          Horario de oficina escolar: 7:00 a 14:30 hrs.
+        </p>
+        <div
+          class="flex items-center justify-between text-on-surface font-label-sm text-label-sm font-semibold"
+        >
+          <span class="flex items-center gap-1"
+            ><span class="material-symbols-outlined text-[16px] text-primary"
+              >call</span
+            >Ext. 104</span
+          ><span class="text-primary">prefectura@estis70.edu.mx</span>
+        </div>
+      </div>
+    </aside>
+    <div class="pl-72">
+      <header
+        class="fixed top-0 left-72 right-0 h-20 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(38,22,17,0.05)] z-40 flex items-center justify-between px-space-lg"
+      >
+        <div class="flex items-center gap-space-md">
+          <div
+            class="flex items-center gap-space-sm bg-surface-container px-space-md py-2 rounded-lg"
+          >
+            <span class="material-symbols-outlined text-primary text-[20px]"
+              >supervisor_account</span
+            >
+            <div class="flex flex-col">
+              <span
+                class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider"
+                >Alumno Vinculado</span
+              >
+              <div class="flex items-center gap-2">
+                <span
+                  class="font-title-sm text-title-sm text-on-surface font-semibold"
+                  >Daniela Álvarez Ramírez</span
+                ><span
+                  class="px-2 py-0.5 rounded bg-surface-variant text-on-surface font-label-sm text-label-sm font-bold"
+                  >2° B · Informática</span
+                ><span
+                  class="material-symbols-outlined text-on-surface-variant text-[18px] cursor-pointer hover:text-on-surface"
+                  >expand_more</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center gap-space-md">
+          <div class="flex items-center gap-2">
+            <button
+              class="relative p-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors"
+              type="button"
+            >
+              <span class="material-symbols-outlined text-[22px]"
+                >notifications</span
+              ><span
+                class="absolute top-2 right-2 w-2.5 h-2.5 rounded-full bg-secondary ring-2 ring-surface"
+              ></span></button
+            ><button
+              class="p-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors"
+              type="button"
+            >
+              <span class="material-symbols-outlined text-[22px]">help</span>
+            </button>
+          </div>
+          <div class="h-8 w-px bg-outline-variant"></div>
+          <div class="flex items-center gap-space-sm">
+            <div class="flex flex-col text-right">
+              <span
+                class="font-label-lg text-label-lg text-on-surface font-semibold"
+                >Roberto Álvarez Morales</span
+              ><span class="font-label-sm text-label-sm text-on-surface-variant"
+                >Tutor Legal · Clave 70-T98</span
+              >
+            </div>
+            <div
+              class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-[0_2px_6px_rgba(49,23,14,0.25)]"
+            >
+              <span
+                class="material-symbols-outlined text-on-primary text-[18px]"
+                >person</span
+              >
+            </div>
+          </div>
+        </div>
+      </header>
+      <main
+        class="relative pt-20 bg-background min-h-screen px-space-lg py-space-lg"
+      >
+        <div class="flex flex-col w-full gap-space-lg">
+          <!-- Tarjeta Cabecera de Alumna y Selector Temporal de Semana -->
+          <div
+            class="w-full bg-surface-container-low rounded-xl p-space-lg shadow-sm flex flex-col lg:flex-row lg:items-center lg:justify-between gap-space-md"
+          >
+            <div class="flex items-start sm:items-center gap-space-md">
+              <div
+                class="relative w-16 h-16 rounded-xl bg-surface-container flex items-center justify-center shrink-0 overflow-hidden shadow-sm"
+              >
+                <img
+                  class="w-full h-full object-cover"
+                  data-alt="Fotografía institucional escolar de Daniela, alumna de secundaria mexicana, portando el suéter escolar oficial café con cuello blanco, peinado pulcro, fondo neutro beige de control escolar con luz suave de estudio fotográfico oficial."
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpnFEeKll0HLKKaFsxLY6Kp49H42vLNRVtVCgq-ajWi5D-xUbBnhXxFrgo6pEyWX-zrQaVs7R6jaOXcwZU6qDcgBaYBGT1negZi-Lmb2lxx7Ki5BnB4kwsFGC_IhKW0rXI_EclPx5TciQ6062rpNYQiFx3ElZTDXiQkClmOlMs8-I0lF91D3m3--Xgp-bH4gtaBST0ZmWaWwjPuRQ2U3dcXiRRtVIAJRPNzk_7LaTY2PQZ76aOw-q5ng"
+                />
+                <span
+                  class="absolute bottom-0 right-0 w-3.5 h-3.5 rounded-full bg-primary ring-2 ring-surface-container-lowest"
+                ></span>
+              </div>
+              <div class="flex flex-col">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="font-headline-sm text-headline-sm text-primary"
+                    >Daniela Álvarez Ramírez</span
+                  >
+                  <span
+                    class="px-2 py-0.5 rounded bg-primary-container text-on-primary font-label-sm text-label-sm uppercase tracking-wider"
+                    >Matrícula 2023-0498</span
+                  >
+                </div>
+                <p
+                  class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2 mt-0.5"
+                >
+                  <span>2° Grado · Grupo "B" (Turno Matutino)</span>
+                  <span class="w-1 h-1 rounded-full bg-outline"></span>
+                  <span class="text-secondary font-semibold"
+                    >Taller Tecnológico: Informática y Redes</span
+                  >
+                </p>
+              </div>
+            </div>
+            <!-- Navegador de Semana Calendárica -->
+            <div
+              class="flex items-center gap-space-sm bg-surface-container px-space-md py-2 rounded-xl self-start lg:self-auto shadow-sm"
+            >
+              <button
+                class="p-1.5 rounded-lg text-primary hover:bg-surface-container-high transition-colors"
+                title="Semana anterior"
+                type="button"
+              >
+                <span class="material-symbols-outlined text-[20px]"
+                  >chevron_left</span
+                >
+              </button>
+              <div class="flex flex-col text-center px-space-sm">
+                <span
+                  class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest font-bold"
+                  >Semana 09 · Ciclo 2024-2025</span
+                >
+                <span class="font-title-sm text-title-sm text-primary font-bold"
+                  >14 al 18 de Octubre, 2024</span
+                >
+              </div>
+              <button
+                class="p-1.5 rounded-lg text-primary hover:bg-surface-container-high transition-colors"
+                title="Semana siguiente"
+                type="button"
+              >
+                <span class="material-symbols-outlined text-[20px]"
+                  >chevron_right</span
+                >
+              </button>
+              <span class="w-px h-6 bg-outline-variant mx-1"></span>
+              <button
+                class="px-2.5 py-1 rounded bg-primary text-on-primary font-label-sm text-label-sm hover:bg-primary-container transition-colors font-semibold"
+                type="button"
+              >
+                Hoy
+              </button>
+            </div>
+          </div>
+          <!-- Fila de Resumen Numérico Trimestral y Accesos Rápidos de Tutor -->
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md"
+          >
+            <!-- Indicador de Rendimiento de Asistencia -->
+            <div
+              class="bg-surface-container-low rounded-xl p-space-md shadow-sm flex items-center justify-between"
+            >
+              <div class="flex flex-col">
+                <span
+                  class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-bold"
+                  >Índice Trimestral</span
+                >
+                <div class="flex items-baseline gap-1 mt-1">
+                  <span
+                    class="font-headline-lg text-headline-lg text-primary font-bold"
+                    >96.4%</span
+                  >
+                  <span
+                    class="font-label-sm text-label-sm text-secondary font-bold"
+                    >Excelente</span
+                  >
+                </div>
+                <span
+                  class="font-body-sm text-body-sm text-on-surface-variant mt-0.5"
+                  >Mínimo DGEST requerido: 85%</span
+                >
+              </div>
+              <!-- Gráfico Radial Inline SVG -->
+              <div
+                class="relative w-14 h-14 shrink-0 flex items-center justify-center"
+              >
+                <svg class="w-full h-full -rotate-90" viewbox="0 0 36 36">
+                  <path
+                    class="text-surface-variant"
+                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="3.5"
+                  ></path>
+                  <path
+                    class="text-secondary"
+                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-dasharray="96.4, 100"
+                    stroke-linecap="round"
+                    stroke-width="3.5"
+                  ></path>
+                </svg>
+                <span
+                  class="material-symbols-outlined text-[20px] text-primary absolute"
+                  >verified</span
+                >
+              </div>
+            </div>
+            <!-- Métrica de Módulos Puntuales -->
+            <div
+              class="bg-surface-container-low rounded-xl p-space-md shadow-sm flex items-center justify-between"
+            >
+              <div class="flex flex-col">
+                <span
+                  class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-bold"
+                  >Módulos Cubiertos</span
+                >
+                <div class="flex items-baseline gap-1 mt-1">
+                  <span
+                    class="font-headline-lg text-headline-lg text-on-surface font-bold"
+                    >42</span
+                  >
+                  <span
+                    class="font-label-sm text-label-sm text-on-surface-variant"
+                    >de 45 clases</span
+                  >
+                </div>
+                <span
+                  class="font-body-sm text-body-sm text-secondary font-semibold mt-0.5"
+                  >35 horas técnicas de aula</span
+                >
+              </div>
+              <div
+                class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-primary"
+              >
+                <span class="material-symbols-outlined text-[24px]"
+                  >task_alt</span
+                >
+              </div>
+            </div>
+            <!-- Incidencias Registradas -->
+            <div
+              class="bg-surface-container-low rounded-xl p-space-md shadow-sm flex items-center justify-between"
+            >
+              <div class="flex flex-col">
+                <span
+                  class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-bold"
+                  >Retardos / Justificados</span
+                >
+                <div class="flex items-baseline gap-2 mt-1">
+                  <span
+                    class="font-headline-lg text-headline-lg text-primary font-bold"
+                    >2</span
+                  >
+                  <span
+                    class="font-body-md text-body-md text-on-surface-variant"
+                    >ret.</span
+                  >
+                  <span class="text-outline-variant font-body-md">/</span>
+                  <span
+                    class="font-headline-lg text-headline-lg text-on-surface font-bold"
+                    >1</span
+                  >
+                  <span
+                    class="font-body-md text-body-md text-on-surface-variant"
+                    >just.</span
+                  >
+                </div>
+                <span
+                  class="font-body-sm text-body-sm text-on-surface-variant mt-0.5"
+                  >0 Faltas no aclaradas</span
+                >
+              </div>
+              <div
+                class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-secondary"
+              >
+                <span class="material-symbols-outlined text-[24px]"
+                  >pending_actions</span
+                >
+              </div>
+            </div>
+            <!-- Trámite Escolar y Gestión de Trabajo Social -->
+            <div
+              class="bg-primary text-on-primary rounded-xl p-space-md shadow-md flex flex-col justify-between"
+            >
+              <div class="flex items-center justify-between">
+                <span
+                  class="font-label-sm text-label-sm text-on-primary-container uppercase tracking-wider font-bold"
+                  >Trabajo Social</span
+                >
+                <span
+                  class="material-symbols-outlined text-[18px] text-secondary-fixed"
+                  >medical_services</span
+                >
+              </div>
+              <div class="my-1">
+                <p
+                  class="font-title-sm text-title-sm text-on-primary leading-tight font-semibold"
+                >
+                  ¿Inasistencia por Salud?
+                </p>
+                <p class="font-body-sm text-body-sm text-on-primary-container">
+                  Sube receta del IMSS/ISSTE antes de 48 hrs.
+                </p>
+              </div>
+              <button
+                class="w-full mt-2 py-2 px-3 rounded bg-secondary text-on-secondary font-label-md text-label-md hover:opacity-90 transition-opacity flex items-center justify-center gap-1 font-semibold shadow-sm"
+                type="button"
+              >
+                <span class="material-symbols-outlined text-[16px]"
+                  >upload_file</span
+                >
+                <span>Tramitar Justificante</span>
+              </button>
+            </div>
+          </div>
+          <!-- Barra de Semáforo Institucional Normativo -->
+          <div
+            class="w-full bg-surface-container-high/70 rounded-xl p-space-md shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-space-md"
+          >
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary text-[20px]"
+                >traffic</span
+              >
+              <span class="font-title-sm text-title-sm text-primary font-bold"
+                >Criterios Oficiales de Registro en Módulo</span
+              >
+            </div>
+            <div class="flex flex-wrap items-center gap-space-md">
+              <!-- Presente -->
+              <div class="flex items-center gap-2">
+                <span
+                  class="w-3 h-3 rounded-full bg-primary-container shadow-xs"
+                ></span>
+                <span
+                  class="font-label-sm text-label-sm text-on-surface font-semibold"
+                  >Puntual / Presente</span
+                >
+              </div>
+              <!-- Retardo -->
+              <div class="flex items-center gap-2">
+                <span
+                  class="w-3 h-3 rounded-full bg-secondary shadow-xs"
+                ></span>
+                <span
+                  class="font-label-sm text-label-sm text-on-surface font-semibold"
+                  >Retardo (10 a 15 min)</span
+                >
+              </div>
+              <!-- Falta -->
+              <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-error shadow-xs"></span>
+                <span
+                  class="font-label-sm text-label-sm text-on-surface font-semibold"
+                  >Inasistencia Injustificada</span
+                >
+              </div>
+              <!-- Justificado -->
+              <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-outline shadow-xs"></span>
+                <span
+                  class="font-label-sm text-label-sm text-on-surface font-semibold"
+                  >Justificado / Oficial</span
+                >
+              </div>
+            </div>
+          </div>
+          <!-- CALENDARIO SEMANAL DETALLADO POR MÓDULOS (07:00 a 13:20 hrs) -->
+          <div
+            class="w-full bg-surface-container-low rounded-xl shadow-sm p-space-md flex flex-col gap-space-md overflow-hidden"
+          >
+            <div class="flex items-center justify-between pb-2">
+              <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary text-[22px]"
+                  >calendar_view_week</span
+                >
+                <h2 class="font-title-md text-title-md text-primary font-bold">
+                  Horario Semanal y Registro por Módulos de 50 minutos
+                </h2>
+              </div>
+              <span
+                class="font-label-sm text-label-sm text-on-surface-variant font-semibold bg-surface-container px-3 py-1 rounded"
+                >Módulos Escolares: 7 diarios</span
+              >
+            </div>
+            <!-- Contenedor Responsive de la Tabla de Horario -->
+            <div class="overflow-x-auto">
+              <table class="w-full text-left border-collapse min-w-[800px]">
+                <thead>
+                  <tr class="bg-surface-container text-on-surface">
+                    <th
+                      class="p-3 font-label-md text-label-md uppercase tracking-wider font-bold w-24"
+                    >
+                      Módulo
+                    </th>
+                    <th
+                      class="p-3 font-label-md text-label-md uppercase tracking-wider font-bold"
+                    >
+                      <div class="flex flex-col">
+                        <span>Lunes 14</span>
+                        <span
+                          class="font-body-sm text-body-sm text-on-surface-variant normal-case font-normal"
+                          >Registro Completo</span
+                        >
+                      </div>
+                    </th>
+                    <th
+                      class="p-3 font-label-md text-label-md uppercase tracking-wider font-bold"
+                    >
+                      <div class="flex flex-col">
+                        <span>Martes 15</span>
+                        <span
+                          class="font-body-sm text-body-sm text-on-surface-variant normal-case font-normal"
+                          >1 Retardo en Aula</span
+                        >
+                      </div>
+                    </th>
+                    <th
+                      class="p-3 font-label-md text-label-md uppercase tracking-wider font-bold"
+                    >
+                      <div class="flex flex-col">
+                        <span>Miércoles 16</span>
+                        <span
+                          class="font-body-sm text-body-sm text-on-surface-variant normal-case font-normal"
+                          >Puntualidad 100%</span
+                        >
+                      </div>
+                    </th>
+                    <th
+                      class="p-3 font-label-md text-label-md uppercase tracking-wider font-bold"
+                    >
+                      <div class="flex flex-col">
+                        <span>Jueves 17</span>
+                        <span
+                          class="font-body-sm text-body-sm text-on-surface-variant normal-case font-normal"
+                          >Incidencia Médica</span
+                        >
+                      </div>
+                    </th>
+                    <th
+                      class="p-3 font-label-md text-label-md uppercase tracking-wider font-bold"
+                    >
+                      <div class="flex flex-col">
+                        <span>Viernes 18</span>
+                        <span
+                          class="font-body-sm text-body-sm text-on-surface-variant normal-case font-normal"
+                          >Actividad Cívica</span
+                        >
+                      </div>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="space-y-1">
+                  <!-- Módulo 1: 07:00 a 07:50 -->
+                  <tr class="hover:bg-surface-container/40 transition-colors">
+                    <td
+                      class="p-3 font-label-sm text-label-sm font-bold text-on-surface-variant align-middle bg-surface-container/60 rounded-l"
+                    >
+                      <span class="text-primary block font-bold"
+                        >1° Módulo</span
+                      >
+                      07:00 - 07:50
+                    </td>
+                    <!-- Lunes -->
+                    <td class="p-2 align-middle">
+                      <div
+                        class="p-2.5 rounded-lg bg-surface-container flex flex-col shadow-xs"
+                      >
+                        <span
+                          class="font-title-sm text-title-sm text-on-surface font-bold truncate"
+                          >Español II</span
+                        >
+                        <div class="flex items-center justify-between mt-1">
+                          <span
+                            class="font-body-sm text-body-sm text-on-surface-variant"
+                            >Profra. M. Valdez</span
+                          >
+                          <span
+                            class="px-1.5 py-0.5 rounded bg-primary-container text-on-primary font-label-sm text-label-sm"
+                            >Presente</span
+                          >
+                        </div>
+                      </div>
+                    </td>
+                    <!-- Martes -->
+                    <td class="p-2 align-middle">
+                      <div
+                        class="p-2.5 rounded-lg bg-surface-container flex flex-col shadow-xs"
+                      >
+                        <span
+                          class="font-title-sm text-title-sm text-on-surface font-bold truncate"
+                          >Matemáticas II</span
+                        >
+                        <div class="flex items-center justify-between mt-1">
+                          <span
+                            class="font-body-sm text-body-sm text-on-surface-variant"
+                            >Ing. J. Morales</span
+                          >
+                          <span
+                            class="px-1.5 py-0.5 rounded bg-primary-container text-on-primary font-label-sm text-label-sm"
+                            >Presente</span
+                          >
+                        </div>
+                      </div>
+                    </td>
+                    <!-- Miércoles -->
+                    <td class="p-2 align-middle">
+                      <div
+                        class="p-2.5 rounded-lg bg-surface-container flex flex-col shadow-xs"
+                      >
+                        <span
+                          class="font-title-sm text-title-sm text-on-surface font-bold truncate"
+                          >Historia II</span
+                        >
+                        <div class="flex items-center justify-between mt-1">
+                          <span
+                            class="font-body-sm text-body-sm text-on-surface-variant"
+                            >Lic. R. Gómez</span
+                          >
+                          <span
+                            class="px-1.5 py-0.5 rounded bg-primary-container text-on-primary font-label-sm text-label-sm"
+                            >Presente</span
+                          >
+                        </div>
+                      </div>
+                    </td>
+                    <!-- Jueves (Falta Injustificada de Madrugada) -->
+                    <td class="p-2 align-middle">
+                      <div
+                        class="p-2.5 rounded-lg bg-error-container text-on-error-container flex flex-col shadow-xs"
+                      >
+                        <div class="flex items-center justify-between">
+                          <span
+                            class="font-title-sm text-title-sm font-bold truncate"
+                            >Ciencias (Física)</span
+                          >
+                          <span
+                            class="px-1.5 py-0.5 rounded bg-error text-on-error font-label-sm text-label-sm font-bold"
+                            >FALTA</span
+                          >
+                        </div>
+                        <div
+                          class="flex items-center justify-between mt-1 font-body-sm text-body-sm"
+                        >
+                          <span>Profr. L. Herrera</span>
+                          <span class="font-semibold text-error"
+                            >Sin justificar</span
+                          >
+                        </div>
+                      </div>
+                    </td>
+                    <!-- Viernes -->
+                    <td class="p-2 align-middle">
+                      <div
+                        class="p-2.5 rounded-lg bg-surface-container flex flex-col shadow-xs"
+                      >
+                        <span
+                          class="font-title-sm text-title-sm text-on-surface font-bold truncate"
+                          >Inglés Técnico</span
+                        >
+                        <div class="flex items-center justify-between mt-1">
+                          <span
+                            class="font-body-sm text-body-sm text-on-surface-variant"
+                            >Lic. D. Soto</span
+                          >
+                          <span
+                            class="px-1.5 py-0.5 rounded bg-primary-container text-on-primary font-label-sm text-label-sm"
+                            >Presente</span
+                          >
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <!-- Módulo 2: 07:50 a 08:40 -->
+                  <tr class="hover:bg-surface-container/40 transition-colors">
+                    <td
+                      class="p-3 font-label-sm text-label-sm font-bold text-on-surface-variant align-middle bg-surface-container/60 rounded-l"
+                    >
+                      <span class="text-primary block font-bold"
+                        >2° Módulo</span
+                      >
+                      07:50 - 08:40
+                    </td>
+                    <!-- Lunes -->
+                    <td class="p-2 align-middle">
+                      <div
+                        class="p-2.5 rounded-lg bg-surface-container flex flex-col shadow-xs"
+                      >
+                        <span
+                          class="font-title-sm text-title-sm text-on-surface font-bold truncate"
+                          >Español II</span
+                        >
+                        <div class="flex items-center justify-between mt-1">
+                          <span
+                            class="font-body-sm text-body-sm text-on-surface-variant"
+                            >Profra. M. Valdez</span
+                          >
+                          <span
+                            class="px-1.5 py-0.5 rounded bg-primary-container text-on-primary font-label-sm text-label-sm"
+                            >Presente</span
+                          >
+                        </div>
+                      </div>
+                    </td>
+                    <!-- Martes -->
+                    <td class="p-2 align-middle">
+                      <div
+                        class="p-2.5 rounded-lg bg-surface-container flex flex-col shadow-xs"
+                      >
+                        <span
+                          class="font-title-sm text-title-sm text-on-surface font-bold truncate"
+                          >Matemáticas II</span
+                        >
+                        <div class="flex items-center justify-between mt-1">
+                          <span
+                            class="font-body-sm text-body-sm text-on-surface-variant"
+                            >Ing. J. Morales</span
+                          >
+                          <span
+                            class="px-1.5 py-0.5 rounded bg-primary-container text-on-primary font-label-sm text-label-sm"
+                            >Presente</span
+                          >
+                        </div>
+                      </div>
+                    </td>
+                    <!-- Miércoles -->
+                    <td class="p-2 align-middle">
+                      <div
+                        class="p-2.5 rounded-lg bg-surface-container flex flex-col shadow-xs"
+                      >
+                        <span
+                          class="font-title-sm text-title-sm text-on-surface font-bold truncate"
+                          >Ciencias (Física)</span
+                        >
+                        <div class="flex items-center justify-between mt-1">
+                          <span
+                            class="font-body-sm text-body-sm text-on-surface-variant"
+                            >Profr. L. Herrera</span
+                          >
+                          <span
+                            class="px-1.5 py-0.5 rounded bg-primary-container text-on-primary font-label-sm text-label-sm"
+                            >Presente</span
+                          >
+                        </div>
+                      </div>
+                    </td>
+                    <!-- Jueves (Falta Injustificada) -->
+                    <td class="p-2 align-middle">
+                      <div
+                        class="p-2.5 rounded-lg bg-error-container text-on-error-container flex flex-col shadow-xs"
+                      >
+                        <div class="flex items-center justify-between">
+                          <span
+                            class="font-title-sm text-title-sm font-bold truncate"
+                            >Ciencias (Física)</span
+                          >
+                          <span
+                            class="px-1.5 py-0.5 rounded bg-error text-on-error font-label-sm text-label-sm font-bold"
+                            >FALTA</span
+                          >
+                        </div>
+                        <div
+                          class="flex items-center justify-between mt-1 font-body-sm text-body-sm"
+                        >
+                          <span>Profr. L. Herrera</span>
+                          <span class="font-semibold text-error"
+                            >Sin justificar</span
+                          >
+                        </div>
+                      </div>
+                    </td>
+                    <!-- Viernes -->
+                    <td class="p-2 align-middle">
+                      <div
+                        class="p-2.5 rounded-lg bg-surface-container flex flex-col shadow-xs"
+                      >
+                        <span
+                          class="font-title-sm text-title-sm text-on-surface font-bold truncate"
+                          >Inglés Técnico</span
+                        >
+                        <div class="flex items-center justify-between mt-1">
+                          <span
+                            class="font-body-sm text-body-sm text-on-surface-variant"
+                            >Lic. D. Soto</span
+                          >
+                          <span
+                            class="px-1.5 py-0.5 rounded bg-primary-container text-on-primary font-label-sm text-label-sm"
+                            >Presente</span
+                          >
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <!-- Módulo 3: 08:40 a 09:30 -->
+                  <tr class="hover:bg-surface-container/40 transition-colors">
+                    <td
+                      class="p-3 font-label-sm text-label-sm font-bold text-on-surface-variant align-middle bg-surface-container/60 rounded-l"
+                    >
+                      <span class="text-primary block font-bold"
+                        >3° Módulo</span
+                      >
+                      08:40 - 09:30
+                    </td>
+                    <!-- Lunes -->
+                    <td class="p-2 align-middle">
+                      <div
+                        class="p-2.5 rounded-lg bg-surface-container flex flex-col shadow-xs"
+                      >
+                        <span
+                          class="font-title-sm text-title-sm text-on-surface font-bold truncate"
+                          >Formación Cívica</span
+                        >
+                        <div class="flex items-center justify-between mt-1">
+                          <span
+                            class="font-body-sm text-body-sm text-on-surface-variant"
+                            >Mtra. C. Lozano</span
+                          >
+                          <span
+                            class="px-1.5 py-0.5 rounded bg-primary-container text-on-primary font-label-sm text-label-sm"
+                            >Presente</span
+                          >
+                        </div>
+                      </div>
+                    </td>
+                    <!-- Martes -->
+                    <td class="p-2 align-middle">
+                      <div
+                        class="p-2.5 rounded-lg bg-surface-container flex flex-col shadow-xs"
+                      >
+                        <span
+                          class="font-title-sm text-title-sm text-on-surface font-bold truncate"
+                          >Español II</span
+                        >
+                        <div class="flex items-center justify-between mt-1">
+                          <span
+                            class="font-body-sm text-body-sm text-on-surface-variant"
+                            >Profra. M. Valdez</span
+                          >
+                          <span
+                            class="px-1.5 py-0.5 rounded bg-primary-container text-on-primary font-label-sm text-label-sm"
+                            >Presente</span
+                          >
+                        </div>
+                      </div>
+                    </td>
+                    <!-- Miércoles -->
+                    <td class="p-2 align-middle">
+                      <div
+                        class="p-2.5 rounded-lg bg-surface-container flex flex-col shadow-xs"
+                      >
+                        <span
+                          class="font-title-sm text-title-sm text-on-surface font-bold truncate"
+                          >Taller Informática</span
+                        >
+                        <div class="flex items-center justify-between mt-1">
+                          <span
+                            class="font-body-sm text-body-sm text-on-surface-variant"
+                            >Lab. Redes 2</span
+                          >
+                          <span
+                            class="px-1.5 py-0.5 rounded bg-primary-container text-on-primary font-label-sm text-label-sm"
+                            >Presente</span
+                          >
+                        </div>
+                      </div>
+                    </td>
+                    <!-- Jueves (Retardo Justificado por Llegada Tarde Médica) -->
+                    <td class="p-2 align-middle">
+                      <div
+                        class="p-2.5 rounded-lg bg-surface-container-high text-on-surface flex flex-col shadow-xs"
+                      >
+                        <div class="flex items-center justify-between">
+                          <span
+                            class="font-title-sm text-title-sm text-secondary font-bold truncate"
+                            >Matemáticas II</span
+                          >
+                          <span
+                            class="px-1.5 py-0.5 rounded bg-secondary text-on-secondary font-label-sm text-label-sm font-bold"
+                            >RETARDO</span
+                          >
+                        </div>
+                        <div
+                          class="flex items-center justify-between mt-1 font-body-sm text-body-sm"
+                        >
+                          <span class="text-on-surface-variant"
+                            >Ing. J. Morales</span
+                          >
+                          <span class="font-semibold text-secondary"
+                            >08:48 hrs (+8m)</span
+                          >
+                        </div>
+                      </div>
+                    </td>
+                    <!-- Viernes -->
+                    <td class="p-2 align-middle">
+                      <div
+                        class="p-2.5 rounded-lg bg-surface-container flex flex-col shadow-xs"
+                      >
+                        <span
+                          class="font-title-sm text-title-sm text-on-surface font-bold truncate"
+                          >Educación Física</span
+                        >
+                        <div class="flex items-center justify-between mt-1">
+                          <span
+                            class="font-body-sm text-body-sm text-on-surface-variant"
+                            >Cancha Techada</span
+                          >
+                          <span
+                            class="px-1.5 py-0.5 rounded bg-primary-container text-on-primary font-label-sm text-label-sm"
+                            >Presente</span
+                          >
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <!-- RECESO ESCOLAR INTERMEDIO -->
+                  <tr class="bg-surface-container-high/40">
+                    <td
+                      class="p-2 text-center font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest font-bold"
+                    >
+                      09:30 - 10:00
+                    </td>
+                    <td
+                      class="p-2 text-center font-label-md text-label-md text-primary font-semibold"
+                      colspan="5"
+                    >
+                      <div class="flex items-center justify-center gap-2">
+                        <span class="material-symbols-outlined text-[18px]"
+                          >restaurant</span
+                        >
+                        <span
+                          >Receso General Escolar y Desayunador
+                          Institucional</span
+                        >
+                      </div>
+                    </td>
+                  </tr>
+                  <!-- Módulo 4: 10:00 a 10:50 -->
+                  <tr class="hover:bg-surface-container/40 transition-colors">
+                    <td
+                      class="p-3 font-label-sm text-label-sm font-bold text-on-surface-variant align-middle bg-surface-container/60 rounded-l"
+                    >
+                      <span class="text-primary block font-bold"
+                        >4° Módulo</span
+                      >
+                      10:00 - 10:50
+                    </td>
+                    <!-- Lunes (Taller Tecnológico) -->
+                    <td class="p-2 align-middle">
+                      <div
+                        class="p-2.5 rounded-lg bg-surface-container flex flex-col shadow-xs"
+                      >
+                        <span
+                          class="font-title-sm text-title-sm text-on-surface font-bold truncate"
+                          >Taller Informática</span
+                        >
+                        <div class="flex items-center justify-between mt-1">
+                          <span
+                            class="font-body-sm text-body-sm text-on-surface-variant"
+                            >Profr. A. Silva</span
+                          >
+                          <span
+                            class="px-1.5 py-0.5 rounded bg-primary-container text-on-primary font-label-sm text-label-sm"
+                            >Presente</span
+                          >
+                        </div>
+                      </div>
+                    </td>
+                    <!-- Martes (Retardo en Aula) -->
+                    <td class="p-2 align-middle">
+                      <div
+                        class="p-2.5 rounded-lg bg-surface-container-high text-on-surface flex flex-col shadow-xs"
+                      >
+                        <div class="flex items-center justify-between">
+                          <span
+                            class="font-title-sm text-title-sm text-secondary font-bold truncate"
+                            >Historia II</span
+                          >
+                          <span
+                            class="px-1.5 py-0.5 rounded bg-secondary text-on-secondary font-label-sm text-label-sm font-bold"
+                            >RETARDO</span
+                          >
+                        </div>
+                        <div
+                          class="flex items-center justify-between mt-1 font-body-sm text-body-sm"
+                        >
+                          <span class="text-on-surface-variant"
+                            >Lic. R. Gómez</span
+                          >
+                          <span class="font-semibold text-secondary"
+                            >+12 min (Pase Pref.)</span
+                          >
+                        </div>
+                      </div>
+                    </td>
+                    <!-- Miércoles -->
+                    <td class="p-2 align-middle">
+                      <div
+                        class="p-2.5 rounded-lg bg-surface-container flex flex-col shadow-xs"
+                      >
+                        <span
+                          class="font-title-sm text-title-sm text-on-surface font-bold truncate"
+                          >Taller Informática</span
+                        >
+                        <div class="flex items-center justify-between mt-1">
+                          <span
+                            class="font-body-sm text-body-sm text-on-surface-variant"
+                            >Lab. Redes 2</span
+                          >
+                          <span
+                            class="px-1.5 py-0.5 rounded bg-primary-container text-on-primary font-label-sm text-label-sm"
+                            >Presente</span
+                          >
+                        </div>
+                      </div>
+                    </td>
+                    <!-- Jueves -->
+                    <td class="p-2 align-middle">
+                      <div
+                        class="p-2.5 rounded-lg bg-surface-container flex flex-col shadow-xs"
+                      >
+                        <span
+                          class="font-title-sm text-title-sm text-on-surface font-bold truncate"
+                          >Formación Cívica</span
+                        >
+                        <div class="flex items-center justify-between mt-1">
+                          <span
+                            class="font-body-sm text-body-sm text-on-surface-variant"
+                            >Mtra. C. Lozano</span
+                          >
+                          <span
+                            class="px-1.5 py-0.5 rounded bg-primary-container text-on-primary font-label-sm text-label-sm"
+                            >Presente</span
+                          >
+                        </div>
+                      </div>
+                    </td>
+                    <!-- Viernes (Representación Institucional / Justificado) -->
+                    <td class="p-2 align-middle">
+                      <div
+                        class="p-2.5 rounded-lg bg-surface-container-high text-on-surface flex flex-col shadow-xs"
+                      >
+                        <div class="flex items-center justify-between">
+                          <span
+                            class="font-title-sm text-title-sm font-bold truncate"
+                            >Banda de Guerra</span
+                          >
+                          <span
+                            class="px-1.5 py-0.5 rounded bg-outline text-on-primary font-label-sm text-label-sm font-bold"
+                            >COMISIÓN</span
+                          >
+                        </div>
+                        <div
+                          class="flex items-center justify-between mt-1 font-body-sm text-body-sm text-on-surface-variant"
+                        >
+                          <span>Ensayo de Zona</span>
+                          <span class="font-semibold">Oficio #42</span>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <!-- Módulo 5: 10:50 a 11:40 -->
+                  <tr class="hover:bg-surface-container/40 transition-colors">
+                    <td
+                      class="p-3 font-label-sm text-label-sm font-bold text-on-surface-variant align-middle bg-surface-container/60 rounded-l"
+                    >
+                      <span class="text-primary block font-bold"
+                        >5° Módulo</span
+                      >
+                      10:50 - 11:40
+                    </td>
+                    <!-- Lunes -->
+                    <td class="p-2 align-middle">
+                      <div
+                        class="p-2.5 rounded-lg bg-surface-container flex flex-col shadow-xs"
+                      >
+                        <span
+                          class="font-title-sm text-title-sm text-on-surface font-bold truncate"
+                          >Taller Informática</span
+                        >
+                        <div class="flex items-center justify-between mt-1">
+                          <span
+                            class="font-body-sm text-body-sm text-on-surface-variant"
+                            >Profr. A. Silva</span
+                          >
+                          <span
+                            class="px-1.5 py-0.5 rounded bg-primary-container text-on-primary font-label-sm text-label-sm"
+                            >Presente</span
+                          >
+                        </div>
+                      </div>
+                    </td>
+                    <!-- Martes -->
+                    <td class="p-2 align-middle">
+                      <div
+                        class="p-2.5 rounded-lg bg-surface-container flex flex-col shadow-xs"
+                      >
+                        <span
+                          class="font-title-sm text-title-sm text-on-surface font-bold truncate"
+                          >Español II</span
+                        >
+                        <div class="flex items-center justify-between mt-1">
+                          <span
+                            class="font-body-sm text-body-sm text-on-surface-variant"
+                            >Profra. M. Valdez</span
+                          >
+                          <span
+                            class="px-1.5 py-0.5 rounded bg-primary-container text-on-primary font-label-sm text-label-sm"
+                            >Presente</span
+                          >
+                        </div>
+                      </div>
+                    </td>
+                    <!-- Miércoles -->
+                    <td class="p-2 align-middle">
+                      <div
+                        class="p-2.5 rounded-lg bg-surface-container flex flex-col shadow-xs"
+                      >
+                        <span
+                          class="font-title-sm text-title-sm text-on-surface font-bold truncate"
+                          >Taller Informática</span
+                        >
+                        <div class="flex items-center justify-between mt-1">
+                          <span
+                            class="font-body-sm text-body-sm text-on-surface-variant"
+                            >Lab. Redes 2</span
+                          >
+                          <span
+                            class="px-1.5 py-0.5 rounded bg-primary-container text-on-primary font-label-sm text-label-sm"
+                            >Presente</span
+                          >
+                        </div>
+                      </div>
+                    </td>
+                    <!-- Jueves -->
+                    <td class="p-2 align-middle">
+                      <div
+                        class="p-2.5 rounded-lg bg-surface-container flex flex-col shadow-xs"
+                      >
+                        <span
+                          class="font-title-sm text-title-sm text-on-surface font-bold truncate"
+                          >Artes Visuales</span
+                        >
+                        <div class="flex items-center justify-between mt-1">
+                          <span
+                            class="font-body-sm text-body-sm text-on-surface-variant"
+                            >Taller de Dibujo</span
+                          >
+                          <span
+                            class="px-1.5 py-0.5 rounded bg-primary-container text-on-primary font-label-sm text-label-sm"
+                            >Presente</span
+                          >
+                        </div>
+                      </div>
+                    </td>
+                    <!-- Viernes -->
+                    <td class="p-2 align-middle">
+                      <div
+                        class="p-2.5 rounded-lg bg-surface-container-high text-on-surface flex flex-col shadow-xs"
+                      >
+                        <div class="flex items-center justify-between">
+                          <span
+                            class="font-title-sm text-title-sm font-bold truncate"
+                            >Banda de Guerra</span
+                          >
+                          <span
+                            class="px-1.5 py-0.5 rounded bg-outline text-on-primary font-label-sm text-label-sm font-bold"
+                            >COMISIÓN</span
+                          >
+                        </div>
+                        <div
+                          class="flex items-center justify-between mt-1 font-body-sm text-body-sm text-on-surface-variant"
+                        >
+                          <span>Plaza Cívica</span>
+                          <span class="font-semibold">Oficio #42</span>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <!-- Módulo 6: 11:40 a 12:30 -->
+                  <tr class="hover:bg-surface-container/40 transition-colors">
+                    <td
+                      class="p-3 font-label-sm text-label-sm font-bold text-on-surface-variant align-middle bg-surface-container/60 rounded-l"
+                    >
+                      <span class="text-primary block font-bold"
+                        >6° Módulo</span
+                      >
+                      11:40 - 12:30
+                    </td>
+                    <!-- Lunes -->
+                    <td class="p-2 align-middle">
+                      <div
+                        class="p-2.5 rounded-lg bg-surface-container flex flex-col shadow-xs"
+                      >
+                        <span
+                          class="font-title-sm text-title-sm text-on-surface font-bold truncate"
+                          >Taller Informática</span
+                        >
+                        <div class="flex items-center justify-between mt-1">
+                          <span
+                            class="font-body-sm text-body-sm text-on-surface-variant"
+                            >Profr. A. Silva</span
+                          >
+                          <span
+                            class="px-1.5 py-0.5 rounded bg-primary-container text-on-primary font-label-sm text-label-sm"
+                            >Presente</span
+                          >
+                        </div>
+                      </div>
+                    </td>
+                    <!-- Martes -->
+                    <td class="p-2 align-middle">
+                      <div
+                        class="p-2.5 rounded-lg bg-surface-container flex flex-col shadow-xs"
+                      >
+                        <span
+                          class="font-title-sm text-title-sm text-on-surface font-bold truncate"
+                          >Ciencias (Física)</span
+                        >
+                        <div class="flex items-center justify-between mt-1">
+                          <span
+                            class="font-body-sm text-body-sm text-on-surface-variant"
+                            >Profr. L. Herrera</span
+                          >
+                          <span
+                            class="px-1.5 py-0.5 rounded bg-primary-container text-on-primary font-label-sm text-label-sm"
+                            >Presente</span
+                          >
+                        </div>
+                      </div>
+                    </td>
+                    <!-- Miércoles -->
+                    <td class="p-2 align-middle">
+                      <div
+                        class="p-2.5 rounded-lg bg-surface-container flex flex-col shadow-xs"
+                      >
+                        <span
+                          class="font-title-sm text-title-sm text-on-surface font-bold truncate"
+                          >Matemáticas II</span
+                        >
+                        <div class="flex items-center justify-between mt-1">
+                          <span
+                            class="font-body-sm text-body-sm text-on-surface-variant"
+                            >Ing. J. Morales</span
+                          >
+                          <span
+                            class="px-1.5 py-0.5 rounded bg-primary-container text-on-primary font-label-sm text-label-sm"
+                            >Presente</span
+                          >
+                        </div>
+                      </div>
+                    </td>
+                    <!-- Jueves -->
+                    <td class="p-2 align-middle">
+                      <div
+                        class="p-2.5 rounded-lg bg-surface-container flex flex-col shadow-xs"
+                      >
+                        <span
+                          class="font-title-sm text-title-sm text-on-surface font-bold truncate"
+                          >Artes Visuales</span
+                        >
+                        <div class="flex items-center justify-between mt-1">
+                          <span
+                            class="font-body-sm text-body-sm text-on-surface-variant"
+                            >Taller de Dibujo</span
+                          >
+                          <span
+                            class="px-1.5 py-0.5 rounded bg-primary-container text-on-primary font-label-sm text-label-sm"
+                            >Presente</span
+                          >
+                        </div>
+                      </div>
+                    </td>
+                    <!-- Viernes -->
+                    <td class="p-2 align-middle">
+                      <div
+                        class="p-2.5 rounded-lg bg-surface-container flex flex-col shadow-xs"
+                      >
+                        <span
+                          class="font-title-sm text-title-sm text-on-surface font-bold truncate"
+                          >Historia II</span
+                        >
+                        <div class="flex items-center justify-between mt-1">
+                          <span
+                            class="font-body-sm text-body-sm text-on-surface-variant"
+                            >Lic. R. Gómez</span
+                          >
+                          <span
+                            class="px-1.5 py-0.5 rounded bg-primary-container text-on-primary font-label-sm text-label-sm"
+                            >Presente</span
+                          >
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <!-- Módulo 7: 12:30 a 13:20 -->
+                  <tr class="hover:bg-surface-container/40 transition-colors">
+                    <td
+                      class="p-3 font-label-sm text-label-sm font-bold text-on-surface-variant align-middle bg-surface-container/60 rounded-l"
+                    >
+                      <span class="text-primary block font-bold"
+                        >7° Módulo</span
+                      >
+                      12:30 - 13:20
+                    </td>
+                    <!-- Lunes -->
+                    <td class="p-2 align-middle">
+                      <div
+                        class="p-2.5 rounded-lg bg-surface-container flex flex-col shadow-xs"
+                      >
+                        <span
+                          class="font-title-sm text-title-sm text-on-surface font-bold truncate"
+                          >Taller Informática</span
+                        >
+                        <div class="flex items-center justify-between mt-1">
+                          <span
+                            class="font-body-sm text-body-sm text-on-surface-variant"
+                            >Profr. A. Silva</span
+                          >
+                          <span
+                            class="px-1.5 py-0.5 rounded bg-primary-container text-on-primary font-label-sm text-label-sm"
+                            >Presente</span
+                          >
+                        </div>
+                      </div>
+                    </td>
+                    <!-- Martes -->
+                    <td class="p-2 align-middle">
+                      <div
+                        class="p-2.5 rounded-lg bg-surface-container flex flex-col shadow-xs"
+                      >
+                        <span
+                          class="font-title-sm text-title-sm text-on-surface font-bold truncate"
+                          >Historia II</span
+                        >
+                        <div class="flex items-center justify-between mt-1">
+                          <span
+                            class="font-body-sm text-body-sm text-on-surface-variant"
+                            >Lic. R. Gómez</span
+                          >
+                          <span
+                            class="px-1.5 py-0.5 rounded bg-primary-container text-on-primary font-label-sm text-label-sm"
+                            >Presente</span
+                          >
+                        </div>
+                      </div>
+                    </td>
+                    <!-- Miércoles -->
+                    <td class="p-2 align-middle">
+                      <div
+                        class="p-2.5 rounded-lg bg-surface-container flex flex-col shadow-xs"
+                      >
+                        <span
+                          class="font-title-sm text-title-sm text-on-surface font-bold truncate"
+                          >Español II</span
+                        >
+                        <div class="flex items-center justify-between mt-1">
+                          <span
+                            class="font-body-sm text-body-sm text-on-surface-variant"
+                            >Profra. M. Valdez</span
+                          >
+                          <span
+                            class="px-1.5 py-0.5 rounded bg-primary-container text-on-primary font-label-sm text-label-sm"
+                            >Presente</span
+                          >
+                        </div>
+                      </div>
+                    </td>
+                    <!-- Jueves -->
+                    <td class="p-2 align-middle">
+                      <div
+                        class="p-2.5 rounded-lg bg-surface-container flex flex-col shadow-xs"
+                      >
+                        <span
+                          class="font-title-sm text-title-sm text-on-surface font-bold truncate"
+                          >Taller Informática</span
+                        >
+                        <div class="flex items-center justify-between mt-1">
+                          <span
+                            class="font-body-sm text-body-sm text-on-surface-variant"
+                            >Lab. Redes 2</span
+                          >
+                          <span
+                            class="px-1.5 py-0.5 rounded bg-primary-container text-on-primary font-label-sm text-label-sm"
+                            >Presente</span
+                          >
+                        </div>
+                      </div>
+                    </td>
+                    <!-- Viernes -->
+                    <td class="p-2 align-middle">
+                      <div
+                        class="p-2.5 rounded-lg bg-surface-container flex flex-col shadow-xs"
+                      >
+                        <span
+                          class="font-title-sm text-title-sm text-on-surface font-bold truncate"
+                          >Tutoría Grupal</span
+                        >
+                        <div class="flex items-center justify-between mt-1">
+                          <span
+                            class="font-body-sm text-body-sm text-on-surface-variant"
+                            >Prefectura / Aula 2B</span
+                          >
+                          <span
+                            class="px-1.5 py-0.5 rounded bg-primary-container text-on-primary font-label-sm text-label-sm"
+                            >Presente</span
+                          >
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- REGISTRO DE ACCESOS EN TORNIQUETES PEATONALES Y CONTROL PERIMETRAL -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md">
+            <!-- Panel Izquierdo: Eventos Biométricos y Dispositivo en Puerta Principal -->
+            <div
+              class="lg:col-span-8 bg-surface-container-low rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md"
+            >
+              <div
+                class="flex flex-col sm:flex-row sm:items-center justify-between gap-2"
+              >
+                <div class="flex items-center gap-2">
+                  <div
+                    class="w-10 h-10 rounded-lg bg-primary text-on-primary flex items-center justify-center"
+                  >
+                    <span class="material-symbols-outlined text-[22px]"
+                      >fingerprint</span
+                    >
+                  </div>
+                  <div class="flex flex-col">
+                    <h3
+                      class="font-title-md text-title-md text-primary font-bold"
+                    >
+                      Torniquete Peatonal · Puerta Principal ESTIS 70
+                    </h3>
+                    <span
+                      class="font-body-sm text-body-sm text-on-surface-variant"
+                      >Control Automatizado por Credencial Inteligente y Óptica
+                      Facial</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm font-semibold"
+                >
+                  <span class="w-2 h-2 rounded-full bg-secondary"></span>
+                  <span>Torniquete T-02 Activo</span>
+                </div>
+              </div>
+              <!-- Tarjetas de Acceso Diario Registrado -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+                <!-- Entrada -->
+                <div
+                  class="p-space-md rounded-xl bg-surface-container flex flex-col gap-2 relative overflow-hidden"
+                >
+                  <div class="flex items-center justify-between">
+                    <span
+                      class="px-2 py-0.5 rounded bg-primary-container text-on-primary font-label-sm text-label-sm font-bold uppercase"
+                      >Entrada Matutina</span
+                    >
+                    <span
+                      class="material-symbols-outlined text-primary text-[20px]"
+                      >login</span
+                    >
+                  </div>
+                  <div class="flex items-baseline gap-2 mt-1">
+                    <span
+                      class="font-headline-lg text-headline-lg text-primary font-bold"
+                      >06:52 hrs</span
+                    >
+                    <span
+                      class="font-label-md text-label-md text-on-surface-variant"
+                      >Torniquete 2 (Carril A)</span
+                    >
+                  </div>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant">
+                    Puntual. Tolerancia límite del plantel: 07:10 hrs.
+                  </p>
+                  <div
+                    class="mt-2 pt-2 flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm"
+                  >
+                    <span class="flex items-center gap-1">
+                      <span
+                        class="material-symbols-outlined text-[16px] text-primary"
+                        >sensors</span
+                      >
+                      Lectura QR / RFID #8812A
+                    </span>
+                    <span class="text-primary font-bold">Validado</span>
+                  </div>
+                </div>
+                <!-- Salida -->
+                <div
+                  class="p-space-md rounded-xl bg-surface-container flex flex-col gap-2 relative overflow-hidden"
+                >
+                  <div class="flex items-center justify-between">
+                    <span
+                      class="px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold uppercase"
+                      >Salida Turno</span
+                    >
+                    <span
+                      class="material-symbols-outlined text-secondary text-[20px]"
+                      >logout</span
+                    >
+                  </div>
+                  <div class="flex items-baseline gap-2 mt-1">
+                    <span
+                      class="font-headline-lg text-headline-lg text-on-surface font-bold"
+                      >13:25 hrs</span
+                    >
+                    <span
+                      class="font-label-md text-label-md text-on-surface-variant"
+                      >Torniquete 1 (Carril B)</span
+                    >
+                  </div>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant">
+                    Salida oficial al toque de sirena de las 13:20 hrs.
+                  </p>
+                  <div
+                    class="mt-2 pt-2 flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm"
+                  >
+                    <span class="flex items-center gap-1">
+                      <span
+                        class="material-symbols-outlined text-[16px] text-primary"
+                        >verified_user</span
+                      >
+                      Retiro Autorizado
+                    </span>
+                    <span class="text-secondary font-bold">Completado</span>
+                  </div>
+                </div>
+              </div>
+              <!-- Historial de Paso en Bruto durante la Semana -->
+              <div class="flex flex-col gap-2 mt-1">
+                <span
+                  class="font-label-sm text-label-sm text-on-surface-variant font-bold uppercase tracking-wider"
+                  >Bitácora Perimetral de la Semana (Puerta de Alumnos)</span
+                >
+                <div class="space-y-1.5">
+                  <div
+                    class="p-2.5 rounded-lg bg-surface-container flex items-center justify-between font-body-sm text-body-sm"
+                  >
+                    <div class="flex items-center gap-3">
+                      <span
+                        class="font-label-md text-label-md font-bold text-primary"
+                        >Viernes 18</span
+                      >
+                      <span class="text-on-surface"
+                        >Ingreso: 06:48 hrs · Salida: 13:28 hrs</span
+                      >
+                    </div>
+                    <span
+                      class="px-2 py-0.5 rounded bg-surface-variant text-on-surface font-label-sm text-label-sm"
+                      >Normal</span
+                    >
+                  </div>
+                  <div
+                    class="p-2.5 rounded-lg bg-surface-container flex items-center justify-between font-body-sm text-body-sm"
+                  >
+                    <div class="flex items-center gap-3">
+                      <span
+                        class="font-label-md text-label-md font-bold text-primary"
+                        >Jueves 17</span
+                      >
+                      <span class="text-on-surface"
+                        >Ingreso: 08:35 hrs (Pase Médico) · Salida: 13:22
+                        hrs</span
+                      >
+                    </div>
+                    <span
+                      class="px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm"
+                      >Ingreso Tardío</span
+                    >
+                  </div>
+                  <div
+                    class="p-2.5 rounded-lg bg-surface-container flex items-center justify-between font-body-sm text-body-sm"
+                  >
+                    <div class="flex items-center gap-3">
+                      <span
+                        class="font-label-md text-label-md font-bold text-primary"
+                        >Miércoles 16</span
+                      >
+                      <span class="text-on-surface"
+                        >Ingreso: 06:55 hrs · Salida: 13:30 hrs</span
+                      >
+                    </div>
+                    <span
+                      class="px-2 py-0.5 rounded bg-surface-variant text-on-surface font-label-sm text-label-sm"
+                      >Normal</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Panel Derecho: Notificaciones Inmediatas SMS / Push para el Padre de Familia -->
+            <div
+              class="lg:col-span-4 bg-surface-container-low rounded-xl p-space-lg shadow-sm flex flex-col justify-between gap-space-md"
+            >
+              <div class="flex flex-col gap-space-sm">
+                <div class="flex items-center gap-2">
+                  <span
+                    class="material-symbols-outlined text-secondary text-[22px]"
+                    >notifications_active</span
+                  >
+                  <h3
+                    class="font-title-md text-title-md text-primary font-bold"
+                  >
+                    Alertas Push &amp; SMS
+                  </h3>
+                </div>
+                <p class="font-body-sm text-body-sm text-on-surface-variant">
+                  Notificaciones enviadas en tiempo real al teléfono del tutor
+                  legal:
+                  <strong class="text-on-surface">(+52) 228-845-9921</strong>.
+                </p>
+                <!-- Tarjetas de Simulador de Alerta Recibida -->
+                <div class="flex flex-col gap-space-sm mt-1">
+                  <div
+                    class="p-3 rounded-lg bg-surface-container shadow-xs flex flex-col gap-1"
+                  >
+                    <div
+                      class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm"
+                    >
+                      <span
+                        class="flex items-center gap-1 font-bold text-primary"
+                      >
+                        <span class="material-symbols-outlined text-[14px]"
+                          >sms</span
+                        >
+                        SMS Institucional
+                      </span>
+                      <span>Hoy 06:53 hrs</span>
+                    </div>
+                    <p class="font-body-sm text-body-sm text-on-surface">
+                      "JUNO INFORMA: Daniela Álvarez ingresó por Torniquete 02 a
+                      las 06:52 hrs. Que tenga excelente jornada académica."
+                    </p>
+                  </div>
+                  <div
+                    class="p-3 rounded-lg bg-surface-container shadow-xs flex flex-col gap-1"
+                  >
+                    <div
+                      class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm"
+                    >
+                      <span
+                        class="flex items-center gap-1 font-bold text-secondary"
+                      >
+                        <span class="material-symbols-outlined text-[14px]"
+                          >warning</span
+                        >
+                        Alerta de Retardo
+                      </span>
+                      <span>Jueves 08:42 hrs</span>
+                    </div>
+                    <p class="font-body-sm text-body-sm text-on-surface">
+                      "Prefectura registró ingreso de Daniela a las 08:35 hrs
+                      con justificante de consulta médica externa."
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <!-- Ajustes Rápidos de Envío para el Tutor -->
+              <div
+                class="p-space-sm rounded-lg bg-surface-container flex flex-col gap-2"
+              >
+                <span
+                  class="font-label-sm text-label-sm text-on-surface-variant font-bold uppercase tracking-wider"
+                  >Canales Activos</span
+                >
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-2">
+                    <span
+                      class="material-symbols-outlined text-[18px] text-primary"
+                      >check_circle</span
+                    >
+                    <span class="font-label-md text-label-md text-on-surface"
+                      >Mensajería SMS Directa</span
+                    >
+                  </div>
+                  <span
+                    class="px-2 py-0.5 rounded bg-primary-container text-on-primary font-label-sm text-label-sm font-semibold"
+                    >Activado</span
+                  >
+                </div>
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-2">
+                    <span
+                      class="material-symbols-outlined text-[18px] text-primary"
+                      >check_circle</span
+                    >
+                    <span class="font-label-md text-label-md text-on-surface"
+                      >Notificaciones App Móvil</span
+                    >
+                  </div>
+                  <span
+                    class="px-2 py-0.5 rounded bg-primary-container text-on-primary font-label-sm text-label-sm font-semibold"
+                    >Activado</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Fotografía Contextual de la Escuela / Taller Tecnológico y Compromiso de Asistencia -->
+          <div
+            class="w-full bg-surface-container-low rounded-xl p-space-md shadow-sm flex flex-col md:flex-row items-center gap-space-md"
+          >
+            <div
+              class="w-full md:w-56 h-36 rounded-lg overflow-hidden shrink-0 bg-surface-container"
+            >
+              <img
+                class="w-full h-full object-cover"
+                data-alt="Taller de computación y redes de secundaria técnica con computadoras de escritorio dispuestas ordenadamente, cables ethernet organizados, estudiantes uniformados trabajando con concentración y profesor asesorando al fondo, iluminación natural de salón de clases mexicano."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2B-_svg3Tk42q7FDJlx7zv5tBxWI8l0hRSxIPzETUMRztJFvfpKAw-ECE5qU-1TRHZBXGFnjIIzQydXpn63Mel1q7GUXaZxFNOgyhsyZwLVYvv8KofPovTvApZ0sWSa94YBS_XYaSZIu8hE6uG5SL-ni4bz1TAgVrdt4bXg9G8Pk_vmupylTBqEzN8PlDQwHbaqK-DDl1YzSzshpJpodUP8Xx8U0Rvm5vyJhuW7L7Xb91PB6dY_RVeA"
+              />
+            </div>
+            <div class="flex flex-col justify-center gap-1">
+              <span
+                class="font-label-sm text-label-sm text-secondary font-bold uppercase tracking-wider"
+                >Compromiso Tecnológico y Disciplina Escolar</span
+              >
+              <h4 class="font-title-sm text-title-sm text-primary font-bold">
+                Reglamento General de Talleres Industriales y Tecnológicos
+              </h4>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">
+                Las sesiones de Informática en 2° Grado son de 4 módulos
+                consecutivos los días lunes y miércoles. La inasistencia no
+                justificada a un módulo práctico requiere recuperación directa
+                en horario de contra-turno para no afectar la calificación
+                bimestral del taller.
+              </p>
+              <div
+                class="flex items-center gap-space-md mt-1 font-label-sm text-label-sm text-primary font-semibold"
+              >
+                <a class="flex items-center gap-1 hover:underline" href="#">
+                  <span class="material-symbols-outlined text-[16px]"
+                    >download</span
+                  >
+                  Descargar Hoja de Asistencia Oficial PDF
+                </a>
+                <a
+                  class="flex items-center gap-1 hover:underline text-secondary"
+                  href="#"
+                >
+                  <span class="material-symbols-outlined text-[16px]"
+                    >contact_phone</span
+                  >
+                  Contactar a Prefectura General
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <script>
+          // Micro-interacción sencilla para simular selección de vista o tooltip en módulos
+          document
+            .querySelectorAll('td div[class*="rounded-lg"]')
+            .forEach((card) => {
+              card.addEventListener("mouseenter", () => {
+                card.style.transform = "translateY(-2px)";
+                card.style.transition = "transform 0.15s ease-out";
+              });
+              card.addEventListener("mouseleave", () => {
+                card.style.transform = "translateY(0)";
+              });
+            });
+        </script>
+      </main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,1360 @@
+<!doctype html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="web_dashboard" name="shell-type" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,600;0,8..60,700;1,8..60,600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      @layer base {
+        html,
+        body {
+          margin: 0;
+          padding: 0;
+        }
+        body {
+          overscroll-behavior: none;
+        }
+        main > :first-child {
+          margin-top: 0 !important;
+        }
+        main > :last-child {
+          margin-bottom: 0 !important;
+        }
+      }
+      ::-webkit-scrollbar {
+        display: none;
+      }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-low": "#fff1ed",
+              "on-tertiary-fixed": "#390c00",
+              "on-tertiary": "#ffffff",
+              error: "#ba1a1a",
+              "surface-container-high": "#ffe2da",
+              "tertiary-fixed-dim": "#ffb59d",
+              "on-tertiary-container": "#ff6f3c",
+              "on-surface-variant": "#504440",
+              "surface-tint": "#7a5649",
+              "on-tertiary-fixed-variant": "#832600",
+              secondary: "#b02d29",
+              "surface-variant": "#fbdcd3",
+              "on-surface": "#281813",
+              "surface-dim": "#f2d3cb",
+              "tertiary-container": "#621a00",
+              "on-background": "#281813",
+              primary: "#31170e",
+              "primary-fixed-dim": "#ebbcac",
+              "on-error-container": "#93000a",
+              "inverse-on-surface": "#ffede8",
+              "on-error": "#ffffff",
+              "surface-container": "#ffe9e3",
+              "secondary-fixed-dim": "#ffb4ac",
+              "outline-variant": "#d4c3bd",
+              "on-primary-fixed": "#2e150b",
+              "inverse-primary": "#ebbcac",
+              "on-secondary-fixed-variant": "#8e1214",
+              "on-primary": "#ffffff",
+              "primary-fixed": "#ffdbcf",
+              "on-secondary-fixed": "#410002",
+              "inverse-surface": "#3f2c26",
+              "secondary-fixed": "#ffdad6",
+              outline: "#82746f",
+              "surface-container-lowest": "#ffffff",
+              "tertiary-fixed": "#ffdbd0",
+              "on-primary-fixed-variant": "#603f33",
+              tertiary: "#3e0d00",
+              "on-primary-container": "#bd9283",
+              background: "#fff8f6",
+              surface: "#fff8f6",
+              "surface-bright": "#fff8f6",
+              "primary-container": "#4a2c21",
+              "surface-container-highest": "#fbdcd3",
+              "error-container": "#ffdad6",
+              "on-secondary": "#ffffff",
+              "on-secondary-container": "#690007",
+              "secondary-container": "#ff665c",
+            },
+            borderRadius: {
+              DEFAULT: "0.125rem",
+              lg: "0.25rem",
+              xl: "0.5rem",
+              full: "0.75rem",
+            },
+            spacing: {
+              "space-lg": "1.5rem",
+              margin: "2.5rem",
+              "margin-mobile": "1rem",
+              "space-xs": "0.25rem",
+              "space-xl": "2.5rem",
+              "space-md": "1rem",
+              gutter: "1.5rem",
+              "space-sm": "0.5rem",
+              "gutter-mobile": "1rem",
+            },
+            fontFamily: {
+              "label-lg": ["Plus Jakarta Sans"],
+              "headline-lg-mobile": ['"Source Serif 4"'],
+              "title-md": ["Plus Jakarta Sans"],
+              "headline-xl": ['"Source Serif 4"'],
+              "label-sm": ["Plus Jakarta Sans"],
+              "headline-xl-mobile": ['"Source Serif 4"'],
+              "title-sm": ["Plus Jakarta Sans"],
+              "body-md": ["Plus Jakarta Sans"],
+              "headline-md": ['"Source Serif 4"'],
+              "headline-lg": ['"Source Serif 4"'],
+              "body-lg": ["Plus Jakarta Sans"],
+              "body-sm": ["Plus Jakarta Sans"],
+              "headline-sm": ['"Source Serif 4"'],
+              "label-md": ["Plus Jakarta Sans"],
+            },
+            fontSize: {
+              "label-lg": [
+                "14px",
+                {
+                  lineHeight: "20px",
+                  letterSpacing: "0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "headline-lg-mobile": [
+                "24px",
+                {
+                  lineHeight: "32px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "title-md": ["18px", { lineHeight: "26px", fontWeight: "600" }],
+              "headline-xl": [
+                "40px",
+                {
+                  lineHeight: "48px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "label-sm": [
+                "10px",
+                {
+                  lineHeight: "14px",
+                  letterSpacing: "0.05em",
+                  fontWeight: "700",
+                },
+              ],
+              "headline-xl-mobile": [
+                "30px",
+                {
+                  lineHeight: "36px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "700",
+                },
+              ],
+              "title-sm": ["16px", { lineHeight: "24px", fontWeight: "600" }],
+              "body-md": ["14px", { lineHeight: "22px", fontWeight: "400" }],
+              "headline-md": [
+                "24px",
+                { lineHeight: "32px", fontWeight: "600" },
+              ],
+              "headline-lg": [
+                "32px",
+                {
+                  lineHeight: "40px",
+                  letterSpacing: "-0.015em",
+                  fontWeight: "600",
+                },
+              ],
+              "body-lg": ["16px", { lineHeight: "26px", fontWeight: "400" }],
+              "body-sm": ["12px", { lineHeight: "18px", fontWeight: "400" }],
+              "headline-sm": [
+                "20px",
+                { lineHeight: "28px", fontWeight: "600" },
+              ],
+              "label-md": [
+                "12px",
+                {
+                  lineHeight: "16px",
+                  letterSpacing: "0.02em",
+                  fontWeight: "600",
+                },
+              ],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body
+    class="bg-surface font-body-md text-body-md text-on-surface antialiased"
+  >
+    <aside
+      class="fixed left-0 top-0 h-full w-72 bg-surface-container-low shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between"
+    >
+      <div class="flex flex-col">
+        <div class="h-16 px-gutter flex items-center gap-space-sm bg-primary">
+          <div
+            class="w-9 h-9 rounded bg-surface-container-highest flex items-center justify-center text-primary"
+          >
+            <span class="material-symbols-outlined text-[20px]"
+              >precision_manufacturing</span
+            >
+          </div>
+          <div class="flex flex-col">
+            <span
+              class="font-headline-sm text-headline-sm text-on-primary tracking-tight leading-none"
+              >MERCURIO</span
+            ><span
+              class="font-label-sm text-label-sm text-primary-fixed-dim uppercase tracking-wider mt-0.5"
+              >Portal Alumno • ESTIS 70</span
+            >
+          </div>
+        </div>
+        <div class="p-space-md">
+          <div
+            class="bg-surface-container p-space-sm rounded mb-space-sm flex items-center justify-between"
+          >
+            <div class="flex items-center gap-space-xs">
+              <span class="material-symbols-outlined text-[16px] text-secondary"
+                >school</span
+              ><span
+                class="font-label-sm text-label-sm text-on-surface-variant uppercase"
+                >Ciclo Lectivo</span
+              >
+            </div>
+            <span
+              class="font-label-md text-label-md text-on-surface font-bold bg-surface px-space-xs py-0.5 rounded"
+              >2024-2025</span
+            >
+          </div>
+          <div
+            class="bg-surface-container p-space-sm rounded flex flex-col gap-0.5"
+          >
+            <span
+              class="font-label-sm text-label-sm text-on-surface-variant uppercase"
+              >Adscripción Activa</span
+            ><span
+              class="font-label-md text-label-md text-on-surface font-bold truncate"
+              >2° B • Turno Matutino</span
+            ><span class="font-body-sm text-body-sm text-secondary truncate"
+              >Taller de Informática</span
+            >
+          </div>
+        </div>
+        <nav
+          class="px-space-sm flex flex-col gap-1"
+          data-active-classes="bg-primary-container text-on-primary font-bold shadow-[0_2px_8px_rgba(38,22,17,0.08)]"
+        >
+          <a
+            class="flex items-center gap-space-sm px-space-sm py-2.5 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors"
+            data-path="muro-avisos"
+            href="#"
+            ><span class="material-symbols-outlined text-[20px]">campaign</span
+            ><span class="font-label-lg text-label-lg">Muro / Avisos</span></a
+          ><a
+            class="flex items-center gap-space-sm px-space-sm py-2.5 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors"
+            data-path="mi-horario-escolar"
+            href="#"
+            ><span class="material-symbols-outlined text-[20px]">schedule</span
+            ><span class="font-label-lg text-label-lg"
+              >Mi Horario Escolar</span
+            ></a
+          ><a
+            class="flex items-center gap-space-sm px-space-sm py-2.5 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors"
+            data-path="tareas-y-entregas"
+            href="#"
+            ><span class="material-symbols-outlined text-[20px]"
+              >assignment</span
+            ><span class="font-label-lg text-label-lg"
+              >Tareas y Entregas</span
+            ></a
+          ><a
+            aria-current="page"
+            class="flex items-center gap-space-sm px-space-sm py-2.5 rounded transition-colors bg-primary-container text-on-primary font-bold shadow-[0_2px_8px_rgba(38,22,17,0.08)]"
+            data-path="citatorios-e-incidencias"
+            href="#"
+            ><span class="material-symbols-outlined text-[20px]"
+              >shield_person</span
+            ><span class="font-label-lg text-label-lg"
+              >Citatorios e Incidencias</span
+            ></a
+          ><a
+            class="flex items-center gap-space-sm px-space-sm py-2.5 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors"
+            data-path="actividades-y-representativos"
+            href="#"
+            ><span class="material-symbols-outlined text-[20px]"
+              >sports_kabaddi</span
+            ><span class="font-label-lg text-label-lg"
+              >Representativos y Clubes</span
+            ></a
+          ><a
+            class="flex items-center gap-space-sm px-space-sm py-2.5 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors"
+            data-path="mi-perfil-y-credencial"
+            href="#"
+            ><span class="material-symbols-outlined text-[20px]">badge</span
+            ><span class="font-label-lg text-label-lg"
+              >Mi Perfil y Credencial QR</span
+            ></a
+          >
+        </nav>
+      </div>
+      <div
+        class="p-space-md bg-surface-container-high m-space-sm rounded flex flex-col gap-space-xs"
+      >
+        <div class="flex items-center gap-space-xs">
+          <span class="material-symbols-outlined text-[16px] text-secondary"
+            >lock</span
+          ><span
+            class="font-label-sm text-label-sm uppercase text-on-surface-variant tracking-wider font-bold"
+            >Conexión Segura Alumno</span
+          >
+        </div>
+        <span class="font-body-sm text-body-sm text-on-surface-variant"
+          >ESTIS No. 70 • v3.4.2-sep</span
+        >
+      </div>
+    </aside>
+    <div class="pl-72">
+      <header
+        class="fixed top-0 left-72 right-0 h-16 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 px-gutter flex items-center justify-between gap-space-md"
+      >
+        <div class="flex-1 max-w-lg">
+          <div class="relative flex items-center w-full">
+            <span
+              class="material-symbols-outlined absolute left-3 text-on-surface-variant text-[20px]"
+              >search</span
+            ><input
+              class="w-full bg-surface-container-low pl-10 pr-space-md py-1.5 rounded font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:ring-1 focus:ring-primary"
+              placeholder="Buscar asignaturas, docentes, avisos o circulares..."
+              type="search"
+            />
+          </div>
+        </div>
+        <div class="flex items-center gap-space-md">
+          <div
+            class="hidden xl:flex items-center gap-space-xs bg-surface-container px-space-sm py-1 rounded"
+          >
+            <span class="material-symbols-outlined text-[16px] text-secondary"
+              >verified</span
+            ><span
+              class="font-label-sm text-label-sm text-on-surface font-semibold"
+              >Subsistema DGEST • Veracruz</span
+            >
+          </div>
+          <button
+            class="relative p-2 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors"
+            title="Notificaciones de tareas y citatorios"
+            type="button"
+          >
+            <span class="material-symbols-outlined text-[22px]"
+              >notifications</span
+            ><span
+              class="absolute top-1.5 right-1.5 w-2.5 h-2.5 rounded-full bg-secondary ring-2 ring-surface"
+            ></span>
+          </button>
+          <div class="flex items-center gap-space-sm pl-space-sm">
+            <div class="text-right hidden sm:block">
+              <div
+                class="font-label-md text-label-md text-on-surface leading-tight font-bold truncate max-w-[200px]"
+              >
+                Álvarez Ramírez Daniela
+              </div>
+              <div
+                class="font-label-sm text-label-sm text-on-surface-variant font-medium tracking-tight"
+              >
+                Mat. 24-EST70-0192
+              </div>
+            </div>
+            <div
+              class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"
+            >
+              <span
+                class="material-symbols-outlined text-on-primary text-[18px]"
+                >person</span
+              >
+            </div>
+          </div>
+        </div>
+      </header>
+      <main class="relative pt-16 bg-surface min-h-screen">
+        <div class="flex flex-col w-full">
+          <!-- Top Banner / Editorial Header -->
+          <div class="px-margin pt-space-lg pb-space-md">
+            <div
+              class="flex flex-col md:flex-row md:items-end justify-between gap-space-md pb-space-md"
+            >
+              <div>
+                <div class="flex items-center gap-space-xs mb-1">
+                  <span
+                    class="inline-flex items-center gap-1 bg-surface-container text-on-surface-variant font-label-sm text-label-sm px-2 py-0.5 rounded uppercase tracking-wider"
+                  >
+                    <span
+                      class="material-symbols-outlined text-[14px] text-secondary"
+                      >gavel</span
+                    >
+                    Prefectura • Dpto. Trabajo Social
+                  </span>
+                  <span
+                    class="text-on-surface-variant font-label-sm text-label-sm"
+                    >• Oficio Normativo DGEST/2024</span
+                  >
+                </div>
+                <h1
+                  class="font-headline-lg text-headline-lg text-primary tracking-tight"
+                >
+                  Área de Convivencia Escolar, Prefectura e Incidencias
+                </h1>
+                <p
+                  class="font-body-md text-body-md text-on-surface-variant max-w-3xl mt-1"
+                >
+                  Seguimiento formativo, justificación de inasistencias y
+                  citatorios oficiales con firma de tutor legal.
+                </p>
+              </div>
+              <!-- Quick Action Badges -->
+              <div class="flex items-center gap-space-sm flex-shrink-0">
+                <a
+                  class="inline-flex items-center gap-space-xs bg-surface-container-high hover:bg-surface-container text-primary px-space-md py-2 rounded font-label-md text-label-md transition-colors shadow-sm"
+                  href="#solicitar-justificante"
+                >
+                  <span
+                    class="material-symbols-outlined text-[18px] text-secondary"
+                    >assignment_add</span
+                  >
+                  Nuevo Justificante
+                </a>
+                <button
+                  class="inline-flex items-center gap-space-xs bg-primary hover:bg-primary-container text-on-primary px-space-md py-2 rounded font-label-md text-label-md transition-colors shadow-sm"
+                  onclick="window.print()"
+                >
+                  <span class="material-symbols-outlined text-[18px]"
+                    >print</span
+                  >
+                  Kárdex Disciplinario
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Main Grid Content -->
+          <div class="px-margin pb-space-xl flex flex-col gap-space-lg">
+            <!-- Status & Metrics Mosaic (Semaforo Disciplinario) -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+              <!-- Big Status Banner (Col 8) -->
+              <div
+                class="lg:col-span-8 bg-surface-container-low rounded-xl p-space-lg shadow-sm flex flex-col justify-between relative overflow-hidden"
+              >
+                <div
+                  class="absolute -right-6 -bottom-6 w-48 h-48 bg-surface-container-high rounded-full blur-2xl opacity-50 pointer-events-none"
+                ></div>
+                <div
+                  class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-md mb-space-md relative z-10"
+                >
+                  <div class="flex items-center gap-space-md">
+                    <div
+                      class="w-12 h-12 rounded-xl bg-surface-container-highest flex items-center justify-center text-primary shadow-sm"
+                    >
+                      <span
+                        class="material-symbols-outlined text-[28px] text-tertiary-container"
+                        style="font-variation-settings: &quot;FILL&quot; 1"
+                        >verified_user</span
+                      >
+                    </div>
+                    <div>
+                      <div class="flex items-center gap-space-xs">
+                        <span
+                          class="w-2.5 h-2.5 rounded-full bg-emerald-600 animate-pulse"
+                        ></span>
+                        <span
+                          class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-bold"
+                          >Semáforo de Conducta Oficial</span
+                        >
+                      </div>
+                      <h2
+                        class="font-headline-sm text-headline-sm text-primary"
+                      >
+                        Expediente Favorable • Estatus Regular
+                      </h2>
+                    </div>
+                  </div>
+                  <span
+                    class="self-start sm:self-auto bg-surface-container-highest text-primary font-label-md text-label-md px-space-sm py-1 rounded shadow-sm"
+                  >
+                    Bimestre II • Ciclo 2024-2025
+                  </span>
+                </div>
+                <!-- Metrics bar & Indicators -->
+                <div
+                  class="grid grid-cols-1 sm:grid-cols-3 gap-space-md pt-space-sm relative z-10"
+                >
+                  <div
+                    class="bg-surface p-space-sm rounded shadow-sm flex items-center justify-between"
+                  >
+                    <div>
+                      <span
+                        class="font-label-sm text-label-sm text-on-surface-variant uppercase"
+                        >Puntualidad</span
+                      >
+                      <div
+                        class="font-headline-sm text-headline-sm text-primary font-bold"
+                      >
+                        96.4%
+                      </div>
+                      <span
+                        class="font-body-sm text-body-sm text-on-surface-variant"
+                        >1 retardo justificado</span
+                      >
+                    </div>
+                    <!-- Radial Mini Gauge -->
+                    <div
+                      class="w-11 h-11 relative flex items-center justify-center"
+                    >
+                      <svg
+                        class="w-11 h-11 transform -rotate-90"
+                        viewbox="0 0 36 36"
+                      >
+                        <path
+                          class="text-surface-container"
+                          d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="3.5"
+                        ></path>
+                        <path
+                          class="text-primary-container"
+                          d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-dasharray="96, 100"
+                          stroke-linecap="round"
+                          stroke-width="3.5"
+                        ></path>
+                      </svg>
+                      <span
+                        class="absolute font-label-sm text-label-sm text-primary font-bold"
+                        >96</span
+                      >
+                    </div>
+                  </div>
+                  <div
+                    class="bg-surface p-space-sm rounded shadow-sm flex items-center justify-between"
+                  >
+                    <div>
+                      <span
+                        class="font-label-sm text-label-sm text-on-surface-variant uppercase"
+                        >Asistencia General</span
+                      >
+                      <div
+                        class="font-headline-sm text-headline-sm text-primary font-bold"
+                      >
+                        98.1%
+                      </div>
+                      <span
+                        class="font-body-sm text-body-sm text-on-surface-variant"
+                        >42 / 43 jornadas</span
+                      >
+                    </div>
+                    <div
+                      class="w-11 h-11 relative flex items-center justify-center"
+                    >
+                      <svg
+                        class="w-11 h-11 transform -rotate-90"
+                        viewbox="0 0 36 36"
+                      >
+                        <path
+                          class="text-surface-container"
+                          d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="3.5"
+                        ></path>
+                        <path
+                          class="text-secondary"
+                          d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-dasharray="98, 100"
+                          stroke-linecap="round"
+                          stroke-width="3.5"
+                        ></path>
+                      </svg>
+                      <span
+                        class="absolute font-label-sm text-label-sm text-secondary font-bold"
+                        >98</span
+                      >
+                    </div>
+                  </div>
+                  <div
+                    class="bg-surface p-space-sm rounded shadow-sm flex items-center justify-between"
+                  >
+                    <div>
+                      <span
+                        class="font-label-sm text-label-sm text-on-surface-variant uppercase"
+                        >Reportes Graves</span
+                      >
+                      <div
+                        class="font-headline-sm text-headline-sm text-primary font-bold"
+                      >
+                        0
+                      </div>
+                      <span
+                        class="font-body-sm text-body-sm text-emerald-700 font-medium"
+                        >Libre de actas</span
+                      >
+                    </div>
+                    <div
+                      class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-secondary"
+                    >
+                      <span class="material-symbols-outlined text-[20px]"
+                        >check_circle</span
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="mt-space-md pt-space-xs flex items-start gap-space-xs text-on-surface-variant bg-surface-container/60 p-2.5 rounded"
+                >
+                  <span
+                    class="material-symbols-outlined text-[18px] text-secondary flex-shrink-0 mt-0.5"
+                    >info</span
+                  >
+                  <p class="font-body-sm text-body-sm leading-tight">
+                    <strong>Disposición de Convivencia Escolar:</strong> Los
+                    citatorios emitidos por Prefectura deben ser presentados y
+                    firmados obligatoriamente por el padre, madre o tutor legal
+                    registrado en la cédula institucional al ingresar al
+                    plantel.
+                  </p>
+                </div>
+              </div>
+              <!-- Institutional Support Card / Photo Vignette (Col 4) -->
+              <div
+                class="lg:col-span-4 bg-primary text-on-primary rounded-xl p-space-lg shadow-sm flex flex-col justify-between relative overflow-hidden"
+              >
+                <div
+                  class="absolute inset-0 bg-cover bg-center opacity-15 mix-blend-overlay"
+                  data-alt="Architectural Mexican secondary school corridor with students in uniforms walking beside brick columns, bathed in warm Veracruz morning light."
+                  style="
+                    background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDBfkbME1wduSZK0uADJKHu3eShGgua52S6ZRyW_Cs2RR4ucLeYQMCFC0PADoMkkaaNEFBzsfphadnK_3yFf_7ZexCFG_d2xFCqoJu-xbVuq5ttETgEGUbSBzcBDXmP-jbkkC0VxrLEXIV8_ZOn6XZfeB9gw3hamMzl4B3rc6J3sbfJ-h-7NK-k_0fJE2JYjOlywcvsp3o6asKL3S1TcyGfA-yYjVh3CAC6F-A8WlLyxEmHq1tJQbERPg&quot;);
+                  "
+                ></div>
+                <div class="relative z-10 flex flex-col gap-space-sm">
+                  <div class="flex items-center justify-between">
+                    <span
+                      class="font-label-sm text-label-sm text-primary-fixed-dim uppercase tracking-wider"
+                      >Prefectura Módulo Norte</span
+                    >
+                    <span
+                      class="bg-primary-container text-on-primary font-label-sm text-label-sm px-2 py-0.5 rounded"
+                      >Turno Matutino</span
+                    >
+                  </div>
+                  <h3 class="font-headline-sm text-headline-sm text-on-primary">
+                    Mtro. Efrén Galindo
+                  </h3>
+                  <p class="font-body-sm text-body-sm text-primary-fixed-dim">
+                    Prefecto titular a cargo del bloque de 2° Grado (Grupos A,
+                    B, C y D). Atención a padres: 07:45 - 09:30 hrs con cita
+                    previa.
+                  </p>
+                </div>
+                <div
+                  class="relative z-10 pt-space-md flex items-center justify-between bg-primary-container/80 p-space-sm rounded backdrop-blur-sm"
+                >
+                  <div class="flex items-center gap-space-xs">
+                    <span
+                      class="material-symbols-outlined text-secondary-fixed text-[20px]"
+                      >call</span
+                    >
+                    <span class="font-label-sm text-label-sm text-on-primary"
+                      >Ext. Prefectura: #108</span
+                    >
+                  </div>
+                  <span
+                    class="font-label-sm text-label-sm text-on-primary-fixed-variant bg-primary-fixed px-2 py-0.5 rounded font-bold"
+                    >Oficina B-04</span
+                  >
+                </div>
+              </div>
+            </div>
+            <!-- Active Citatorio Card (High Priority Attention) -->
+            <div
+              class="bg-surface-container rounded-xl p-space-lg shadow-md relative"
+            >
+              <div
+                class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm pb-space-sm"
+              >
+                <div class="flex items-center gap-space-sm">
+                  <span
+                    class="inline-flex items-center justify-center w-8 h-8 rounded bg-secondary text-on-secondary"
+                  >
+                    <span class="material-symbols-outlined text-[20px]"
+                      >notification_important</span
+                    >
+                  </span>
+                  <div>
+                    <div class="flex items-center gap-space-xs">
+                      <span
+                        class="font-label-sm text-label-sm uppercase font-bold text-secondary"
+                        >Citatorio Oficial Activo</span
+                      >
+                      <span
+                        class="font-label-sm text-label-sm text-on-surface-variant"
+                        >• Folio PREF-70-24/089</span
+                      >
+                    </div>
+                    <h2 class="font-headline-md text-headline-md text-primary">
+                      Citatorio Preventivo / Reunión de Orientación Educativa
+                    </h2>
+                  </div>
+                </div>
+                <div
+                  class="inline-flex items-center gap-1.5 bg-secondary-container text-on-secondary-container px-space-md py-1 rounded font-label-md text-label-md font-bold self-start md:self-auto shadow-sm"
+                >
+                  <span class="material-symbols-outlined text-[16px]"
+                    >hourglass_top</span
+                  >
+                  Pendiente de Presentación
+                </div>
+              </div>
+              <!-- Formal Citation Document Representation -->
+              <div class="mt-space-md bg-surface p-space-lg rounded shadow-sm">
+                <div
+                  class="grid grid-cols-1 md:grid-cols-4 gap-space-md pb-space-md"
+                >
+                  <div class="flex flex-col">
+                    <span
+                      class="font-label-sm text-label-sm text-on-surface-variant uppercase"
+                      >Fecha de Audiencia</span
+                    >
+                    <span
+                      class="font-title-sm text-title-sm text-primary font-bold"
+                      >Jueves 17 de Octubre, 2024</span
+                    >
+                    <span
+                      class="font-body-sm text-body-sm text-secondary font-semibold"
+                      >08:30 AM (Tolerancia 10 min)</span
+                    >
+                  </div>
+                  <div class="flex flex-col">
+                    <span
+                      class="font-label-sm text-label-sm text-on-surface-variant uppercase"
+                      >Lugar Asignado</span
+                    >
+                    <span
+                      class="font-title-sm text-title-sm text-primary font-bold"
+                      >Módulo de Orientación Vocacional</span
+                    >
+                    <span
+                      class="font-body-sm text-body-sm text-on-surface-variant"
+                      >Edificio Central, Planta Alta</span
+                    >
+                  </div>
+                  <div class="flex flex-col">
+                    <span
+                      class="font-label-sm text-label-sm text-on-surface-variant uppercase"
+                      >Autoridad Convocante</span
+                    >
+                    <span
+                      class="font-title-sm text-title-sm text-primary font-bold"
+                      >Profr. Efrén Galindo Ruiz</span
+                    >
+                    <span
+                      class="font-body-sm text-body-sm text-on-surface-variant"
+                      >Prefecto Turno Matutino</span
+                    >
+                  </div>
+                  <div class="flex flex-col">
+                    <span
+                      class="font-label-sm text-label-sm text-on-surface-variant uppercase"
+                      >Tutor Requerido</span
+                    >
+                    <span
+                      class="font-title-sm text-title-sm text-primary font-bold"
+                      >Álvarez M. Roberto (Padre)</span
+                    >
+                    <span
+                      class="font-body-sm text-body-sm text-on-surface-variant"
+                      >Identificación INE obligatoria</span
+                    >
+                  </div>
+                </div>
+                <!-- Citation Body / Cause -->
+                <div
+                  class="pt-space-md flex flex-col gap-space-xs bg-surface-container-low p-space-md rounded"
+                >
+                  <span
+                    class="font-label-sm text-label-sm uppercase font-bold text-primary"
+                    >Motivo de la Convocatoria Institucional:</span
+                  >
+                  <p class="font-body-md text-body-md text-on-surface">
+                    Revisión y firma de acuerdo formativo para la incorporación
+                    de la alumna al proyecto extracurricular y certamen
+                    interescolar de
+                    <strong>Informática y Banda de Guerra 2024</strong>. Se
+                    requiere formalizar el cronograma de ensayos a contra-turno
+                    y entrega de responsiva de traslado por parte del tutor
+                    registrado.
+                  </p>
+                </div>
+                <!-- Citation Actions Bar -->
+                <div
+                  class="mt-space-md pt-space-sm flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-space-md"
+                >
+                  <div
+                    class="flex items-center gap-space-xs text-on-surface-variant"
+                  >
+                    <span
+                      class="material-symbols-outlined text-[18px] text-secondary"
+                      >verified</span
+                    >
+                    <span class="font-body-sm text-body-sm"
+                      >Sello Digital:
+                      <strong>DGEST-ESTIS70-PREF-0192A</strong></span
+                    >
+                  </div>
+                  <div class="flex flex-wrap items-center gap-space-sm">
+                    <button
+                      class="inline-flex items-center justify-center gap-space-xs bg-surface-container hover:bg-surface-container-high text-on-surface px-space-md py-2 rounded font-label-md text-label-md transition-colors shadow-sm"
+                      type="button"
+                    >
+                      <span
+                        class="material-symbols-outlined text-[18px] text-secondary"
+                        >picture_as_pdf</span
+                      >
+                      Descargar Formato Oficial PDF
+                    </button>
+                    <button
+                      class="inline-flex items-center justify-center gap-space-xs bg-primary hover:bg-primary-container text-on-primary px-space-md py-2 rounded font-label-md text-label-md transition-colors shadow-sm"
+                      id="btnConfirmNotif"
+                      type="button"
+                    >
+                      <span class="material-symbols-outlined text-[18px]"
+                        >how_to_reg</span
+                      >
+                      Confirmar Notificación del Padre
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Dual Split: Historical Log (Left) & Request Justificante Form (Right) -->
+            <div
+              class="grid grid-cols-1 xl:grid-cols-12 gap-gutter items-start"
+            >
+              <!-- Past Incident Log (Bitácora Pasada) (Col 7) -->
+              <div
+                class="xl:col-span-7 bg-surface-container-low rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md"
+              >
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-space-xs">
+                    <span
+                      class="material-symbols-outlined text-primary text-[22px]"
+                      >history_edu</span
+                    >
+                    <h2 class="font-headline-sm text-headline-sm text-primary">
+                      Bitácora de Incidencias y Justificantes
+                    </h2>
+                  </div>
+                  <span
+                    class="font-label-sm text-label-sm text-on-surface-variant"
+                    >Ciclo 2024-2025</span
+                  >
+                </div>
+                <p
+                  class="font-body-sm text-body-sm text-on-surface-variant -mt-2"
+                >
+                  Historial oficial archivado por la oficina de Asistencia y
+                  Disciplina Escolar de la Secundaria Técnica 70.
+                </p>
+                <!-- List / Table items -->
+                <div class="flex flex-col gap-space-sm mt-1">
+                  <!-- Item 1 -->
+                  <div
+                    class="bg-surface p-space-md rounded shadow-sm hover:shadow-md transition-shadow flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm"
+                  >
+                    <div class="flex items-start gap-space-sm">
+                      <div
+                        class="w-9 h-9 rounded bg-surface-container-high text-secondary flex items-center justify-center flex-shrink-0 mt-0.5"
+                      >
+                        <span class="material-symbols-outlined text-[20px]"
+                          >medication</span
+                        >
+                      </div>
+                      <div>
+                        <div class="flex items-center gap-space-xs">
+                          <span
+                            class="font-label-md text-label-md text-primary font-bold"
+                            >Justificante Médico por Inasistencia</span
+                          >
+                          <span
+                            class="bg-surface-container text-on-surface font-label-sm text-label-sm px-1.5 py-0.2 rounded font-semibold"
+                            >Folio J-104</span
+                          >
+                        </div>
+                        <div
+                          class="font-body-sm text-body-sm text-on-surface-variant mt-0.5"
+                        >
+                          Ausencia médica de 24 horas por cuadro respiratorio
+                          agudo. Respaldo ISSSTE Clínica Xalapa.
+                        </div>
+                        <div
+                          class="flex items-center gap-space-md mt-1 text-on-surface-variant font-label-sm text-label-sm"
+                        >
+                          <span>Fecha: <strong>03 Oct 2024</strong></span>
+                          <span
+                            >Autorizó:
+                            <strong>Trabajo Social (Lic. Morales)</strong></span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flex-shrink-0 self-start sm:self-center">
+                      <span
+                        class="inline-flex items-center gap-1 bg-emerald-100 text-emerald-900 font-label-sm text-label-sm px-2.5 py-1 rounded font-bold uppercase tracking-wide"
+                      >
+                        <span class="material-symbols-outlined text-[14px]"
+                          >check</span
+                        >
+                        Aprobado
+                      </span>
+                    </div>
+                  </div>
+                  <!-- Item 2 -->
+                  <div
+                    class="bg-surface p-space-md rounded shadow-sm hover:shadow-md transition-shadow flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm"
+                  >
+                    <div class="flex items-start gap-space-sm">
+                      <div
+                        class="w-9 h-9 rounded bg-surface-container-high text-on-surface-variant flex items-center justify-center flex-shrink-0 mt-0.5"
+                      >
+                        <span class="material-symbols-outlined text-[20px]"
+                          >badge</span
+                        >
+                      </div>
+                      <div>
+                        <div class="flex items-center gap-space-xs">
+                          <span
+                            class="font-label-md text-label-md text-primary font-bold"
+                            >Incidencia Leve • Falta de Credencial Física</span
+                          >
+                          <span
+                            class="bg-surface-container text-on-surface font-label-sm text-label-sm px-1.5 py-0.2 rounded font-semibold"
+                            >Torniquete #02</span
+                          >
+                        </div>
+                        <div
+                          class="font-body-sm text-body-sm text-on-surface-variant mt-0.5"
+                        >
+                          Olvido de credencial PVC en acceso matutino (06:55
+                          AM). Alumna validó ingreso con QR en MERCURIO móvil.
+                        </div>
+                        <div
+                          class="flex items-center gap-space-md mt-1 text-on-surface-variant font-label-sm text-label-sm"
+                        >
+                          <span>Fecha: <strong>18 Sep 2024</strong></span>
+                          <span
+                            >Registró:
+                            <strong>Prefectura Matutina</strong></span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flex-shrink-0 self-start sm:self-center">
+                      <span
+                        class="inline-flex items-center gap-1 bg-surface-container-highest text-primary font-label-sm text-label-sm px-2.5 py-1 rounded font-bold uppercase tracking-wide"
+                      >
+                        <span class="material-symbols-outlined text-[14px]"
+                          >task_alt</span
+                        >
+                        Solventado
+                      </span>
+                    </div>
+                  </div>
+                  <!-- Item 3 -->
+                  <div
+                    class="bg-surface p-space-md rounded shadow-sm hover:shadow-md transition-shadow flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm"
+                  >
+                    <div class="flex items-start gap-space-sm">
+                      <div
+                        class="w-9 h-9 rounded bg-surface-container-high text-primary flex items-center justify-center flex-shrink-0 mt-0.5"
+                      >
+                        <span class="material-symbols-outlined text-[20px]"
+                          >fact_check</span
+                        >
+                      </div>
+                      <div>
+                        <div class="flex items-center gap-space-xs">
+                          <span
+                            class="font-label-md text-label-md text-primary font-bold"
+                            >Acta Informativa de Inicio de Ciclo</span
+                          >
+                          <span
+                            class="bg-surface-container text-on-surface font-label-sm text-label-sm px-1.5 py-0.2 rounded font-semibold"
+                            >Folio REG-008</span
+                          >
+                        </div>
+                        <div
+                          class="font-body-sm text-body-sm text-on-surface-variant mt-0.5"
+                        >
+                          Recepción de reglamento escolar firmado por tutor y
+                          entrega de responsiva de taller técnico.
+                        </div>
+                        <div
+                          class="flex items-center gap-space-md mt-1 text-on-surface-variant font-label-sm text-label-sm"
+                        >
+                          <span>Fecha: <strong>28 Ago 2024</strong></span>
+                          <span
+                            >Control: <strong>Dirección Escolar</strong></span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flex-shrink-0 self-start sm:self-center">
+                      <span
+                        class="inline-flex items-center gap-1 bg-surface-container text-on-surface-variant font-label-sm text-label-sm px-2.5 py-1 rounded font-bold uppercase tracking-wide"
+                      >
+                        <span class="material-symbols-outlined text-[14px]"
+                          >inventory</span
+                        >
+                        Archivado
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <!-- Archival Note -->
+                <div
+                  class="p-space-sm bg-surface rounded flex items-center justify-between text-on-surface-variant"
+                >
+                  <span class="font-body-sm text-body-sm"
+                    >Mostrando los últimos 3 registros del ciclo activo.</span
+                  >
+                  <button
+                    class="font-label-sm text-label-sm text-secondary font-bold hover:underline flex items-center gap-0.5"
+                  >
+                    Ver expediente histórico completo
+                    <span class="material-symbols-outlined text-[14px]"
+                      >arrow_forward</span
+                    >
+                  </button>
+                </div>
+              </div>
+              <!-- Assistant: Request Justificante Form (Col 5) -->
+              <div
+                class="xl:col-span-5 bg-surface-container-high rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md"
+                id="solicitar-justificante"
+              >
+                <div class="flex items-center gap-space-xs">
+                  <div
+                    class="w-8 h-8 rounded bg-primary text-on-primary flex items-center justify-center"
+                  >
+                    <span class="material-symbols-outlined text-[18px]"
+                      >edit_calendar</span
+                    >
+                  </div>
+                  <div>
+                    <h2 class="font-headline-sm text-headline-sm text-primary">
+                      Solicitar Justificante Escolar
+                    </h2>
+                    <p
+                      class="font-body-sm text-body-sm text-on-surface-variant leading-tight"
+                    >
+                      Trabajo Social y Prefectura de la ESTIS 70
+                    </p>
+                  </div>
+                </div>
+                <p class="font-body-md text-body-md text-on-surface">
+                  El plazo máximo para tramitar un justificante es de
+                  <strong>72 horas hábiles</strong> posteriores al día de
+                  inasistencia del alumno.
+                </p>
+                <!-- Interactive Form -->
+                <form
+                  class="flex flex-col gap-space-md bg-surface p-space-md rounded shadow-sm"
+                  id="justificanteForm"
+                  onsubmit="
+                    event.preventDefault();
+                    handleFormSubmit();
+                  "
+                >
+                  <!-- Motivo Select -->
+                  <div class="flex flex-col gap-1">
+                    <label
+                      class="font-label-md text-label-md text-primary font-bold"
+                      for="tipoMotivo"
+                    >
+                      Tipo de Causa o Incidencia *
+                    </label>
+                    <select
+                      class="bg-surface-container-low px-3 py-2 rounded text-body-md font-body-md text-on-surface focus:outline-none focus:ring-1 focus:ring-primary shadow-sm"
+                      id="tipoMotivo"
+                      required=""
+                    >
+                      <option disabled="" selected="" value="">
+                        Seleccione la causal oficial...
+                      </option>
+                      <option value="medica">
+                        Motivo de Salud / Consulta Médica Oficial
+                      </option>
+                      <option value="duelo">
+                        Causa Familiar de Fuerza Mayor o Duelo
+                      </option>
+                      <option value="tramite">
+                        Trámite Oficial de Identidad (INE, Pasaporte, CURP)
+                      </option>
+                      <option value="representativo">
+                        Comisión Cívica, Deportiva o Tecnológica
+                      </option>
+                    </select>
+                  </div>
+                  <!-- Date Range Selector -->
+                  <div class="grid grid-cols-2 gap-space-sm">
+                    <div class="flex flex-col gap-1">
+                      <label
+                        class="font-label-sm text-label-sm text-on-surface-variant font-bold uppercase"
+                        for="fechaInicio"
+                      >
+                        Desde (Día) *
+                      </label>
+                      <input
+                        class="bg-surface-container-low px-2 py-1.5 rounded text-body-md font-body-md text-on-surface focus:outline-none focus:ring-1 focus:ring-primary shadow-sm"
+                        id="fechaInicio"
+                        required=""
+                        type="date"
+                        value="2024-10-14"
+                      />
+                    </div>
+                    <div class="flex flex-col gap-1">
+                      <label
+                        class="font-label-sm text-label-sm text-on-surface-variant font-bold uppercase"
+                        for="fechaFin"
+                      >
+                        Hasta (Día) *
+                      </label>
+                      <input
+                        class="bg-surface-container-low px-2 py-1.5 rounded text-body-md font-body-md text-on-surface focus:outline-none focus:ring-1 focus:ring-primary shadow-sm"
+                        id="fechaFin"
+                        required=""
+                        type="date"
+                        value="2024-10-15"
+                      />
+                    </div>
+                  </div>
+                  <!-- Detailed Explanation -->
+                  <div class="flex flex-col gap-1">
+                    <label
+                      class="font-label-md text-label-md text-primary font-bold"
+                      for="explicacion"
+                    >
+                      Descripción Breve de los Hechos *
+                    </label>
+                    <textarea
+                      class="bg-surface-container-low p-2.5 rounded text-body-md font-body-md text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:ring-1 focus:ring-primary shadow-sm resize-none"
+                      id="explicacion"
+                      placeholder="Especifique la clínica, diagnóstico o situación que motivó la falta..."
+                      required=""
+                      rows="3"
+                    ></textarea>
+                  </div>
+                  <!-- File Upload Zone -->
+                  <div class="flex flex-col gap-1">
+                    <label
+                      class="font-label-md text-label-md text-primary font-bold"
+                    >
+                      Evidencia Adjunta (Receta, Certificado o Carta) *
+                    </label>
+                    <div
+                      class="bg-surface-container-low hover:bg-surface-container rounded p-space-md text-center cursor-pointer transition-colors flex flex-col items-center justify-center gap-1 shadow-sm"
+                      id="dropzone"
+                    >
+                      <span
+                        class="material-symbols-outlined text-[32px] text-secondary"
+                        >cloud_upload</span
+                      >
+                      <span
+                        class="font-label-md text-label-md text-primary font-semibold"
+                        id="fileNameDisplay"
+                        >Subir archivo PDF, JPG o PNG</span
+                      >
+                      <span
+                        class="font-body-sm text-body-sm text-on-surface-variant"
+                        >Máximo 5MB • Con sello o cédula visible</span
+                      >
+                      <input
+                        accept=".pdf,.jpg,.jpeg,.png"
+                        class="hidden"
+                        id="fileInput"
+                        type="file"
+                      />
+                    </div>
+                  </div>
+                  <!-- Tutor Agreement Checkbox -->
+                  <label
+                    class="flex items-start gap-space-xs cursor-pointer select-none pt-1"
+                  >
+                    <input
+                      class="mt-1 w-4 h-4 rounded text-primary focus:ring-primary"
+                      required=""
+                      type="checkbox"
+                    />
+                    <span
+                      class="font-body-sm text-body-sm text-on-surface-variant leading-tight"
+                    >
+                      Bajo protesta de decir verdad, ratifico que la información
+                      médica o documental adjunta es fidedigna y autorizo la
+                      verificación con la institución emisora.
+                    </span>
+                  </label>
+                  <!-- Submit Button -->
+                  <button
+                    class="w-full bg-secondary hover:bg-on-secondary-container text-on-secondary py-2.5 rounded font-label-lg text-label-lg transition-colors flex items-center justify-center gap-space-xs shadow-md"
+                    type="submit"
+                  >
+                    <span class="material-symbols-outlined text-[20px]"
+                      >send_time_extension</span
+                    >
+                    Enviar Solicitud a Trabajo Social
+                  </button>
+                </form>
+                <!-- Response Confirmation Dialog (Hidden by Default) -->
+                <div
+                  class="hidden bg-emerald-50 text-emerald-950 p-space-md rounded shadow-sm flex items-start gap-space-sm"
+                  id="confirmSuccessBox"
+                >
+                  <span
+                    class="material-symbols-outlined text-emerald-700 text-[24px]"
+                    >task_alt</span
+                  >
+                  <div>
+                    <h4 class="font-label-lg text-label-lg font-bold">
+                      Solicitud Registrada con Éxito
+                    </h4>
+                    <p class="font-body-sm text-body-sm mt-0.5">
+                      Se ha turnado a la
+                      <strong>Lic. Morales (Trabajo Social)</strong> con folio
+                      de seguimiento temporal <strong>#TS-70-2024-411</strong>.
+                      Recibirá notificación en menos de 24 horas.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Workshop & Institutional Identity Footer Ribbon -->
+            <div
+              class="bg-surface-container-high rounded-xl p-space-md shadow-sm flex flex-col md:flex-row items-center justify-between gap-space-md text-on-surface-variant"
+            >
+              <div class="flex items-center gap-space-sm">
+                <div
+                  class="w-10 h-10 rounded bg-primary text-on-primary flex items-center justify-center font-bold"
+                >
+                  <span class="material-symbols-outlined text-[22px]"
+                    >balance</span
+                  >
+                </div>
+                <div>
+                  <div
+                    class="font-label-md text-label-md text-primary font-bold"
+                  >
+                    Marco Normativo para la Convivencia Escolar DGEST Veracruz
+                  </div>
+                  <div
+                    class="font-body-sm text-body-sm text-on-surface-variant"
+                  >
+                    Acuerdo 09/08/23 relativo a los derechos y obligaciones de
+                    alumnos en Escuelas Secundarias Técnicas.
+                  </div>
+                </div>
+              </div>
+              <div class="flex items-center gap-space-md flex-shrink-0">
+                <button
+                  class="font-label-sm text-label-sm text-primary hover:text-secondary font-bold underline"
+                >
+                  Descargar Reglamento Interior 2024 (PDF)
+                </button>
+                <span class="text-outline">•</span>
+                <button
+                  class="font-label-sm text-label-sm text-primary hover:text-secondary font-bold underline"
+                >
+                  Línea de Mediación Escolar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <script>
+          // Micro-interaction for parent notification confirmation
+          const btnConfirmNotif = document.getElementById("btnConfirmNotif");
+          if (btnConfirmNotif) {
+            btnConfirmNotif.addEventListener("click", function () {
+              const alreadyConfirmed =
+                this.getAttribute("data-confirmed") === "true";
+              if (!alreadyConfirmed) {
+                this.innerHTML =
+                  '<span class="material-symbols-outlined text-[18px]">verified</span> ¡Notificación Confirmada!';
+                this.classList.remove(
+                  "bg-primary",
+                  "hover:bg-primary-container",
+                );
+                this.classList.add("bg-emerald-800", "text-white");
+                this.setAttribute("data-confirmed", "true");
+
+                // Show lightweight toast/feedback
+                const toast = document.createElement("div");
+                toast.className =
+                  "fixed bottom-6 right-6 z-50 bg-primary text-on-primary px-space-md py-space-sm rounded shadow-xl flex items-center gap-2 font-label-md text-label-md";
+                toast.innerHTML =
+                  '<span class="material-symbols-outlined text-secondary-fixed text-[20px]">check_circle</span> Se ha enviado confirmación SMS al tutor legal.';
+                document.body.appendChild(toast);
+                setTimeout(() => toast.remove(), 4000);
+              }
+            });
+          }
+
+          // Interactive dropzone triggering hidden file input
+          const dropzone = document.getElementById("dropzone");
+          const fileInput = document.getElementById("fileInput");
+          const fileNameDisplay = document.getElementById("fileNameDisplay");
+
+          if (dropzone && fileInput) {
+            dropzone.addEventListener("click", () => fileInput.click());
+            fileInput.addEventListener("change", () => {
+              if (fileInput.files.length > 0) {
+                fileNameDisplay.textContent =
+                  "Archivo: " + fileInput.files[0].name;
+                fileNameDisplay.classList.add("text-secondary");
+              }
+            });
+          }
+
+          // Form submission handler
+          function handleFormSubmit() {
+            const form = document.getElementById("justificanteForm");
+            const successBox = document.getElementById("confirmSuccessBox");
+            if (form && successBox) {
+              form.classList.add("hidden");
+              successBox.classList.remove("hidden");
+            }
+          }
+        </script>
+      </main>
+    </div>
+  </body>
+</html>

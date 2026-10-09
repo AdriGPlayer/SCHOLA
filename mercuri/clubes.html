@@ -1,0 +1,1362 @@
+<!doctype html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="web_dashboard" name="shell-type" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,600;0,8..60,700;1,8..60,600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      @layer base {
+        html,
+        body {
+          margin: 0;
+          padding: 0;
+        }
+        body {
+          overscroll-behavior: none;
+        }
+        main > :first-child {
+          margin-top: 0 !important;
+        }
+        main > :last-child {
+          margin-bottom: 0 !important;
+        }
+      }
+      ::-webkit-scrollbar {
+        display: none;
+      }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-low": "#fff1ed",
+              "on-tertiary-fixed": "#390c00",
+              "on-tertiary": "#ffffff",
+              error: "#ba1a1a",
+              "surface-container-high": "#ffe2da",
+              "tertiary-fixed-dim": "#ffb59d",
+              "on-tertiary-container": "#ff6f3c",
+              "on-surface-variant": "#504440",
+              "surface-tint": "#7a5649",
+              "on-tertiary-fixed-variant": "#832600",
+              secondary: "#b02d29",
+              "surface-variant": "#fbdcd3",
+              "on-surface": "#281813",
+              "surface-dim": "#f2d3cb",
+              "tertiary-container": "#621a00",
+              "on-background": "#281813",
+              primary: "#31170e",
+              "primary-fixed-dim": "#ebbcac",
+              "on-error-container": "#93000a",
+              "inverse-on-surface": "#ffede8",
+              "on-error": "#ffffff",
+              "surface-container": "#ffe9e3",
+              "secondary-fixed-dim": "#ffb4ac",
+              "outline-variant": "#d4c3bd",
+              "on-primary-fixed": "#2e150b",
+              "inverse-primary": "#ebbcac",
+              "on-secondary-fixed-variant": "#8e1214",
+              "on-primary": "#ffffff",
+              "primary-fixed": "#ffdbcf",
+              "on-secondary-fixed": "#410002",
+              "inverse-surface": "#3f2c26",
+              "secondary-fixed": "#ffdad6",
+              outline: "#82746f",
+              "surface-container-lowest": "#ffffff",
+              "tertiary-fixed": "#ffdbd0",
+              "on-primary-fixed-variant": "#603f33",
+              tertiary: "#3e0d00",
+              "on-primary-container": "#bd9283",
+              background: "#fff8f6",
+              surface: "#fff8f6",
+              "surface-bright": "#fff8f6",
+              "primary-container": "#4a2c21",
+              "surface-container-highest": "#fbdcd3",
+              "error-container": "#ffdad6",
+              "on-secondary": "#ffffff",
+              "on-secondary-container": "#690007",
+              "secondary-container": "#ff665c",
+            },
+            borderRadius: {
+              DEFAULT: "0.125rem",
+              lg: "0.25rem",
+              xl: "0.5rem",
+              full: "0.75rem",
+            },
+            spacing: {
+              "space-lg": "1.5rem",
+              margin: "2.5rem",
+              "margin-mobile": "1rem",
+              "space-xs": "0.25rem",
+              "space-xl": "2.5rem",
+              "space-md": "1rem",
+              gutter: "1.5rem",
+              "space-sm": "0.5rem",
+              "gutter-mobile": "1rem",
+            },
+            fontFamily: {
+              "label-lg": ["Plus Jakarta Sans"],
+              "headline-lg-mobile": ['"Source Serif 4"'],
+              "title-md": ["Plus Jakarta Sans"],
+              "headline-xl": ['"Source Serif 4"'],
+              "label-sm": ["Plus Jakarta Sans"],
+              "headline-xl-mobile": ['"Source Serif 4"'],
+              "title-sm": ["Plus Jakarta Sans"],
+              "body-md": ["Plus Jakarta Sans"],
+              "headline-md": ['"Source Serif 4"'],
+              "headline-lg": ['"Source Serif 4"'],
+              "body-lg": ["Plus Jakarta Sans"],
+              "body-sm": ["Plus Jakarta Sans"],
+              "headline-sm": ['"Source Serif 4"'],
+              "label-md": ["Plus Jakarta Sans"],
+            },
+            fontSize: {
+              "label-lg": [
+                "14px",
+                {
+                  lineHeight: "20px",
+                  letterSpacing: "0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "headline-lg-mobile": [
+                "24px",
+                {
+                  lineHeight: "32px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "title-md": ["18px", { lineHeight: "26px", fontWeight: "600" }],
+              "headline-xl": [
+                "40px",
+                {
+                  lineHeight: "48px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "label-sm": [
+                "10px",
+                {
+                  lineHeight: "14px",
+                  letterSpacing: "0.05em",
+                  fontWeight: "700",
+                },
+              ],
+              "headline-xl-mobile": [
+                "30px",
+                {
+                  lineHeight: "36px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "700",
+                },
+              ],
+              "title-sm": ["16px", { lineHeight: "24px", fontWeight: "600" }],
+              "body-md": ["14px", { lineHeight: "22px", fontWeight: "400" }],
+              "headline-md": [
+                "24px",
+                { lineHeight: "32px", fontWeight: "600" },
+              ],
+              "headline-lg": [
+                "32px",
+                {
+                  lineHeight: "40px",
+                  letterSpacing: "-0.015em",
+                  fontWeight: "600",
+                },
+              ],
+              "body-lg": ["16px", { lineHeight: "26px", fontWeight: "400" }],
+              "body-sm": ["12px", { lineHeight: "18px", fontWeight: "400" }],
+              "headline-sm": [
+                "20px",
+                { lineHeight: "28px", fontWeight: "600" },
+              ],
+              "label-md": [
+                "12px",
+                {
+                  lineHeight: "16px",
+                  letterSpacing: "0.02em",
+                  fontWeight: "600",
+                },
+              ],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body
+    class="bg-surface font-body-md text-body-md text-on-surface antialiased"
+  >
+    <aside
+      class="fixed left-0 top-0 h-full w-72 bg-surface-container-low shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between"
+    >
+      <div class="flex flex-col">
+        <div class="h-16 px-gutter flex items-center gap-space-sm bg-primary">
+          <div
+            class="w-9 h-9 rounded bg-surface-container-highest flex items-center justify-center text-primary"
+          >
+            <span class="material-symbols-outlined text-[20px]"
+              >precision_manufacturing</span
+            >
+          </div>
+          <div class="flex flex-col">
+            <span
+              class="font-headline-sm text-headline-sm text-on-primary tracking-tight leading-none"
+              >MERCURIO</span
+            ><span
+              class="font-label-sm text-label-sm text-primary-fixed-dim uppercase tracking-wider mt-0.5"
+              >Portal Alumno • ESTIS 70</span
+            >
+          </div>
+        </div>
+        <div class="p-space-md">
+          <div
+            class="bg-surface-container p-space-sm rounded mb-space-sm flex items-center justify-between"
+          >
+            <div class="flex items-center gap-space-xs">
+              <span class="material-symbols-outlined text-[16px] text-secondary"
+                >school</span
+              ><span
+                class="font-label-sm text-label-sm text-on-surface-variant uppercase"
+                >Ciclo Lectivo</span
+              >
+            </div>
+            <span
+              class="font-label-md text-label-md text-on-surface font-bold bg-surface px-space-xs py-0.5 rounded"
+              >2024-2025</span
+            >
+          </div>
+          <div
+            class="bg-surface-container p-space-sm rounded flex flex-col gap-0.5"
+          >
+            <span
+              class="font-label-sm text-label-sm text-on-surface-variant uppercase"
+              >Adscripción Activa</span
+            ><span
+              class="font-label-md text-label-md text-on-surface font-bold truncate"
+              >2° B • Turno Matutino</span
+            ><span class="font-body-sm text-body-sm text-secondary truncate"
+              >Taller de Informática</span
+            >
+          </div>
+        </div>
+        <nav
+          class="px-space-sm flex flex-col gap-1"
+          data-active-classes="bg-primary-container text-on-primary font-bold shadow-[0_2px_8px_rgba(38,22,17,0.08)]"
+        >
+          <a
+            class="flex items-center gap-space-sm px-space-sm py-2.5 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors"
+            data-path="muro-avisos"
+            href="#"
+            ><span class="material-symbols-outlined text-[20px]">campaign</span
+            ><span class="font-label-lg text-label-lg">Muro / Avisos</span></a
+          ><a
+            class="flex items-center gap-space-sm px-space-sm py-2.5 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors"
+            data-path="mi-horario-escolar"
+            href="#"
+            ><span class="material-symbols-outlined text-[20px]">schedule</span
+            ><span class="font-label-lg text-label-lg"
+              >Mi Horario Escolar</span
+            ></a
+          ><a
+            class="flex items-center gap-space-sm px-space-sm py-2.5 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors"
+            data-path="tareas-y-entregas"
+            href="#"
+            ><span class="material-symbols-outlined text-[20px]"
+              >assignment</span
+            ><span class="font-label-lg text-label-lg"
+              >Tareas y Entregas</span
+            ></a
+          ><a
+            class="flex items-center gap-space-sm px-space-sm py-2.5 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors"
+            data-path="citatorios-e-incidencias"
+            href="#"
+            ><span class="material-symbols-outlined text-[20px]"
+              >shield_person</span
+            ><span class="font-label-lg text-label-lg"
+              >Citatorios e Incidencias</span
+            ></a
+          ><a
+            aria-current="page"
+            class="flex items-center gap-space-sm px-space-sm py-2.5 rounded transition-colors bg-primary-container text-on-primary font-bold shadow-[0_2px_8px_rgba(38,22,17,0.08)]"
+            data-path="actividades-y-representativos"
+            href="#"
+            ><span class="material-symbols-outlined text-[20px]"
+              >sports_kabaddi</span
+            ><span class="font-label-lg text-label-lg"
+              >Representativos y Clubes</span
+            ></a
+          ><a
+            class="flex items-center gap-space-sm px-space-sm py-2.5 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors"
+            data-path="mi-perfil-y-credencial"
+            href="#"
+            ><span class="material-symbols-outlined text-[20px]">badge</span
+            ><span class="font-label-lg text-label-lg"
+              >Mi Perfil y Credencial QR</span
+            ></a
+          >
+        </nav>
+      </div>
+      <div
+        class="p-space-md bg-surface-container-high m-space-sm rounded flex flex-col gap-space-xs"
+      >
+        <div class="flex items-center gap-space-xs">
+          <span class="material-symbols-outlined text-[16px] text-secondary"
+            >lock</span
+          ><span
+            class="font-label-sm text-label-sm uppercase text-on-surface-variant tracking-wider font-bold"
+            >Conexión Segura Alumno</span
+          >
+        </div>
+        <span class="font-body-sm text-body-sm text-on-surface-variant"
+          >ESTIS No. 70 • v3.4.2-sep</span
+        >
+      </div>
+    </aside>
+    <div class="pl-72">
+      <header
+        class="fixed top-0 left-72 right-0 h-16 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 px-gutter flex items-center justify-between gap-space-md"
+      >
+        <div class="flex-1 max-w-lg">
+          <div class="relative flex items-center w-full">
+            <span
+              class="material-symbols-outlined absolute left-3 text-on-surface-variant text-[20px]"
+              >search</span
+            ><input
+              class="w-full bg-surface-container-low pl-10 pr-space-md py-1.5 rounded font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:ring-1 focus:ring-primary"
+              placeholder="Buscar asignaturas, docentes, avisos o circulares..."
+              type="search"
+            />
+          </div>
+        </div>
+        <div class="flex items-center gap-space-md">
+          <div
+            class="hidden xl:flex items-center gap-space-xs bg-surface-container px-space-sm py-1 rounded"
+          >
+            <span class="material-symbols-outlined text-[16px] text-secondary"
+              >verified</span
+            ><span
+              class="font-label-sm text-label-sm text-on-surface font-semibold"
+              >Subsistema DGEST • Veracruz</span
+            >
+          </div>
+          <button
+            class="relative p-2 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors"
+            title="Notificaciones de tareas y citatorios"
+            type="button"
+          >
+            <span class="material-symbols-outlined text-[22px]"
+              >notifications</span
+            ><span
+              class="absolute top-1.5 right-1.5 w-2.5 h-2.5 rounded-full bg-secondary ring-2 ring-surface"
+            ></span>
+          </button>
+          <div class="flex items-center gap-space-sm pl-space-sm">
+            <div class="text-right hidden sm:block">
+              <div
+                class="font-label-md text-label-md text-on-surface leading-tight font-bold truncate max-w-[200px]"
+              >
+                Álvarez Ramírez Daniela
+              </div>
+              <div
+                class="font-label-sm text-label-sm text-on-surface-variant font-medium tracking-tight"
+              >
+                Mat. 24-EST70-0192
+              </div>
+            </div>
+            <div
+              class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"
+            >
+              <span
+                class="material-symbols-outlined text-on-primary text-[18px]"
+                >person</span
+              >
+            </div>
+          </div>
+        </div>
+      </header>
+      <main class="relative pt-16 bg-surface min-h-screen">
+        <div class="flex flex-col w-full">
+          <div
+            class="px-margin py-space-xl flex flex-col gap-space-xl max-w-7xl mx-auto w-full"
+          >
+            <header
+              class="relative overflow-hidden rounded-xl bg-surface-container-low p-space-xl shadow-sm"
+            >
+              <div
+                class="absolute -right-16 -top-16 w-80 h-80 rounded-full bg-gradient-to-br from-secondary/10 via-primary/5 to-transparent pointer-events-none"
+              ></div>
+              <div
+                class="relative z-10 flex flex-col lg:flex-row lg:items-end justify-between gap-space-lg"
+              >
+                <div class="flex flex-col gap-space-xs max-w-3xl">
+                  <div class="flex items-center gap-space-sm flex-wrap">
+                    <span
+                      class="bg-primary text-on-primary px-space-xs py-0.5 rounded font-label-sm text-label-sm uppercase tracking-wider font-bold"
+                    >
+                      ESTIS No. 70
+                    </span>
+                    <span
+                      class="text-secondary font-label-sm text-label-sm uppercase tracking-widest font-bold"
+                    >
+                      Deporte • Civismo • Ciencia &amp; Cultura
+                    </span>
+                    <span
+                      class="text-on-surface-variant font-label-sm text-label-sm"
+                    >
+                      • Ciclo Escolar 2024-2025
+                    </span>
+                  </div>
+                  <h1
+                    class="font-headline-xl text-headline-xl text-on-surface tracking-tight mt-1"
+                  >
+                    Actividades Extracurriculares y Grupos Representativos
+                  </h1>
+                  <p
+                    class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed"
+                  >
+                    Convocatorias, cronogramas de ensayos, partidos oficiales,
+                    torneos intersecundarias y acreditación formativa
+                    complementaria.
+                  </p>
+                </div>
+                <div
+                  class="flex items-center gap-space-sm bg-surface-container px-space-md py-space-sm rounded-lg self-start lg:self-auto shadow-sm"
+                >
+                  <div
+                    class="w-10 h-10 rounded bg-primary text-on-primary flex items-center justify-center"
+                  >
+                    <span class="material-symbols-outlined text-[24px]"
+                      >military_tech</span
+                    >
+                  </div>
+                  <div class="flex flex-col">
+                    <span
+                      class="font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold"
+                      >Horas Formativas Acumuladas</span
+                    >
+                    <div class="flex items-baseline gap-space-xs">
+                      <span
+                        class="font-headline-sm text-headline-sm text-on-surface font-bold"
+                        >48 / 60</span
+                      >
+                      <span
+                        class="font-label-sm text-label-sm text-secondary font-bold"
+                        >80% Acreditado</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </header>
+            <div
+              class="flex flex-col md:flex-row md:items-center justify-between gap-space-md"
+            >
+              <div
+                class="flex items-center gap-1 overflow-x-auto p-1 bg-surface-container rounded-lg"
+                id="filter-tabs"
+                role="tablist"
+              >
+                <button
+                  class="tab-btn px-space-md py-2 rounded font-label-md text-label-md transition-all font-bold bg-primary text-on-primary shadow-sm flex items-center gap-space-xs"
+                  data-tab="mis-grupos"
+                  type="button"
+                >
+                  <span class="material-symbols-outlined text-[18px]"
+                    >verified_user</span
+                  >
+                  <span>Mis Grupos Inscritos (2)</span>
+                </button>
+                <button
+                  class="tab-btn px-space-md py-2 rounded font-label-md text-label-md transition-all font-semibold text-on-surface-variant hover:text-on-surface flex items-center gap-space-xs"
+                  data-tab="civicos"
+                  type="button"
+                >
+                  <span class="material-symbols-outlined text-[18px]"
+                    >flag</span
+                  >
+                  <span>Cívicos y de Honor</span>
+                </button>
+                <button
+                  class="tab-btn px-space-md py-2 rounded font-label-md text-label-md transition-all font-semibold text-on-surface-variant hover:text-on-surface flex items-center gap-space-xs"
+                  data-tab="deportes"
+                  type="button"
+                >
+                  <span class="material-symbols-outlined text-[18px]"
+                    >sports_soccer</span
+                  >
+                  <span>Deportes y Selecciones</span>
+                </button>
+                <button
+                  class="tab-btn px-space-md py-2 rounded font-label-md text-label-md transition-all font-semibold text-on-surface-variant hover:text-on-surface flex items-center gap-space-xs"
+                  data-tab="talleres"
+                  type="button"
+                >
+                  <span class="material-symbols-outlined text-[18px]"
+                    >psychology</span
+                  >
+                  <span>Talleres y Clubes</span>
+                </button>
+              </div>
+              <div
+                class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm"
+              >
+                <span
+                  class="material-symbols-outlined text-[16px] text-secondary"
+                  >info</span
+                >
+                <span
+                  >Acreditación válida para el Servicio Escolar
+                  Comunitario</span
+                >
+              </div>
+            </div>
+            <section class="flex flex-col gap-space-md">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-space-sm">
+                  <span
+                    class="w-2.5 h-2.5 rounded-full bg-secondary animate-pulse"
+                  ></span>
+                  <h2 class="font-headline-sm text-headline-sm text-on-surface">
+                    Mis Próximos Ensayos y Partidos
+                  </h2>
+                </div>
+                <span
+                  class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider"
+                >
+                  Esta semana escolar
+                </span>
+              </div>
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-space-lg">
+                <article
+                  class="bg-surface-container-low rounded-xl p-space-lg shadow-sm flex flex-col justify-between transition-transform duration-200 hover:-translate-y-0.5"
+                >
+                  <div class="flex flex-col gap-space-md">
+                    <div class="flex items-start justify-between gap-space-sm">
+                      <div class="flex items-center gap-space-sm">
+                        <div
+                          class="w-12 h-12 rounded bg-surface-container-high text-primary flex items-center justify-center"
+                        >
+                          <span class="material-symbols-outlined text-[28px]"
+                            >notifications_active</span
+                          >
+                        </div>
+                        <div class="flex flex-col">
+                          <span
+                            class="font-label-sm text-label-sm uppercase text-secondary font-bold tracking-wider"
+                          >
+                            Banda de Guerra Águilas Técnicas
+                          </span>
+                          <h3
+                            class="font-title-md text-title-md text-on-surface font-bold leading-tight"
+                          >
+                            Ensayo General para Desfile del 20 de Noviembre
+                          </h3>
+                        </div>
+                      </div>
+                      <span
+                        class="bg-surface-container px-space-xs py-1 rounded font-label-sm text-label-sm text-primary font-bold uppercase tracking-wider"
+                      >
+                        Prioridad Cívica
+                      </span>
+                    </div>
+                    <div
+                      class="w-full h-44 rounded-lg overflow-hidden relative shadow-inner"
+                    >
+                      <div
+                        class="w-full h-full bg-cover bg-center"
+                        data-alt="Mexican secondary technical school marching band practicing snare drums and brass instruments in an open sunlit schoolyard with red brick walls, disciplined formation, wearing crisp warm terracotta and dark uniforms under clear daylight"
+                        style="
+                          background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDeV43Oz9Cf2t-c3s6LLaJx4YSWnj1bHMvgN1Ziuu5Skf7ZEak2nYLR2hgGRbfQajyxVCSC-mAtVO7CDYHbSKP7gs-8hFv5fvnokGWmbzjfuoIYNPy1fdOfJHKPlmxVyFb2jBaz9SKKpJ4wwoC8kzyj5eg_iDZOmBAdEyQybcZ2xCK7pWTE8zlmgS__9AkpWgCvJ6257yj9NnSBzasYlWv6ac_B87rIbZ2NWSkgDDyh2IuUS2sd9_hdnw&quot;);
+                        "
+                      ></div>
+                      <div
+                        class="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent flex items-end p-space-md"
+                      >
+                        <span
+                          class="font-label-sm text-label-sm text-on-primary font-semibold flex items-center gap-1"
+                        >
+                          <span class="material-symbols-outlined text-[16px]"
+                            >location_on</span
+                          >
+                          Patio Cívico Central &amp; Asta Monumental
+                        </span>
+                      </div>
+                    </div>
+                    <div
+                      class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm bg-surface-container-lowest p-space-md rounded-lg"
+                    >
+                      <div class="flex items-center gap-space-xs">
+                        <span
+                          class="material-symbols-outlined text-[20px] text-on-surface-variant"
+                          >schedule</span
+                        >
+                        <div class="flex flex-col">
+                          <span
+                            class="font-label-sm text-label-sm text-on-surface-variant uppercase"
+                            >Horario</span
+                          >
+                          <span
+                            class="font-label-md text-label-md text-on-surface font-bold"
+                            >Mié y Vie • 14:00 - 15:30 hrs</span
+                          >
+                        </div>
+                      </div>
+                      <div class="flex items-center gap-space-xs">
+                        <span
+                          class="material-symbols-outlined text-[20px] text-on-surface-variant"
+                          >person</span
+                        >
+                        <div class="flex flex-col">
+                          <span
+                            class="font-label-sm text-label-sm text-on-surface-variant uppercase"
+                            >Instructor</span
+                          >
+                          <span
+                            class="font-label-md text-label-md text-on-surface font-bold"
+                            >Cabo / Profr. Velázquez</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="flex items-center justify-between gap-space-sm bg-surface-container p-space-sm rounded"
+                    >
+                      <div class="flex items-center gap-space-xs">
+                        <span
+                          class="material-symbols-outlined text-[18px] text-secondary"
+                          >check_circle</span
+                        >
+                        <span
+                          class="font-label-sm text-label-sm text-on-surface font-semibold"
+                          >Pase a contra-turno:</span
+                        >
+                      </div>
+                      <span
+                        class="font-label-sm text-label-sm uppercase bg-surface text-secondary px-space-xs py-0.5 rounded font-bold"
+                      >
+                        Autorizado por Prefectura
+                      </span>
+                    </div>
+                  </div>
+                  <div
+                    class="mt-space-md pt-space-md flex flex-wrap items-center justify-between gap-space-sm"
+                  >
+                    <span
+                      class="font-body-sm text-body-sm text-on-surface-variant"
+                    >
+                      Instrumento asignado: Caja / Tambor Reglamentario #14
+                    </span>
+                    <button
+                      class="btn-confirm-attendance bg-primary hover:bg-primary-container text-on-primary px-space-md py-2 rounded font-label-md text-label-md font-bold transition-all shadow-sm flex items-center gap-space-xs"
+                      type="button"
+                    >
+                      <span class="material-symbols-outlined text-[18px]"
+                        >how_to_reg</span
+                      >
+                      <span>Confirmar Asistencia</span>
+                    </button>
+                  </div>
+                </article>
+                <article
+                  class="bg-surface-container-low rounded-xl p-space-lg shadow-sm flex flex-col justify-between transition-transform duration-200 hover:-translate-y-0.5"
+                >
+                  <div class="flex flex-col gap-space-md">
+                    <div class="flex items-start justify-between gap-space-sm">
+                      <div class="flex items-center gap-space-sm">
+                        <div
+                          class="w-12 h-12 rounded bg-surface-container-high text-secondary flex items-center justify-center"
+                        >
+                          <span class="material-symbols-outlined text-[28px]"
+                            >sports_volleyball</span
+                          >
+                        </div>
+                        <div class="flex flex-col">
+                          <span
+                            class="font-label-sm text-label-sm uppercase text-secondary font-bold tracking-wider"
+                          >
+                            Torneo Intersecundarias Técnicas Zona 04
+                          </span>
+                          <h3
+                            class="font-title-md text-title-md text-on-surface font-bold leading-tight"
+                          >
+                            Cuartos de Final: Técnica 70 vs. Técnica 14
+                          </h3>
+                        </div>
+                      </div>
+                      <span
+                        class="bg-secondary text-on-secondary px-space-xs py-1 rounded font-label-sm text-label-sm font-bold uppercase tracking-wider"
+                      >
+                        Oficial DGEST
+                      </span>
+                    </div>
+                    <div
+                      class="w-full h-44 rounded-lg overflow-hidden relative shadow-inner"
+                    >
+                      <div
+                        class="w-full h-full bg-cover bg-center"
+                        data-alt="High school girls volleyball team in red and brown sports uniform gathered in huddle on indoor gymnasium wooden court, energetic team spirit, industrial ceiling rafters, warm natural stadium lighting"
+                        style="
+                          background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDH2a391nh_Zcm_oFFN2Fn5qwRZqSKOKbnDyruwzypBJrbhq46AkgORed0UiCWWF_F9zVEp7Y4diRzwNx-ulT4cKax9tFH1S_enhhjdAzs8jnl1jg3sBUM5V0qJZyPrv2CMEsaksTslFW9EetpX67iV9COFr-vDtSTL6EmN-KeeVjHdpwjOhT1_47J8UUbzo_0boge6_n1z_S9TnEAI-eyJJCKjBMHnb2RzSxlPpIZ4yg2u3kBYopjn8w&quot;);
+                        "
+                      ></div>
+                      <div
+                        class="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent flex items-end p-space-md"
+                      >
+                        <span
+                          class="font-label-sm text-label-sm text-on-primary font-semibold flex items-center gap-1"
+                        >
+                          <span class="material-symbols-outlined text-[16px]"
+                            >stadium</span
+                          >
+                          Cancha Techada No. 1 • Sede Central ESTIS 70
+                        </span>
+                      </div>
+                    </div>
+                    <div
+                      class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm bg-surface-container-lowest p-space-md rounded-lg"
+                    >
+                      <div class="flex items-center gap-space-xs">
+                        <span
+                          class="material-symbols-outlined text-[20px] text-on-surface-variant"
+                          >event</span
+                        >
+                        <div class="flex flex-col">
+                          <span
+                            class="font-label-sm text-label-sm text-on-surface-variant uppercase"
+                            >Fecha y Hora</span
+                          >
+                          <span
+                            class="font-label-md text-label-md text-on-surface font-bold"
+                            >Próximo Martes • 15:00 hrs</span
+                          >
+                        </div>
+                      </div>
+                      <div class="flex items-center gap-space-xs">
+                        <span
+                          class="material-symbols-outlined text-[20px] text-on-surface-variant"
+                          >groups</span
+                        >
+                        <div class="flex flex-col">
+                          <span
+                            class="font-label-sm text-label-sm text-on-surface-variant uppercase"
+                            >Convocatoria</span
+                          >
+                          <span
+                            class="font-label-md text-label-md text-on-surface font-bold"
+                            >12 Jugadoras Titulares</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="flex items-center justify-between gap-space-sm bg-surface-container p-space-sm rounded"
+                    >
+                      <div class="flex items-center gap-space-xs">
+                        <span
+                          class="material-symbols-outlined text-[18px] text-primary"
+                          >badge</span
+                        >
+                        <span
+                          class="font-label-sm text-label-sm text-on-surface font-semibold"
+                          >Tu posición: Rematadora #7</span
+                        >
+                      </div>
+                      <span
+                        class="font-label-sm text-label-sm uppercase bg-surface text-on-surface px-space-xs py-0.5 rounded font-bold"
+                      >
+                        Convocada Lista Titular
+                      </span>
+                    </div>
+                  </div>
+                  <div
+                    class="mt-space-md pt-space-md flex flex-wrap items-center justify-between gap-space-sm"
+                  >
+                    <span
+                      class="font-body-sm text-body-sm text-on-surface-variant"
+                    >
+                      Uniforme: Oficial Guinda y Franja Ocre
+                    </span>
+                    <div class="flex items-center gap-space-xs">
+                      <button
+                        class="bg-surface-container hover:bg-surface-container-high text-on-surface px-space-md py-2 rounded font-label-md text-label-md font-semibold transition-colors"
+                        type="button"
+                      >
+                        Ver Cuadro de Convocadas
+                      </button>
+                      <button
+                        class="btn-confirm-attendance bg-primary hover:bg-primary-container text-on-primary px-space-md py-2 rounded font-label-md text-label-md font-bold transition-all shadow-sm flex items-center gap-space-xs"
+                        type="button"
+                      >
+                        <span class="material-symbols-outlined text-[18px]"
+                          >sports</span
+                        >
+                        <span>Confirmar Partido</span>
+                      </button>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </section>
+            <section class="flex flex-col gap-space-md">
+              <div
+                class="flex flex-col sm:flex-row sm:items-end justify-between gap-space-xs"
+              >
+                <div>
+                  <span
+                    class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-bold"
+                  >
+                    Ciclo Complementario
+                  </span>
+                  <h2 class="font-headline-sm text-headline-sm text-on-surface">
+                    Convocatorias y Audiciones Abiertas 2024-2025
+                  </h2>
+                </div>
+                <p class="font-body-sm text-body-sm text-on-surface-variant">
+                  Inscripciones sujetas a validación de historial académico y de
+                  conducta
+                </p>
+              </div>
+              <div
+                class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-lg"
+              >
+                <div
+                  class="bg-surface-container-low rounded-xl p-space-lg shadow-sm flex flex-col justify-between"
+                >
+                  <div class="flex flex-col gap-space-md">
+                    <div class="flex items-center justify-between">
+                      <span
+                        class="bg-primary text-on-primary text-label-sm font-label-sm px-space-xs py-0.5 rounded font-bold uppercase"
+                      >
+                        Cívico de Honor
+                      </span>
+                      <span
+                        class="text-on-surface-variant text-label-sm font-label-sm"
+                        >Cierre: 31 Oct</span
+                      >
+                    </div>
+                    <div class="flex flex-col gap-space-xs">
+                      <h3
+                        class="font-title-md text-title-md text-on-surface font-bold"
+                      >
+                        Escolta Oficial de Bandera
+                      </h3>
+                      <p
+                        class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed"
+                      >
+                        Selección de excelencia para representar a la Técnica 70
+                        en ceremonias de izamiento municipal y eventos
+                        protocolarios oficiales.
+                      </p>
+                    </div>
+                    <div
+                      class="flex flex-col gap-space-xs bg-surface-container-lowest p-space-md rounded-lg"
+                    >
+                      <span
+                        class="font-label-sm text-label-sm text-on-surface-variant uppercase font-bold"
+                        >Requisitos de Selección</span
+                      >
+                      <ul
+                        class="flex flex-col gap-1 text-on-surface font-body-sm text-body-sm"
+                      >
+                        <li class="flex items-center gap-space-xs">
+                          <span
+                            class="material-symbols-outlined text-[16px] text-secondary"
+                            >check</span
+                          >
+                          <span
+                            >Promedio general mínimo de
+                            <strong>9.0</strong></span
+                          >
+                        </li>
+                        <li class="flex items-center gap-space-xs">
+                          <span
+                            class="material-symbols-outlined text-[16px] text-secondary"
+                            >check</span
+                          >
+                          <span
+                            >Estatura mínima: 1.58 m (marcialidad
+                            uniforme)</span
+                          >
+                        </li>
+                        <li class="flex items-center gap-space-xs">
+                          <span
+                            class="material-symbols-outlined text-[16px] text-secondary"
+                            >check</span
+                          >
+                          <span
+                            >Historial de disciplina intachable en
+                            prefectura</span
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div
+                    class="mt-space-lg flex items-center justify-between gap-space-sm"
+                  >
+                    <div class="flex flex-col">
+                      <span
+                        class="font-label-sm text-label-sm text-on-surface-variant"
+                        >Vacantes</span
+                      >
+                      <span
+                        class="font-label-md text-label-md text-on-surface font-bold"
+                        >3 Lugares (Suplentes)</span
+                      >
+                    </div>
+                    <button
+                      class="bg-secondary hover:bg-secondary/90 text-on-secondary px-space-md py-2 rounded font-label-md text-label-md font-bold transition-all shadow-sm flex items-center gap-space-xs"
+                      type="button"
+                    >
+                      <span class="material-symbols-outlined text-[18px]"
+                        >rate_review</span
+                      >
+                      <span>Postularme a Audición</span>
+                    </button>
+                  </div>
+                </div>
+                <div
+                  class="bg-surface-container-low rounded-xl p-space-lg shadow-sm flex flex-col justify-between"
+                >
+                  <div class="flex flex-col gap-space-md">
+                    <div class="flex items-center justify-between">
+                      <span
+                        class="bg-surface-container-high text-on-surface text-label-sm font-label-sm px-space-xs py-0.5 rounded font-bold uppercase"
+                      >
+                        Deporte Representativo
+                      </span>
+                      <span
+                        class="text-on-surface-variant text-label-sm font-label-sm"
+                        >Cierre: 15 Nov</span
+                      >
+                    </div>
+                    <div class="flex flex-col gap-space-xs">
+                      <h3
+                        class="font-title-md text-title-md text-on-surface font-bold"
+                      >
+                        Fútbol Soccer (Varonil y Femenil)
+                      </h3>
+                      <p
+                        class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed"
+                      >
+                        Entrenamientos de pretemporada y filtros tácticos para
+                        el Torneo Estatal Deportivo de Escuelas Secundarias
+                        Técnicas.
+                      </p>
+                    </div>
+                    <div
+                      class="flex flex-col gap-space-xs bg-surface-container-lowest p-space-md rounded-lg"
+                    >
+                      <span
+                        class="font-label-sm text-label-sm text-on-surface-variant uppercase font-bold"
+                        >Detalles de Pretemporada</span
+                      >
+                      <ul
+                        class="flex flex-col gap-1 text-on-surface font-body-sm text-body-sm"
+                      >
+                        <li class="flex items-center gap-space-xs">
+                          <span
+                            class="material-symbols-outlined text-[16px] text-secondary"
+                            >check</span
+                          >
+                          <span>Martes y Jueves • 14:15 - 16:00 hrs</span>
+                        </li>
+                        <li class="flex items-center gap-space-xs">
+                          <span
+                            class="material-symbols-outlined text-[16px] text-secondary"
+                            >check</span
+                          >
+                          <span>Campo de Pasto Natural Central</span>
+                        </li>
+                        <li class="flex items-center gap-space-xs">
+                          <span
+                            class="material-symbols-outlined text-[16px] text-secondary"
+                            >check</span
+                          >
+                          <span>Presentar certificado médico vigente</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div
+                    class="mt-space-lg flex items-center justify-between gap-space-sm"
+                  >
+                    <div class="flex flex-col">
+                      <span
+                        class="font-label-sm text-label-sm text-on-surface-variant"
+                        >Entrenador</span
+                      >
+                      <span
+                        class="font-label-md text-label-md text-on-surface font-bold"
+                        >Profr. Martínez (Ed. Física)</span
+                      >
+                    </div>
+                    <button
+                      class="bg-primary hover:bg-primary-container text-on-primary px-space-md py-2 rounded font-label-md text-label-md font-bold transition-all shadow-sm flex items-center gap-space-xs"
+                      type="button"
+                    >
+                      <span class="material-symbols-outlined text-[18px]"
+                        >sports_soccer</span
+                      >
+                      <span>Registrar Prueba</span>
+                    </button>
+                  </div>
+                </div>
+                <div
+                  class="bg-surface-container-low rounded-xl p-space-lg shadow-sm flex flex-col justify-between"
+                >
+                  <div class="flex flex-col gap-space-md">
+                    <div class="flex items-center justify-between">
+                      <span
+                        class="bg-surface-container-high text-on-surface text-label-sm font-label-sm px-space-xs py-0.5 rounded font-bold uppercase"
+                      >
+                        Ciencia &amp; Tecnología
+                      </span>
+                      <span
+                        class="text-on-surface-variant text-label-sm font-label-sm"
+                        >Permanente</span
+                      >
+                    </div>
+                    <div class="flex flex-col gap-space-xs">
+                      <h3
+                        class="font-title-md text-title-md text-on-surface font-bold"
+                      >
+                        Robótica &amp; Mecatrónica ESTIS
+                      </h3>
+                      <p
+                        class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed"
+                      >
+                        Taller avanzado de diseño de prototipos seguidores de
+                        línea y retos de programación en microcontroladores
+                        Arduino.
+                      </p>
+                    </div>
+                    <div
+                      class="flex flex-col gap-space-xs bg-surface-container-lowest p-space-md rounded-lg"
+                    >
+                      <span
+                        class="font-label-sm text-label-sm text-on-surface-variant uppercase font-bold"
+                        >Requisitos de Acceso</span
+                      >
+                      <ul
+                        class="flex flex-col gap-1 text-on-surface font-body-sm text-body-sm"
+                      >
+                        <li class="flex items-center gap-space-xs">
+                          <span
+                            class="material-symbols-outlined text-[16px] text-secondary"
+                            >check</span
+                          >
+                          <span
+                            >Pertenecer al Taller de Informática o
+                            Electrónica</span
+                          >
+                        </li>
+                        <li class="flex items-center gap-space-xs">
+                          <span
+                            class="material-symbols-outlined text-[16px] text-secondary"
+                            >check</span
+                          >
+                          <span>Sesiones: Sábados 08:30 - 11:30 hrs</span>
+                        </li>
+                        <li class="flex items-center gap-space-xs">
+                          <span
+                            class="material-symbols-outlined text-[16px] text-secondary"
+                            >check</span
+                          >
+                          <span>Preparación para concurso INTERTÉCNICAS</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div
+                    class="mt-space-lg flex items-center justify-between gap-space-sm"
+                  >
+                    <div class="flex flex-col">
+                      <span
+                        class="font-label-sm text-label-sm text-on-surface-variant"
+                        >Lugar</span
+                      >
+                      <span
+                        class="font-label-md text-label-md text-on-surface font-bold"
+                        >Laboratorio Tecnológico #2</span
+                      >
+                    </div>
+                    <button
+                      class="bg-primary hover:bg-primary-container text-on-primary px-space-md py-2 rounded font-label-md text-label-md font-bold transition-all shadow-sm flex items-center gap-space-xs"
+                      type="button"
+                    >
+                      <span class="material-symbols-outlined text-[18px]"
+                        >smart_toy</span
+                      >
+                      <span>Solicitar Ingreso</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section
+              class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-stretch"
+            >
+              <div
+                class="lg:col-span-8 bg-surface-container-low rounded-xl p-space-xl shadow-sm flex flex-col justify-between"
+              >
+                <div class="flex flex-col gap-space-md">
+                  <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-space-xs">
+                      <span
+                        class="material-symbols-outlined text-secondary text-[24px]"
+                        >workspace_premium</span
+                      >
+                      <h3
+                        class="font-headline-sm text-headline-sm text-on-surface"
+                      >
+                        Acreditación de Puntos Cívicos y Deportivos
+                      </h3>
+                    </div>
+                    <span
+                      class="bg-surface-container px-space-xs py-1 rounded font-label-sm text-label-sm text-primary font-bold"
+                    >
+                      Formación Integral DGEST
+                    </span>
+                  </div>
+                  <p
+                    class="font-body-md text-body-md text-on-surface-variant leading-relaxed"
+                  >
+                    Las actividades extracurriculares certifican horas de
+                    formación técnica no escolarizada. Cumplir con un mínimo del
+                    <strong>80% de asistencia</strong> y presentar conducta
+                    impecable exime al alumno de faenas de guardia cívica y
+                    libera el
+                    <strong>Servicio Escolar de Convivencia Comunitaria</strong>
+                    del segundo grado.
+                  </p>
+                  <div
+                    class="grid grid-cols-1 md:grid-cols-3 gap-space-md pt-space-xs"
+                  >
+                    <div
+                      class="bg-surface-container-lowest p-space-md rounded-lg flex flex-col gap-1"
+                    >
+                      <span
+                        class="font-label-sm text-label-sm text-on-surface-variant uppercase"
+                        >Banda de Guerra</span
+                      >
+                      <span
+                        class="font-title-md text-title-md text-on-surface font-bold"
+                        >30 Horas</span
+                      >
+                      <span
+                        class="font-body-sm text-body-sm text-secondary font-medium"
+                        >100% Asistencia Registrada</span
+                      >
+                      <div
+                        class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden mt-1"
+                      >
+                        <div class="bg-primary h-full w-full"></div>
+                      </div>
+                    </div>
+                    <div
+                      class="bg-surface-container-lowest p-space-md rounded-lg flex flex-col gap-1"
+                    >
+                      <span
+                        class="font-label-sm text-label-sm text-on-surface-variant uppercase"
+                        >Voleibol Femenil</span
+                      >
+                      <span
+                        class="font-title-md text-title-md text-on-surface font-bold"
+                        >18 Horas</span
+                      >
+                      <span
+                        class="font-body-sm text-body-sm text-secondary font-medium"
+                        >92% Asistencia Registrada</span
+                      >
+                      <div
+                        class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden mt-1"
+                      >
+                        <div class="bg-secondary h-full w-[92%]"></div>
+                      </div>
+                    </div>
+                    <div
+                      class="bg-surface-container-lowest p-space-md rounded-lg flex flex-col gap-1"
+                    >
+                      <span
+                        class="font-label-sm text-label-sm text-on-surface-variant uppercase"
+                        >Meta Anual Requerida</span
+                      >
+                      <span
+                        class="font-title-md text-title-md text-on-surface font-bold"
+                        >60 Horas</span
+                      >
+                      <span
+                        class="font-body-sm text-body-sm text-on-surface-variant"
+                        >Faltan 12 horas para sello final</span
+                      >
+                      <div
+                        class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden mt-1"
+                      >
+                        <div class="bg-primary h-full w-[80%]"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="mt-space-lg flex flex-wrap items-center justify-between gap-space-sm pt-space-sm"
+                >
+                  <div class="flex items-center gap-space-xs">
+                    <span
+                      class="material-symbols-outlined text-[20px] text-secondary"
+                      >verified</span
+                    >
+                    <span
+                      class="font-body-sm text-body-sm text-on-surface font-medium"
+                      >Validación firmada por Subdirección Técnica y
+                      Coordinación de Asistencia Educativa.</span
+                    >
+                  </div>
+                  <button
+                    class="bg-primary text-on-primary hover:bg-primary-container px-space-md py-2 rounded font-label-md text-label-md font-bold transition-all flex items-center gap-space-xs"
+                    type="button"
+                  >
+                    <span class="material-symbols-outlined text-[18px]"
+                      >download</span
+                    >
+                    <span>Descargar Constancia Parcial en PDF</span>
+                  </button>
+                </div>
+              </div>
+              <div
+                class="lg:col-span-4 bg-surface-container p-space-lg rounded-xl shadow-sm flex flex-col justify-between"
+              >
+                <div class="flex flex-col gap-space-sm">
+                  <div
+                    class="flex items-center gap-space-xs text-secondary font-bold font-label-sm text-label-sm uppercase"
+                  >
+                    <span class="material-symbols-outlined text-[18px]"
+                      >campaign</span
+                    >
+                    <span>Avisos de Prefectura y Entrenadores</span>
+                  </div>
+                  <h4
+                    class="font-title-md text-title-md text-on-surface font-bold"
+                  >
+                    Protocolo de Salida a Contra-turno
+                  </h4>
+                  <p
+                    class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed"
+                  >
+                    Los alumnos autorizados para entrenamientos vespertinos
+                    deben portar su credencial con holograma
+                    <strong>ESTIS DEPORTES/HONOR</strong> al ingresar por la
+                    puerta número 2. Queda estrictamente prohibido permanecer en
+                    pasillos de aulas fuera de las áreas designadas (canchas o
+                    patio cívico).
+                  </p>
+                  <div
+                    class="bg-surface-container-lowest p-space-sm rounded mt-space-xs flex items-center gap-space-xs"
+                  >
+                    <span
+                      class="material-symbols-outlined text-[20px] text-primary"
+                      >security</span
+                    >
+                    <span class="font-label-sm text-label-sm text-on-surface"
+                      >Vigencia del Pase Matutino-Vespertino: Noviembre
+                      2024</span
+                    >
+                  </div>
+                </div>
+                <div class="mt-space-md flex flex-col gap-space-xs">
+                  <div
+                    class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant"
+                  >
+                    <span>Prefecta encargada:</span>
+                    <span class="font-bold text-on-surface"
+                      >Lic. R. Mendoza</span
+                    >
+                  </div>
+                  <a
+                    class="inline-flex items-center gap-1 font-label-md text-label-md text-secondary hover:underline font-bold mt-1"
+                    href="#"
+                  >
+                    <span>Ver Reglamento General de Selecciones</span>
+                    <span class="material-symbols-outlined text-[16px]"
+                      >arrow_forward</span
+                    >
+                  </a>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+        <script>
+          (function () {
+            const tabs = document.querySelectorAll("#filter-tabs .tab-btn");
+            tabs.forEach((tab) => {
+              tab.addEventListener("click", () => {
+                tabs.forEach((t) => {
+                  t.classList.remove(
+                    "bg-primary",
+                    "text-on-primary",
+                    "font-bold",
+                    "shadow-sm",
+                  );
+                  t.classList.add("text-on-surface-variant", "font-semibold");
+                });
+                tab.classList.add(
+                  "bg-primary",
+                  "text-on-primary",
+                  "font-bold",
+                  "shadow-sm",
+                );
+                tab.classList.remove(
+                  "text-on-surface-variant",
+                  "font-semibold",
+                );
+              });
+            });
+
+            const confirmBtns = document.querySelectorAll(
+              ".btn-confirm-attendance",
+            );
+            confirmBtns.forEach((btn) => {
+              btn.addEventListener("click", function () {
+                if (!this.classList.contains("confirmed")) {
+                  this.classList.add("confirmed");
+                  this.classList.remove(
+                    "bg-primary",
+                    "hover:bg-primary-container",
+                  );
+                  this.classList.add(
+                    "bg-surface-container-high",
+                    "text-on-surface",
+                  );
+                  this.innerHTML =
+                    '<span class="material-symbols-outlined text-[18px] text-secondary">done_all</span><span>¡Asistencia Confirmada!</span>';
+                }
+              });
+            });
+          })();
+        </script>
+      </main>
+    </div>
+  </body>
+</html>
