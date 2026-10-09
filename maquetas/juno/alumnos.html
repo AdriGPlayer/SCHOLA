@@ -1,0 +1,2431 @@
+<!doctype html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="web_dashboard" name="shell-type" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,600;0,8..60,700;1,8..60,600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      @layer base {
+        html,
+        body {
+          margin: 0;
+          padding: 0;
+        }
+        body {
+          overscroll-behavior: none;
+        }
+        main > :first-child {
+          margin-top: 0 !important;
+        }
+        main > :last-child {
+          margin-bottom: 0 !important;
+        }
+      }
+      ::-webkit-scrollbar {
+        display: none;
+      }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-tertiary-fixed-variant": "#832600",
+              "primary-fixed-dim": "#ebbcac",
+              "on-secondary-fixed": "#410002",
+              "on-secondary-container": "#690007",
+              outline: "#82746f",
+              "outline-variant": "#d4c3bd",
+              tertiary: "#3e0d00",
+              "on-secondary": "#ffffff",
+              secondary: "#b02d29",
+              surface: "#fff8f6",
+              primary: "#31170e",
+              "surface-tint": "#7a5649",
+              "tertiary-fixed-dim": "#ffb59d",
+              "inverse-primary": "#ebbcac",
+              "inverse-on-surface": "#ffede8",
+              "surface-container": "#ffe9e3",
+              "on-surface": "#281813",
+              "surface-variant": "#fbdcd3",
+              "on-primary-fixed-variant": "#603f33",
+              "tertiary-container": "#621a00",
+              "on-tertiary-container": "#ff6f3c",
+              "surface-dim": "#f2d3cb",
+              "secondary-fixed": "#ffdad6",
+              background: "#fff8f6",
+              "primary-fixed": "#ffdbcf",
+              "on-tertiary": "#ffffff",
+              "on-primary-fixed": "#2e150b",
+              error: "#ba1a1a",
+              "surface-bright": "#fff8f6",
+              "on-error": "#ffffff",
+              "on-primary-container": "#bd9283",
+              "on-error-container": "#93000a",
+              "surface-container-highest": "#fbdcd3",
+              "surface-container-low": "#fff1ed",
+              "tertiary-fixed": "#ffdbd0",
+              "error-container": "#ffdad6",
+              "inverse-surface": "#3f2c26",
+              "on-surface-variant": "#504440",
+              "surface-container-lowest": "#ffffff",
+              "on-secondary-fixed-variant": "#8e1214",
+              "surface-container-high": "#ffe2da",
+              "on-primary": "#ffffff",
+              "secondary-fixed-dim": "#ffb4ac",
+              "secondary-container": "#ff665c",
+              "on-tertiary-fixed": "#390c00",
+              "primary-container": "#4a2c21",
+              "on-background": "#281813",
+            },
+            borderRadius: {
+              DEFAULT: "0.125rem",
+              lg: "0.25rem",
+              xl: "0.5rem",
+              full: "0.75rem",
+            },
+            spacing: {
+              "space-lg": "1.5rem",
+              margin: "2.5rem",
+              "space-sm": "0.5rem",
+              "margin-mobile": "1rem",
+              "space-xs": "0.25rem",
+              "space-md": "1rem",
+              gutter: "1.5rem",
+              "gutter-mobile": "1rem",
+              "space-xl": "2.5rem",
+            },
+            fontFamily: {
+              "body-lg": ["Plus Jakarta Sans"],
+              "body-md": ["Plus Jakarta Sans"],
+              "headline-sm": ['"Source Serif 4"'],
+              "body-sm": ["Plus Jakarta Sans"],
+              "title-sm": ["Plus Jakarta Sans"],
+              "title-md": ["Plus Jakarta Sans"],
+              "label-lg": ["Plus Jakarta Sans"],
+              "label-md": ["Plus Jakarta Sans"],
+              "label-sm": ["Plus Jakarta Sans"],
+              "headline-md": ['"Source Serif 4"'],
+              "headline-xl": ['"Source Serif 4"'],
+              "headline-lg": ['"Source Serif 4"'],
+              "headline-xl-mobile": ['"Source Serif 4"'],
+              "headline-lg-mobile": ['"Source Serif 4"'],
+            },
+            fontSize: {
+              "body-lg": [
+                "16px",
+                {
+                  lineHeight: "26px",
+                  fontWeight: "400",
+                },
+              ],
+              "body-md": [
+                "14px",
+                {
+                  lineHeight: "22px",
+                  fontWeight: "400",
+                },
+              ],
+              "headline-sm": [
+                "20px",
+                {
+                  lineHeight: "28px",
+                  fontWeight: "600",
+                },
+              ],
+              "body-sm": [
+                "12px",
+                {
+                  lineHeight: "18px",
+                  fontWeight: "400",
+                },
+              ],
+              "title-sm": [
+                "16px",
+                {
+                  lineHeight: "24px",
+                  fontWeight: "600",
+                },
+              ],
+              "title-md": [
+                "18px",
+                {
+                  lineHeight: "26px",
+                  fontWeight: "600",
+                },
+              ],
+              "label-lg": [
+                "14px",
+                {
+                  lineHeight: "20px",
+                  letterSpacing: "0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "label-md": [
+                "12px",
+                {
+                  lineHeight: "16px",
+                  letterSpacing: "0.02em",
+                  fontWeight: "600",
+                },
+              ],
+              "label-sm": [
+                "10px",
+                {
+                  lineHeight: "14px",
+                  letterSpacing: "0.05em",
+                  fontWeight: "700",
+                },
+              ],
+              "headline-md": [
+                "24px",
+                {
+                  lineHeight: "32px",
+                  fontWeight: "600",
+                },
+              ],
+              "headline-xl": [
+                "40px",
+                {
+                  lineHeight: "48px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "headline-lg": [
+                "32px",
+                {
+                  lineHeight: "40px",
+                  letterSpacing: "-0.015em",
+                  fontWeight: "600",
+                },
+              ],
+              "headline-xl-mobile": [
+                "30px",
+                {
+                  lineHeight: "36px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "700",
+                },
+              ],
+              "headline-lg-mobile": [
+                "24px",
+                {
+                  lineHeight: "32px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "600",
+                },
+              ],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body
+    class="bg-surface font-body-md text-body-md text-on-surface antialiased"
+  >
+    <aside
+      class="fixed left-0 top-0 h-full w-72 bg-surface-container-low shadow-[0_1px_8px_rgba(38,22,17,0.04)] z-50 flex flex-col justify-between"
+    >
+      <div class="flex flex-col">
+        <div class="h-20 px-space-lg flex items-center gap-space-sm bg-primary">
+          <div
+            class="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center shrink-0 shadow-[0_2px_8px_rgba(0,0,0,0.12)]"
+          >
+            <span
+              class="material-symbols-outlined text-on-secondary text-[24px]"
+              >school</span
+            >
+          </div>
+          <div class="flex flex-col min-w-0">
+            <span
+              class="font-headline-sm text-headline-sm text-surface truncate tracking-tight"
+              >JÚPITER</span
+            ><span
+              class="font-label-sm text-label-sm text-primary-fixed-dim uppercase tracking-wider truncate"
+              >ESTIS No. 70</span
+            >
+          </div>
+        </div>
+        <div class="px-space-md py-space-sm">
+          <div class="px-space-sm py-space-xs mb-space-sm">
+            <span
+              class="font-label-sm text-label-sm uppercase tracking-wider text-outline"
+              >Gestión Administrativa</span
+            >
+          </div>
+          <nav
+            class="flex flex-col gap-space-xs"
+            data-active-classes="bg-primary-container text-surface-container-lowest font-bold shadow-[0_1px_4px_rgba(38,22,17,0.08)]"
+          >
+            <a
+              class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all"
+              data-path="resumen-general"
+              href="#"
+              ><span class="material-symbols-outlined text-[20px]"
+                >space_dashboard</span
+              ><span class="font-label-lg text-label-lg"
+                >Resumen General</span
+              ></a
+            ><a
+              aria-current="page"
+              class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg transition-all bg-primary-container text-surface-container-lowest font-bold shadow-[0_1px_4px_rgba(38,22,17,0.08)]"
+              data-path="alumnos"
+              href="#"
+              ><span class="material-symbols-outlined text-[20px]">group</span
+              ><span class="font-label-lg text-label-lg"
+                >Alumnos y Matrícula</span
+              ></a
+            ><a
+              class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all"
+              data-path="docentes-y-personal"
+              href="#"
+              ><span class="material-symbols-outlined text-[20px]">badge</span
+              ><span class="font-label-lg text-label-lg"
+                >Docentes y Personal</span
+              ></a
+            ><a
+              class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all"
+              data-path="grupos-y-generaciones"
+              href="#"
+              ><span class="material-symbols-outlined text-[20px]"
+                >meeting_room</span
+              ><span class="font-label-lg text-label-lg"
+                >Grupos y Generaciones</span
+              ></a
+            ><a
+              class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all"
+              data-path="asignacion-academica"
+              href="#"
+              ><span class="material-symbols-outlined text-[20px]"
+                >menu_book</span
+              ><span class="font-label-lg text-label-lg"
+                >Asignación Académica</span
+              ></a
+            ><a
+              class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all"
+              data-path="gestion-de-horarios"
+              href="#"
+              ><span class="material-symbols-outlined text-[20px]"
+                >calendar_clock</span
+              ><span class="font-label-lg text-label-lg"
+                >Horarios Escolares</span
+              ></a
+            ><a
+              class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all"
+              data-path="parametros-y-ciclo-escolar"
+              href="#"
+              ><span class="material-symbols-outlined text-[20px]">tune</span
+              ><span class="font-label-lg text-label-lg"
+                >Parámetros y Ciclo</span
+              ></a
+            >
+          </nav>
+        </div>
+      </div>
+      <div class="p-space-md bg-surface-container">
+        <div class="flex items-center justify-between px-space-sm py-space-xs">
+          <div class="flex items-center gap-space-xs">
+            <span class="w-2 h-2 rounded-full bg-secondary"></span
+            ><span
+              class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant"
+              >Sede Central Activa</span
+            >
+          </div>
+          <span class="font-label-sm text-label-sm text-outline">v4.2.1</span>
+        </div>
+      </div>
+    </aside>
+    <div class="pl-72">
+      <header
+        class="fixed top-0 left-72 right-0 h-20 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(38,22,17,0.04)] z-40 px-space-xl flex items-center justify-between"
+      >
+        <div class="flex items-center gap-space-lg flex-1 max-w-2xl">
+          <div class="relative w-full max-w-md">
+            <span
+              class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px]"
+              >search</span
+            ><input
+              class="w-full pl-10 pr-4 py-2 bg-surface-container-low rounded-lg text-on-surface font-body-sm text-body-sm placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary"
+              placeholder="Búsqueda rápida por CURP, Matrícula o Nombre..."
+              type="text"
+            />
+          </div>
+          <div
+            class="hidden xl:flex items-center gap-space-xs bg-surface-container-high px-space-sm py-1.5 rounded-lg"
+          >
+            <span class="material-symbols-outlined text-secondary text-[18px]"
+              >verified</span
+            ><span class="font-label-sm text-label-sm text-on-surface uppercase"
+              >Ciclo 2024-2025</span
+            ><span class="text-outline-variant">•</span
+            ><span class="font-label-sm text-label-sm text-on-surface-variant"
+              >Turnos: M y V</span
+            >
+          </div>
+        </div>
+        <div class="flex items-center gap-space-md shrink-0">
+          <div class="hidden md:flex flex-col text-right">
+            <span class="font-label-lg text-label-lg text-on-surface"
+              >Lic. M. Valenzuela</span
+            ><span
+              class="font-label-sm text-label-sm text-secondary font-semibold uppercase"
+              >Control Escolar</span
+            >
+          </div>
+          <div
+            class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"
+          >
+            <span class="material-symbols-outlined text-on-primary text-[18px]"
+              >person</span
+            >
+          </div>
+        </div>
+      </header>
+      <main
+        class="relative pt-20 w-full min-h-screen px-space-xl py-space-lg bg-surface"
+      >
+        <div class="flex flex-col w-full">
+          <!-- Dynamic Notification Bar -->
+          <div
+            class="w-full bg-surface-container-high px-space-lg py-space-sm rounded-lg mb-space-lg flex items-center justify-between shadow-sm"
+          >
+            <div class="flex items-center gap-space-md">
+              <div
+                class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center shrink-0"
+              >
+                <span
+                  class="material-symbols-outlined text-on-secondary-container text-[18px]"
+                  >verified</span
+                >
+              </div>
+              <div class="flex items-center gap-space-sm flex-wrap">
+                <span class="font-label-lg text-label-lg text-on-surface"
+                  >Validación Activa DGEST-SEP:</span
+                >
+                <span class="font-body-sm text-body-sm text-on-surface-variant"
+                  >Corte bimestral en sincronización oficial. Folios
+                  certificados 2024-2025.</span
+                >
+              </div>
+            </div>
+            <div class="flex items-center gap-space-sm shrink-0">
+              <span
+                class="font-label-sm text-label-sm text-secondary uppercase font-bold tracking-wider"
+                >Período Regular Ordinario</span
+              >
+            </div>
+          </div>
+          <!-- Hero Header Section with Key Academic Metrics -->
+          <div
+            class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg items-stretch mb-space-xl"
+          >
+            <!-- Header & Action Triggers -->
+            <div
+              class="xl:col-span-7 bg-surface-container-lowest p-space-xl rounded-xl shadow-sm flex flex-col justify-between"
+            >
+              <div>
+                <div class="flex items-center gap-space-sm mb-space-xs">
+                  <span
+                    class="font-label-sm text-label-sm tracking-widest text-outline uppercase"
+                    >Sistema Integral Escolar JÚPITER • ESTIS 70</span
+                  >
+                  <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                  <span
+                    class="font-label-sm text-label-sm text-secondary font-semibold uppercase"
+                    >Ciclo Escolar 2024-2025</span
+                  >
+                </div>
+                <h1
+                  class="font-headline-xl text-headline-xl text-primary tracking-tight mb-space-xs"
+                >
+                  Alta y Padrón de Alumnos
+                </h1>
+                <p
+                  class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-space-lg"
+                >
+                  Módulo normativo para la inscripción, expedición de
+                  credenciales de taller y archivo digital de expedientes
+                  oficiales avalados por la Dirección General de Educación
+                  Secundaria Técnica (SEP).
+                </p>
+              </div>
+              <div
+                class="flex flex-wrap items-center gap-space-sm pt-space-md bg-surface-container-low -mx-space-xl -mb-space-xl px-space-xl py-space-md rounded-b-xl"
+              >
+                <button
+                  class="flex items-center gap-space-sm px-space-lg py-3 bg-primary text-on-primary rounded-lg font-label-lg text-label-lg hover:bg-primary-container shadow-md transition-all"
+                  id="open-register-btn"
+                >
+                  <span
+                    class="material-symbols-outlined text-secondary-container text-[20px]"
+                    >person_add</span
+                  >
+                  <span>+ Nuevo Alumno</span>
+                </button>
+                <button
+                  class="flex items-center gap-space-xs px-space-md py-3 bg-surface-container text-on-surface rounded-lg font-label-lg text-label-lg hover:bg-surface-container-high transition-all"
+                >
+                  <span class="material-symbols-outlined text-[18px]"
+                    >download_for_offline</span
+                  >
+                  <span>Descargar Cédulas SEP</span>
+                </button>
+                <button
+                  class="flex items-center gap-space-xs px-space-md py-3 bg-surface-container text-on-surface rounded-lg font-label-lg text-label-lg hover:bg-surface-container-high transition-all"
+                >
+                  <span class="material-symbols-outlined text-[18px]"
+                    >upload_file</span
+                  >
+                  <span>Importación Masiva (CSV)</span>
+                </button>
+              </div>
+            </div>
+            <!-- Quick Stats Bento -->
+            <div class="xl:col-span-5 grid grid-cols-2 gap-space-md">
+              <!-- Total Inscritos -->
+              <div
+                class="bg-surface-container-low p-space-lg rounded-xl shadow-sm flex flex-col justify-between"
+              >
+                <div class="flex items-center justify-between">
+                  <span
+                    class="font-label-sm text-label-sm uppercase text-outline"
+                    >Matrícula General</span
+                  >
+                  <div
+                    class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center"
+                  >
+                    <span
+                      class="material-symbols-outlined text-primary text-[20px]"
+                      >groups</span
+                    >
+                  </div>
+                </div>
+                <div>
+                  <span
+                    class="font-headline-xl text-headline-xl text-primary font-bold"
+                    >1,240</span
+                  >
+                  <div class="flex items-center gap-space-xs mt-1">
+                    <span
+                      class="material-symbols-outlined text-[16px] text-secondary"
+                      >trending_up</span
+                    >
+                    <span
+                      class="font-body-sm text-body-sm text-on-surface-variant"
+                      >100% de capacidad autorizada</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <!-- Turno Matutino -->
+              <div
+                class="bg-surface-container-low p-space-lg rounded-xl shadow-sm flex flex-col justify-between"
+              >
+                <div class="flex items-center justify-between">
+                  <span
+                    class="font-label-sm text-label-sm uppercase text-outline"
+                    >Turno Matutino</span
+                  >
+                  <div
+                    class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center"
+                  >
+                    <span
+                      class="material-symbols-outlined text-secondary text-[20px]"
+                      >wb_sunny</span
+                    >
+                  </div>
+                </div>
+                <div>
+                  <span
+                    class="font-headline-lg text-headline-lg text-primary font-bold"
+                    >620</span
+                  >
+                  <span
+                    class="font-body-sm text-body-sm text-on-surface-variant block mt-1"
+                    >15 Grupos (5 por grado)</span
+                  >
+                </div>
+              </div>
+              <!-- Turno Vespertino -->
+              <div
+                class="bg-surface-container-low p-space-lg rounded-xl shadow-sm flex flex-col justify-between"
+              >
+                <div class="flex items-center justify-between">
+                  <span
+                    class="font-label-sm text-label-sm uppercase text-outline"
+                    >Turno Vespertino</span
+                  >
+                  <div
+                    class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center"
+                  >
+                    <span
+                      class="material-symbols-outlined text-tertiary-container text-[20px]"
+                      >bedtime</span
+                    >
+                  </div>
+                </div>
+                <div>
+                  <span
+                    class="font-headline-lg text-headline-lg text-primary font-bold"
+                    >620</span
+                  >
+                  <span
+                    class="font-body-sm text-body-sm text-on-surface-variant block mt-1"
+                    >15 Grupos (5 por grado)</span
+                  >
+                </div>
+              </div>
+              <!-- Expedientes SEP Validados -->
+              <div
+                class="bg-primary-container p-space-lg rounded-xl shadow-sm flex flex-col justify-between text-surface-container-lowest"
+              >
+                <div class="flex items-center justify-between">
+                  <span
+                    class="font-label-sm text-label-sm uppercase text-primary-fixed-dim"
+                    >Expedientes SEP</span
+                  >
+                  <span
+                    class="font-label-sm text-label-sm bg-secondary px-2 py-0.5 rounded text-on-secondary font-bold"
+                    >94% ÓPTIMO</span
+                  >
+                </div>
+                <div class="mt-space-sm">
+                  <div class="flex items-baseline justify-between mb-1.5">
+                    <span
+                      class="font-headline-lg text-headline-lg font-bold text-surface-container-lowest"
+                      >1,165</span
+                    >
+                    <span
+                      class="font-body-sm text-body-sm text-primary-fixed-dim"
+                      >75 pendientes</span
+                    >
+                  </div>
+                  <!-- Progress bar -->
+                  <div
+                    class="w-full bg-primary h-2 rounded-full overflow-hidden"
+                  >
+                    <div
+                      class="bg-secondary-container h-full rounded-full"
+                      style="width: 94%"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Form High-Impact Accordion / Stepper Panel -->
+          <div
+            class="mb-space-xl bg-surface-container-lowest rounded-xl shadow-md overflow-hidden transition-all duration-300"
+            id="registration-panel"
+          >
+            <div
+              class="bg-primary px-space-xl py-space-lg flex items-center justify-between text-on-primary"
+            >
+              <div class="flex items-center gap-space-md">
+                <div
+                  class="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center shadow-inner"
+                >
+                  <span
+                    class="material-symbols-outlined text-on-secondary text-[24px]"
+                    >assignment_ind</span
+                  >
+                </div>
+                <div>
+                  <div class="flex items-center gap-space-xs">
+                    <span
+                      class="font-label-sm text-label-sm uppercase tracking-wider text-primary-fixed-dim"
+                      >Formulario Oficial F-EST-04</span
+                    >
+                    <span class="text-outline-variant">•</span>
+                    <span
+                      class="font-label-sm text-label-sm text-secondary-fixed"
+                      >Trámite de Ingreso y Reingreso</span
+                    >
+                  </div>
+                  <h2
+                    class="font-headline-md text-headline-md text-surface tracking-tight"
+                  >
+                    Cédula Única de Registro de Alumno
+                  </h2>
+                </div>
+              </div>
+              <div class="flex items-center gap-space-sm">
+                <span
+                  class="hidden sm:inline font-label-sm text-label-sm text-primary-fixed-dim"
+                  >Campos con validador de identidad SEP</span
+                >
+                <button
+                  class="w-9 h-9 rounded-lg bg-primary-container hover:bg-tertiary-container flex items-center justify-center transition-all text-surface"
+                  id="toggle-panel-btn"
+                >
+                  <span
+                    class="material-symbols-outlined text-[20px]"
+                    id="toggle-panel-icon"
+                    >expand_less</span
+                  >
+                </button>
+              </div>
+            </div>
+            <!-- Stepper Navigation -->
+            <div class="p-space-xl" id="form-content">
+              <div
+                class="grid grid-cols-1 md:grid-cols-4 gap-space-sm mb-space-xl bg-surface-container-low p-space-xs rounded-lg"
+              >
+                <button
+                  class="form-step-tab active flex items-center gap-space-xs px-space-md py-2.5 rounded-lg bg-surface-container-lowest shadow-sm text-primary font-label-lg text-label-lg transition-all"
+                  data-step="1"
+                  type="button"
+                >
+                  <span
+                    class="w-6 h-6 rounded-full bg-primary text-on-primary font-bold text-[12px] flex items-center justify-center"
+                    >1</span
+                  >
+                  <span class="truncate">1. Datos Personales</span>
+                </button>
+                <button
+                  class="form-step-tab flex items-center gap-space-xs px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container font-label-lg text-label-lg transition-all"
+                  data-step="2"
+                  type="button"
+                >
+                  <span
+                    class="w-6 h-6 rounded-full bg-surface-variant text-on-surface-variant font-bold text-[12px] flex items-center justify-center"
+                    >2</span
+                  >
+                  <span class="truncate">2. Asignación Técnica</span>
+                </button>
+                <button
+                  class="form-step-tab flex items-center gap-space-xs px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container font-label-lg text-label-lg transition-all"
+                  data-step="3"
+                  type="button"
+                >
+                  <span
+                    class="w-6 h-6 rounded-full bg-surface-variant text-on-surface-variant font-bold text-[12px] flex items-center justify-center"
+                    >3</span
+                  >
+                  <span class="truncate">3. Tutor y Domicilio</span>
+                </button>
+                <button
+                  class="form-step-tab flex items-center gap-space-xs px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container font-label-lg text-label-lg transition-all"
+                  data-step="4"
+                  type="button"
+                >
+                  <span
+                    class="w-6 h-6 rounded-full bg-surface-variant text-on-surface-variant font-bold text-[12px] flex items-center justify-center"
+                    >4</span
+                  >
+                  <span class="truncate">4. Expediente SEP</span>
+                </button>
+              </div>
+              <form class="space-y-space-lg" id="student-alta-form">
+                <!-- Paso 1: Datos Personales -->
+                <div class="step-pane" id="step-1">
+                  <div class="mb-space-md flex items-center justify-between">
+                    <h3
+                      class="font-title-md text-title-md text-primary font-semibold flex items-center gap-2"
+                    >
+                      <span
+                        class="material-symbols-outlined text-secondary text-[22px]"
+                        >badge</span
+                      >
+                      Identidad y Ficha Médica del Alumno
+                    </h3>
+                    <span class="font-label-sm text-label-sm text-outline"
+                      >Paso 1 de 4</span
+                    >
+                  </div>
+                  <div class="grid grid-cols-1 md:grid-cols-12 gap-space-md">
+                    <!-- Nombre Completo -->
+                    <div class="md:col-span-8 flex flex-col gap-1.5">
+                      <label
+                        class="font-label-md text-label-md text-on-surface font-semibold"
+                        >Nombre Completo (Apellidos y Nombres)</label
+                      >
+                      <input
+                        class="w-full px-space-md py-2.5 bg-surface-container-lowest rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary shadow-sm"
+                        placeholder="Ej. HERNÁNDEZ MORALES JORGE ALBERTO"
+                        required=""
+                        type="text"
+                      />
+                      <span class="font-body-sm text-body-sm text-outline"
+                        >Tal como aparece en el acta de nacimiento
+                        oficial.</span
+                      >
+                    </div>
+                    <!-- CURP Oficial con validador -->
+                    <div class="md:col-span-4 flex flex-col gap-1.5">
+                      <div class="flex items-center justify-between">
+                        <label
+                          class="font-label-md text-label-md text-on-surface font-semibold"
+                          >CURP (18 caracteres)</label
+                        >
+                        <span
+                          class="font-label-sm text-label-sm text-outline uppercase font-bold"
+                          id="curp-status"
+                          >Sin verificar</span
+                        >
+                      </div>
+                      <div class="relative">
+                        <input
+                          class="w-full px-space-md py-2.5 uppercase font-mono bg-surface-container-lowest rounded-lg text-on-surface font-label-lg text-label-lg focus:outline-none focus:ring-2 focus:ring-primary shadow-sm tracking-wider"
+                          id="curp-input"
+                          maxlength="18"
+                          placeholder="HEMJ090812HDFRRA02"
+                          required=""
+                          type="text"
+                        />
+                        <span
+                          class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-outline text-[20px]"
+                          id="curp-icon"
+                          >fingerprint</span
+                        >
+                      </div>
+                      <span class="font-body-sm text-body-sm text-outline"
+                        >Algoritmo RENAPO con clave de estado.</span
+                      >
+                    </div>
+                    <!-- Fecha Nacimiento -->
+                    <div class="md:col-span-3 flex flex-col gap-1.5">
+                      <label
+                        class="font-label-md text-label-md text-on-surface font-semibold"
+                        >Fecha de Nacimiento</label
+                      >
+                      <input
+                        class="w-full px-space-md py-2.5 bg-surface-container-lowest rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary shadow-sm"
+                        required=""
+                        type="date"
+                      />
+                    </div>
+                    <!-- Sexo -->
+                    <div class="md:col-span-3 flex flex-col gap-1.5">
+                      <label
+                        class="font-label-md text-label-md text-on-surface font-semibold"
+                        >Sexo Biológico</label
+                      >
+                      <select
+                        class="w-full px-space-md py-2.5 bg-surface-container-lowest rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary shadow-sm"
+                        required=""
+                      >
+                        <option value="">Seleccione...</option>
+                        <option value="H">Hombre</option>
+                        <option value="M">Mujer</option>
+                      </select>
+                    </div>
+                    <!-- Tipo de Sangre -->
+                    <div class="md:col-span-2 flex flex-col gap-1.5">
+                      <label
+                        class="font-label-md text-label-md text-on-surface font-semibold"
+                        >Grupo Sanguíneo</label
+                      >
+                      <select
+                        class="w-full px-space-md py-2.5 bg-surface-container-lowest rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary shadow-sm"
+                      >
+                        <option value="O+">O Positivo (O+)</option>
+                        <option value="A+">A Positivo (A+)</option>
+                        <option value="B+">B Positivo (B+)</option>
+                        <option value="AB+">AB Positivo (AB+)</option>
+                        <option value="O-">O Negativo (O-)</option>
+                        <option value="A-">A Negativo (A-)</option>
+                        <option value="B-">B Negativo (B-)</option>
+                        <option value="AB-">AB Negativo (AB-)</option>
+                      </select>
+                    </div>
+                    <!-- Observaciones / Alergias -->
+                    <div class="md:col-span-4 flex flex-col gap-1.5">
+                      <label
+                        class="font-label-md text-label-md text-on-surface font-semibold"
+                        >Alergias o Cuidados de Taller</label
+                      >
+                      <input
+                        class="w-full px-space-md py-2.5 bg-surface-container-lowest rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary shadow-sm"
+                        placeholder="Ej. Asma, alergia a penicilina, usa lentes de seguridad"
+                        type="text"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <!-- Paso 2: Datos Académicos y Taller Técnico -->
+                <div class="step-pane hidden" id="step-2">
+                  <div class="mb-space-md flex items-center justify-between">
+                    <h3
+                      class="font-title-md text-title-md text-primary font-semibold flex items-center gap-2"
+                    >
+                      <span
+                        class="material-symbols-outlined text-secondary text-[22px]"
+                        >precision_manufacturing</span
+                      >
+                      Estructura Escolar y Especialidad Tecnológica
+                    </h3>
+                    <span class="font-label-sm text-label-sm text-outline"
+                      >Paso 2 de 4</span
+                    >
+                  </div>
+                  <div class="grid grid-cols-1 md:grid-cols-12 gap-space-md">
+                    <!-- Grado -->
+                    <div class="md:col-span-4 flex flex-col gap-1.5">
+                      <label
+                        class="font-label-md text-label-md text-on-surface font-semibold"
+                        >Grado Escolar</label
+                      >
+                      <select
+                        class="w-full px-space-md py-2.5 bg-surface-container-lowest rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary shadow-sm"
+                        required=""
+                      >
+                        <option value="1">
+                          1° Primer Grado (Iniciación Técnica)
+                        </option>
+                        <option value="2">
+                          2° Segundo Grado (Desarrollo Tecnológico)
+                        </option>
+                        <option value="3">
+                          3° Tercer Grado (Terminal y Certificación)
+                        </option>
+                      </select>
+                    </div>
+                    <!-- Grupo -->
+                    <div class="md:col-span-4 flex flex-col gap-1.5">
+                      <label
+                        class="font-label-md text-label-md text-on-surface font-semibold"
+                        >Grupo Designado</label
+                      >
+                      <div class="grid grid-cols-5 gap-1.5">
+                        <label
+                          class="flex items-center justify-center p-2 rounded bg-surface-container text-on-surface cursor-pointer hover:bg-surface-container-high has-[:checked]:bg-primary has-[:checked]:text-on-primary"
+                        >
+                          <input
+                            checked=""
+                            class="sr-only"
+                            name="grupo"
+                            type="radio"
+                            value="A"
+                          />
+                          <span class="font-label-lg text-label-lg font-bold"
+                            >A</span
+                          >
+                        </label>
+                        <label
+                          class="flex items-center justify-center p-2 rounded bg-surface-container text-on-surface cursor-pointer hover:bg-surface-container-high has-[:checked]:bg-primary has-[:checked]:text-on-primary"
+                        >
+                          <input
+                            class="sr-only"
+                            name="grupo"
+                            type="radio"
+                            value="B"
+                          />
+                          <span class="font-label-lg text-label-lg font-bold"
+                            >B</span
+                          >
+                        </label>
+                        <label
+                          class="flex items-center justify-center p-2 rounded bg-surface-container text-on-surface cursor-pointer hover:bg-surface-container-high has-[:checked]:bg-primary has-[:checked]:text-on-primary"
+                        >
+                          <input
+                            class="sr-only"
+                            name="grupo"
+                            type="radio"
+                            value="C"
+                          />
+                          <span class="font-label-lg text-label-lg font-bold"
+                            >C</span
+                          >
+                        </label>
+                        <label
+                          class="flex items-center justify-center p-2 rounded bg-surface-container text-on-surface cursor-pointer hover:bg-surface-container-high has-[:checked]:bg-primary has-[:checked]:text-on-primary"
+                        >
+                          <input
+                            class="sr-only"
+                            name="grupo"
+                            type="radio"
+                            value="D"
+                          />
+                          <span class="font-label-lg text-label-lg font-bold"
+                            >D</span
+                          >
+                        </label>
+                        <label
+                          class="flex items-center justify-center p-2 rounded bg-surface-container text-on-surface cursor-pointer hover:bg-surface-container-high has-[:checked]:bg-primary has-[:checked]:text-on-primary"
+                        >
+                          <input
+                            class="sr-only"
+                            name="grupo"
+                            type="radio"
+                            value="E"
+                          />
+                          <span class="font-label-lg text-label-lg font-bold"
+                            >E</span
+                          >
+                        </label>
+                      </div>
+                    </div>
+                    <!-- Turno -->
+                    <div class="md:col-span-4 flex flex-col gap-1.5">
+                      <label
+                        class="font-label-md text-label-md text-on-surface font-semibold"
+                        >Turno Oficial</label
+                      >
+                      <div class="grid grid-cols-2 gap-2">
+                        <label
+                          class="flex items-center gap-2 p-2.5 rounded-lg bg-surface-container-low cursor-pointer hover:bg-surface-container has-[:checked]:bg-primary-container has-[:checked]:text-on-primary-container"
+                        >
+                          <input
+                            checked=""
+                            class="text-primary focus:ring-0"
+                            name="turno"
+                            type="radio"
+                            value="M"
+                          />
+                          <span
+                            class="font-label-md text-label-md font-semibold"
+                            >Matutino (07:00 - 13:40)</span
+                          >
+                        </label>
+                        <label
+                          class="flex items-center gap-2 p-2.5 rounded-lg bg-surface-container-low cursor-pointer hover:bg-surface-container has-[:checked]:bg-primary-container has-[:checked]:text-on-primary-container"
+                        >
+                          <input
+                            class="text-primary focus:ring-0"
+                            name="turno"
+                            type="radio"
+                            value="V"
+                          />
+                          <span
+                            class="font-label-md text-label-md font-semibold"
+                            >Vespertino (14:00 - 20:40)</span
+                          >
+                        </label>
+                      </div>
+                    </div>
+                    <!-- Taller Técnico / Especialidad -->
+                    <div class="md:col-span-12 mt-space-sm">
+                      <label
+                        class="font-label-md text-label-md text-on-surface font-semibold block mb-2"
+                        >Especialidad de Taller Técnico Tecnológico
+                        (EST-70)</label
+                      >
+                      <div
+                        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-space-sm"
+                      >
+                        <!-- Taller 1 -->
+                        <label
+                          class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container-high cursor-pointer transition-all flex flex-col justify-between has-[:checked]:bg-primary has-[:checked]:text-on-primary shadow-sm"
+                        >
+                          <div
+                            class="flex items-center justify-between mb-space-sm"
+                          >
+                            <span class="material-symbols-outlined text-[24px]"
+                              >construction</span
+                            >
+                            <input
+                              checked=""
+                              class="sr-only"
+                              name="taller"
+                              type="radio"
+                              value="mh"
+                            />
+                            <span
+                              class="w-3 h-3 rounded-full bg-secondary"
+                            ></span>
+                          </div>
+                          <div>
+                            <span
+                              class="font-label-lg text-label-lg font-bold block leading-tight"
+                              >Máquinas-Herramientas</span
+                            >
+                            <span
+                              class="font-body-sm text-body-sm opacity-80 mt-1 block"
+                              >Taller Mecánico Pesado</span
+                            >
+                          </div>
+                        </label>
+                        <!-- Taller 2 -->
+                        <label
+                          class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container-high cursor-pointer transition-all flex flex-col justify-between has-[:checked]:bg-primary has-[:checked]:text-on-primary shadow-sm"
+                        >
+                          <div
+                            class="flex items-center justify-between mb-space-sm"
+                          >
+                            <span class="material-symbols-outlined text-[24px]"
+                              >bolt</span
+                            >
+                            <input
+                              class="sr-only"
+                              name="taller"
+                              type="radio"
+                              value="elec"
+                            />
+                            <span
+                              class="w-3 h-3 rounded-full bg-outline-variant"
+                            ></span>
+                          </div>
+                          <div>
+                            <span
+                              class="font-label-lg text-label-lg font-bold block leading-tight"
+                              >Electricidad</span
+                            >
+                            <span
+                              class="font-body-sm text-body-sm opacity-80 mt-1 block"
+                              >Instalaciones e Industria</span
+                            >
+                          </div>
+                        </label>
+                        <!-- Taller 3 -->
+                        <label
+                          class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container-high cursor-pointer transition-all flex flex-col justify-between has-[:checked]:bg-primary has-[:checked]:text-on-primary shadow-sm"
+                        >
+                          <div
+                            class="flex items-center justify-between mb-space-sm"
+                          >
+                            <span class="material-symbols-outlined text-[24px]"
+                              >terminal</span
+                            >
+                            <input
+                              class="sr-only"
+                              name="taller"
+                              type="radio"
+                              value="info"
+                            />
+                            <span
+                              class="w-3 h-3 rounded-full bg-outline-variant"
+                            ></span>
+                          </div>
+                          <div>
+                            <span
+                              class="font-label-lg text-label-lg font-bold block leading-tight"
+                              >Informática</span
+                            >
+                            <span
+                              class="font-body-sm text-body-sm opacity-80 mt-1 block"
+                              >Sistemas y Algoritmia</span
+                            >
+                          </div>
+                        </label>
+                        <!-- Taller 4 -->
+                        <label
+                          class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container-high cursor-pointer transition-all flex flex-col justify-between has-[:checked]:bg-primary has-[:checked]:text-on-primary shadow-sm"
+                        >
+                          <div
+                            class="flex items-center justify-between mb-space-sm"
+                          >
+                            <span class="material-symbols-outlined text-[24px]"
+                              >architecture</span
+                            >
+                            <input
+                              class="sr-only"
+                              name="taller"
+                              type="radio"
+                              value="dibujo"
+                            />
+                            <span
+                              class="w-3 h-3 rounded-full bg-outline-variant"
+                            ></span>
+                          </div>
+                          <div>
+                            <span
+                              class="font-label-lg text-label-lg font-bold block leading-tight"
+                              >Dibujo Técnico</span
+                            >
+                            <span
+                              class="font-body-sm text-body-sm opacity-80 mt-1 block"
+                              >Modelado y Planimetría</span
+                            >
+                          </div>
+                        </label>
+                        <!-- Taller 5 -->
+                        <label
+                          class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container-high cursor-pointer transition-all flex flex-col justify-between has-[:checked]:bg-primary has-[:checked]:text-on-primary shadow-sm"
+                        >
+                          <div
+                            class="flex items-center justify-between mb-space-sm"
+                          >
+                            <span class="material-symbols-outlined text-[24px]"
+                              >calculate</span
+                            >
+                            <input
+                              class="sr-only"
+                              name="taller"
+                              type="radio"
+                              value="conta"
+                            />
+                            <span
+                              class="w-3 h-3 rounded-full bg-outline-variant"
+                            ></span>
+                          </div>
+                          <div>
+                            <span
+                              class="font-label-lg text-label-lg font-bold block leading-tight"
+                              >Contabilidad</span
+                            >
+                            <span
+                              class="font-body-sm text-body-sm opacity-80 mt-1 block"
+                              >Gestión Administrativa</span
+                            >
+                          </div>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Paso 3: Tutor y Domicilio -->
+                <div class="step-pane hidden" id="step-3">
+                  <div class="mb-space-md flex items-center justify-between">
+                    <h3
+                      class="font-title-md text-title-md text-primary font-semibold flex items-center gap-2"
+                    >
+                      <span
+                        class="material-symbols-outlined text-secondary text-[22px]"
+                        >family_restroom</span
+                      >
+                      Responsable Legal, Contacto y Residencia
+                    </h3>
+                    <span class="font-label-sm text-label-sm text-outline"
+                      >Paso 3 de 4</span
+                    >
+                  </div>
+                  <div class="grid grid-cols-1 md:grid-cols-12 gap-space-md">
+                    <div class="md:col-span-6 flex flex-col gap-1.5">
+                      <label
+                        class="font-label-md text-label-md text-on-surface font-semibold"
+                        >Nombre Completo del Padre, Madre o Tutor Legal</label
+                      >
+                      <input
+                        class="w-full px-space-md py-2.5 bg-surface-container-lowest rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary shadow-sm"
+                        placeholder="Ej. CARMEN MORALES VELÁZQUEZ"
+                        required=""
+                        type="text"
+                      />
+                    </div>
+                    <div class="md:col-span-3 flex flex-col gap-1.5">
+                      <label
+                        class="font-label-md text-label-md text-on-surface font-semibold"
+                        >Parentesco</label
+                      >
+                      <select
+                        class="w-full px-space-md py-2.5 bg-surface-container-lowest rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary shadow-sm"
+                      >
+                        <option value="madre">Madre</option>
+                        <option value="padre">Padre</option>
+                        <option value="abuelo">Abuelo(a)</option>
+                        <option value="tutor">
+                          Tutor Designado Judicialmente
+                        </option>
+                      </select>
+                    </div>
+                    <div class="md:col-span-3 flex flex-col gap-1.5">
+                      <label
+                        class="font-label-md text-label-md text-on-surface font-semibold"
+                        >Teléfono Celular de Emergencia</label
+                      >
+                      <input
+                        class="w-full px-space-md py-2.5 bg-surface-container-lowest rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary shadow-sm"
+                        placeholder="55 1234 5678"
+                        required=""
+                        type="tel"
+                      />
+                    </div>
+                    <div class="md:col-span-6 flex flex-col gap-1.5">
+                      <label
+                        class="font-label-md text-label-md text-on-surface font-semibold"
+                        >Correo Electrónico (Para envío de Boletas SEP)</label
+                      >
+                      <input
+                        class="w-full px-space-md py-2.5 bg-surface-container-lowest rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary shadow-sm"
+                        placeholder="tutor.familia@servidor.com"
+                        required=""
+                        type="email"
+                      />
+                    </div>
+                    <div class="md:col-span-6 flex flex-col gap-1.5">
+                      <label
+                        class="font-label-md text-label-md text-on-surface font-semibold"
+                        >Domicilio Familiar Completo</label
+                      >
+                      <input
+                        class="w-full px-space-md py-2.5 bg-surface-container-lowest rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary shadow-sm"
+                        placeholder="Calle, Número Ext/Int, Colonia, Alcaldía/Municipio, C.P."
+                        required=""
+                        type="text"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <!-- Paso 4: Requisitos y Documentación SEP -->
+                <div class="step-pane hidden" id="step-4">
+                  <div class="mb-space-md flex items-center justify-between">
+                    <h3
+                      class="font-title-md text-title-md text-primary font-semibold flex items-center gap-2"
+                    >
+                      <span
+                        class="material-symbols-outlined text-secondary text-[22px]"
+                        >checklist_rtl</span
+                      >
+                      Checklist Normativo de Expediente Físico y Digital (SEP)
+                    </h3>
+                    <span class="font-label-sm text-label-sm text-outline"
+                      >Paso 4 de 4</span
+                    >
+                  </div>
+                  <div
+                    class="grid grid-cols-1 md:grid-cols-2 gap-space-md mb-space-md"
+                  >
+                    <div
+                      class="space-y-space-sm bg-surface-container-low p-space-md rounded-xl"
+                    >
+                      <span
+                        class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-bold"
+                        >Documentos Entregados en Físico</span
+                      >
+                      <label
+                        class="flex items-center gap-space-sm p-space-sm bg-surface-container-lowest rounded-lg cursor-pointer hover:bg-surface-container transition-all"
+                      >
+                        <input
+                          checked=""
+                          class="w-4 h-4 rounded text-primary focus:ring-0"
+                          type="checkbox"
+                        />
+                        <div class="flex-1">
+                          <span
+                            class="font-label-md text-label-md text-on-surface font-semibold block"
+                            >Acta de Nacimiento (Original y 2 copias)</span
+                          >
+                          <span class="font-body-sm text-body-sm text-outline"
+                            >Legible, formato actual sin enmendaduras</span
+                          >
+                        </div>
+                        <span
+                          class="material-symbols-outlined text-secondary text-[20px]"
+                          >check_circle</span
+                        >
+                      </label>
+                      <label
+                        class="flex items-center gap-space-sm p-space-sm bg-surface-container-lowest rounded-lg cursor-pointer hover:bg-surface-container transition-all"
+                      >
+                        <input
+                          checked=""
+                          class="w-4 h-4 rounded text-primary focus:ring-0"
+                          type="checkbox"
+                        />
+                        <div class="flex-1">
+                          <span
+                            class="font-label-md text-label-md text-on-surface font-semibold block"
+                            >Certificado de Primaria</span
+                          >
+                          <span class="font-body-sm text-body-sm text-outline"
+                            >Folio con código de barras validado</span
+                          >
+                        </div>
+                        <span
+                          class="material-symbols-outlined text-secondary text-[20px]"
+                          >check_circle</span
+                        >
+                      </label>
+                      <label
+                        class="flex items-center gap-space-sm p-space-sm bg-surface-container-lowest rounded-lg cursor-pointer hover:bg-surface-container transition-all"
+                      >
+                        <input
+                          checked=""
+                          class="w-4 h-4 rounded text-primary focus:ring-0"
+                          type="checkbox"
+                        />
+                        <div class="flex-1">
+                          <span
+                            class="font-label-md text-label-md text-on-surface font-semibold block"
+                            >CURP Impresa en Formato Oficial</span
+                          >
+                          <span class="font-body-sm text-body-sm text-outline"
+                            >Con leyenda de verificación de Registro Civil</span
+                          >
+                        </div>
+                        <span
+                          class="material-symbols-outlined text-secondary text-[20px]"
+                          >check_circle</span
+                        >
+                      </label>
+                    </div>
+                    <div
+                      class="space-y-space-sm bg-surface-container-low p-space-md rounded-xl"
+                    >
+                      <span
+                        class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-bold"
+                        >Complementos Escolares</span
+                      >
+                      <label
+                        class="flex items-center gap-space-sm p-space-sm bg-surface-container-lowest rounded-lg cursor-pointer hover:bg-surface-container transition-all"
+                      >
+                        <input
+                          checked=""
+                          class="w-4 h-4 rounded text-primary focus:ring-0"
+                          type="checkbox"
+                        />
+                        <div class="flex-1">
+                          <span
+                            class="font-label-md text-label-md text-on-surface font-semibold block"
+                            >Comprobante de Domicilio Vigente</span
+                          >
+                          <span class="font-body-sm text-body-sm text-outline"
+                            >No mayor a 3 meses (Agua, Luz o Teléfono)</span
+                          >
+                        </div>
+                        <span
+                          class="material-symbols-outlined text-secondary text-[20px]"
+                          >check_circle</span
+                        >
+                      </label>
+                      <label
+                        class="flex items-center gap-space-sm p-space-sm bg-surface-container-lowest rounded-lg cursor-pointer hover:bg-surface-container transition-all"
+                      >
+                        <input
+                          class="w-4 h-4 rounded text-primary focus:ring-0"
+                          type="checkbox"
+                        />
+                        <div class="flex-1">
+                          <span
+                            class="font-label-md text-label-md text-on-surface font-semibold block"
+                            >4 Fotografías Tamaño Infantil</span
+                          >
+                          <span class="font-body-sm text-body-sm text-outline"
+                            >Blanco y negro, papel mate, camisa blanca</span
+                          >
+                        </div>
+                        <span
+                          class="font-label-sm text-label-sm text-secondary uppercase font-bold"
+                          >Pendiente</span
+                        >
+                      </label>
+                      <label
+                        class="flex items-center gap-space-sm p-space-sm bg-surface-container-lowest rounded-lg cursor-pointer hover:bg-surface-container transition-all"
+                      >
+                        <input
+                          checked=""
+                          class="w-4 h-4 rounded text-primary focus:ring-0"
+                          type="checkbox"
+                        />
+                        <div class="flex-1">
+                          <span
+                            class="font-label-md text-label-md text-on-surface font-semibold block"
+                            >Certificado Médico con Tipo de Sangre</span
+                          >
+                          <span class="font-body-sm text-body-sm text-outline"
+                            >Expedido por institución pública de salud</span
+                          >
+                        </div>
+                        <span
+                          class="material-symbols-outlined text-secondary text-[20px]"
+                          >check_circle</span
+                        >
+                      </label>
+                    </div>
+                  </div>
+                  <div
+                    class="bg-surface-container-high p-space-md rounded-lg flex items-center justify-between"
+                  >
+                    <div class="flex items-center gap-space-sm">
+                      <span
+                        class="material-symbols-outlined text-primary text-[22px]"
+                        >policy</span
+                      >
+                      <span class="font-body-sm text-body-sm text-on-surface"
+                        >Al confirmar, el alumno queda en estatus
+                        <strong
+                          >Inscrito con Expediente Condicionado (4/5)</strong
+                        >
+                        hasta anexar fotos.</span
+                      >
+                    </div>
+                  </div>
+                </div>
+                <!-- Form Navigation Buttons -->
+                <div
+                  class="pt-space-md flex items-center justify-between border-t border-surface-container"
+                >
+                  <button
+                    class="hidden px-space-lg py-2.5 bg-surface-container text-on-surface rounded-lg font-label-lg text-label-lg hover:bg-surface-container-high transition-all"
+                    id="prev-step-btn"
+                    type="button"
+                  >
+                    Anterior
+                  </button>
+                  <div class="flex items-center gap-space-sm ml-auto">
+                    <button
+                      class="px-space-lg py-2.5 bg-primary text-on-primary rounded-lg font-label-lg text-label-lg hover:bg-primary-container shadow transition-all"
+                      id="next-step-btn"
+                      type="button"
+                    >
+                      Siguiente Paso →
+                    </button>
+                    <button
+                      class="hidden px-space-xl py-2.5 bg-secondary text-on-secondary rounded-lg font-label-lg text-label-lg hover:bg-on-secondary-fixed-variant shadow-md transition-all flex items-center gap-2"
+                      id="submit-form-btn"
+                      type="submit"
+                    >
+                      <span class="material-symbols-outlined text-[20px]"
+                        >how_to_reg</span
+                      >
+                      <span>Completar Inscripción SEP</span>
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <!-- Padrón de Alumnos: Control Bar & Filters -->
+          <div
+            class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm mb-space-lg"
+          >
+            <div
+              class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md mb-space-md"
+            >
+              <div>
+                <h2 class="font-headline-sm text-headline-sm text-primary">
+                  Padrón de Alumnos y Expedientes
+                </h2>
+                <span class="font-body-sm text-body-sm text-outline"
+                  >Consulta en tiempo real con vinculación a credencial con
+                  código QR y boleta bimestral.</span
+                >
+              </div>
+              <!-- Quick Search Bar -->
+              <div class="flex items-center gap-space-sm">
+                <div class="relative w-full sm:w-80">
+                  <span
+                    class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]"
+                    >search</span
+                  >
+                  <input
+                    class="w-full pl-9 pr-4 py-2 bg-surface-container-low rounded-lg text-on-surface font-body-sm text-body-sm placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary shadow-inner"
+                    id="table-search-input"
+                    placeholder="Filtrar por nombre, CURP o matrícula..."
+                    type="text"
+                  />
+                </div>
+                <button
+                  class="p-2 bg-surface-container text-on-surface rounded-lg hover:bg-surface-container-high"
+                  title="Imprimir Lista"
+                >
+                  <span class="material-symbols-outlined text-[20px]"
+                    >print</span
+                  >
+                </button>
+              </div>
+            </div>
+            <!-- Active Pills Filter Grid -->
+            <div class="flex flex-wrap items-center gap-space-xs pt-space-xs">
+              <span
+                class="font-label-sm text-label-sm text-outline uppercase font-bold mr-2"
+                >Filtros Rápidos:</span
+              >
+              <!-- Grado Filter -->
+              <select
+                class="px-space-md py-1.5 bg-surface-container-low text-on-surface rounded-lg font-label-md text-label-md focus:outline-none focus:ring-2 focus:ring-primary"
+                id="filter-grade"
+              >
+                <option value="all">Todos los Grados</option>
+                <option value="1">1° Primer Grado</option>
+                <option value="2">2° Segundo Grado</option>
+                <option value="3">3° Tercer Grado</option>
+              </select>
+              <!-- Turno Filter -->
+              <select
+                class="px-space-md py-1.5 bg-surface-container-low text-on-surface rounded-lg font-label-md text-label-md focus:outline-none focus:ring-2 focus:ring-primary"
+                id="filter-shift"
+              >
+                <option value="all">Ambos Turnos</option>
+                <option value="Matutino">Turno Matutino</option>
+                <option value="Vespertino">Turno Vespertino</option>
+              </select>
+              <!-- Taller Filter -->
+              <select
+                class="px-space-md py-1.5 bg-surface-container-low text-on-surface rounded-lg font-label-md text-label-md focus:outline-none focus:ring-2 focus:ring-primary"
+                id="filter-tech"
+              >
+                <option value="all">Todas las Tecnologías</option>
+                <option value="Máquinas-Herramientas">
+                  Máquinas-Herramientas
+                </option>
+                <option value="Electricidad">Electricidad</option>
+                <option value="Informática">Informática</option>
+                <option value="Dibujo Técnico">Dibujo Técnico</option>
+                <option value="Contabilidad">Contabilidad</option>
+              </select>
+              <button
+                class="ml-auto text-secondary font-label-md text-label-md hover:underline flex items-center gap-1"
+                id="reset-filters"
+              >
+                <span class="material-symbols-outlined text-[16px]"
+                  >restart_alt</span
+                >
+                Restablecer
+              </button>
+            </div>
+          </div>
+          <!-- Student Master Table -->
+          <div
+            class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden mb-space-xl"
+          >
+            <div class="overflow-x-auto">
+              <table class="w-full text-left border-collapse">
+                <thead>
+                  <tr
+                    class="bg-surface-container text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider"
+                  >
+                    <th class="py-3 px-space-md">Matrícula / Folio</th>
+                    <th class="py-3 px-space-md">Estudiante &amp; CURP</th>
+                    <th class="py-3 px-space-md">Grado / Grupo</th>
+                    <th class="py-3 px-space-md">Turno</th>
+                    <th class="py-3 px-space-md">Taller Técnico</th>
+                    <th class="py-3 px-space-md">Estatus SEP</th>
+                    <th class="py-3 px-space-md text-right">
+                      Acciones Oficiales
+                    </th>
+                  </tr>
+                </thead>
+                <tbody
+                  class="font-body-md text-body-md text-on-surface"
+                  id="student-table-body"
+                >
+                  <!-- Row 1 -->
+                  <tr
+                    class="hover:bg-surface-container-low transition-colors group"
+                  >
+                    <td
+                      class="py-3.5 px-space-md font-mono text-body-sm font-semibold text-primary"
+                    >
+                      24-EST70-0192
+                    </td>
+                    <td class="py-3.5 px-space-md">
+                      <div class="flex items-center gap-space-sm">
+                        <div
+                          class="w-9 h-9 rounded-full bg-surface-variant text-on-surface-variant flex items-center justify-center font-bold text-label-md shrink-0"
+                        >
+                          AR
+                        </div>
+                        <div>
+                          <span
+                            class="font-label-lg text-label-lg font-bold block text-primary"
+                            >ÁLVAREZ RAMÍREZ DANIELA</span
+                          >
+                          <span class="font-mono text-body-sm text-outline"
+                            >AARD090415MDFLN01</span
+                          >
+                        </div>
+                      </div>
+                    </td>
+                    <td class="py-3.5 px-space-md">
+                      <span
+                        class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-md text-label-md font-bold"
+                      >
+                        3° - "A"
+                      </span>
+                    </td>
+                    <td class="py-3.5 px-space-md">
+                      <div class="flex items-center gap-1.5 text-body-sm">
+                        <span
+                          class="material-symbols-outlined text-secondary text-[16px]"
+                          >wb_sunny</span
+                        >
+                        <span>Matutino</span>
+                      </div>
+                    </td>
+                    <td class="py-3.5 px-space-md">
+                      <span
+                        class="font-label-md text-label-md text-on-surface font-semibold flex items-center gap-1.5"
+                      >
+                        <span class="w-2 h-2 rounded-full bg-secondary"></span>
+                        Máquinas-Herramientas
+                      </span>
+                    </td>
+                    <td class="py-3.5 px-space-md">
+                      <span
+                        class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-surface-container text-on-surface font-label-sm text-label-sm uppercase font-bold"
+                      >
+                        <span
+                          class="material-symbols-outlined text-secondary text-[14px]"
+                          >check</span
+                        >
+                        Completo
+                      </span>
+                    </td>
+                    <td class="py-3.5 px-space-md text-right">
+                      <div class="flex items-center justify-end gap-1">
+                        <button
+                          class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-primary transition-all"
+                          title="Expediente Digital"
+                        >
+                          <span class="material-symbols-outlined text-[18px]"
+                            >folder_shared</span
+                          >
+                        </button>
+                        <button
+                          class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-primary transition-all"
+                          title="Credencial QR"
+                        >
+                          <span class="material-symbols-outlined text-[18px]"
+                            >qr_code_2</span
+                          >
+                        </button>
+                        <button
+                          class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-primary transition-all"
+                          title="Boleta de Calificaciones"
+                        >
+                          <span class="material-symbols-outlined text-[18px]"
+                            >receipt_long</span
+                          >
+                        </button>
+                        <button
+                          class="p-1.5 rounded hover:bg-surface-container text-secondary transition-all"
+                          title="Editar Registro"
+                        >
+                          <span class="material-symbols-outlined text-[18px]"
+                            >edit</span
+                          >
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <!-- Row 2 -->
+                  <tr
+                    class="hover:bg-surface-container-low transition-colors group"
+                  >
+                    <td
+                      class="py-3.5 px-space-md font-mono text-body-sm font-semibold text-primary"
+                    >
+                      24-EST70-0481
+                    </td>
+                    <td class="py-3.5 px-space-md">
+                      <div class="flex items-center gap-space-sm">
+                        <div
+                          class="w-9 h-9 rounded-full bg-surface-variant text-on-surface-variant flex items-center justify-center font-bold text-label-md shrink-0"
+                        >
+                          GC
+                        </div>
+                        <div>
+                          <span
+                            class="font-label-lg text-label-lg font-bold block text-primary"
+                            >GUTIÉRREZ CORONA MATEO</span
+                          >
+                          <span class="font-mono text-body-sm text-outline"
+                            >GUCM101122HDFRR09</span
+                          >
+                        </div>
+                      </div>
+                    </td>
+                    <td class="py-3.5 px-space-md">
+                      <span
+                        class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-md text-label-md font-bold"
+                      >
+                        2° - "C"
+                      </span>
+                    </td>
+                    <td class="py-3.5 px-space-md">
+                      <div class="flex items-center gap-1.5 text-body-sm">
+                        <span
+                          class="material-symbols-outlined text-secondary text-[16px]"
+                          >wb_sunny</span
+                        >
+                        <span>Matutino</span>
+                      </div>
+                    </td>
+                    <td class="py-3.5 px-space-md">
+                      <span
+                        class="font-label-md text-label-md text-on-surface font-semibold flex items-center gap-1.5"
+                      >
+                        <span
+                          class="w-2 h-2 rounded-full bg-secondary-container"
+                        ></span>
+                        Informática
+                      </span>
+                    </td>
+                    <td class="py-3.5 px-space-md">
+                      <span
+                        class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm uppercase font-bold"
+                      >
+                        <span class="material-symbols-outlined text-[14px]"
+                          >pending_actions</span
+                        >
+                        Docs Pendientes
+                      </span>
+                    </td>
+                    <td class="py-3.5 px-space-md text-right">
+                      <div class="flex items-center justify-end gap-1">
+                        <button
+                          class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-primary transition-all"
+                          title="Expediente Digital"
+                        >
+                          <span class="material-symbols-outlined text-[18px]"
+                            >folder_shared</span
+                          >
+                        </button>
+                        <button
+                          class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-primary transition-all"
+                          title="Credencial QR"
+                        >
+                          <span class="material-symbols-outlined text-[18px]"
+                            >qr_code_2</span
+                          >
+                        </button>
+                        <button
+                          class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-primary transition-all"
+                          title="Boleta de Calificaciones"
+                        >
+                          <span class="material-symbols-outlined text-[18px]"
+                            >receipt_long</span
+                          >
+                        </button>
+                        <button
+                          class="p-1.5 rounded hover:bg-surface-container text-secondary transition-all"
+                          title="Editar Registro"
+                        >
+                          <span class="material-symbols-outlined text-[18px]"
+                            >edit</span
+                          >
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <!-- Row 3 -->
+                  <tr
+                    class="hover:bg-surface-container-low transition-colors group"
+                  >
+                    <td
+                      class="py-3.5 px-space-md font-mono text-body-sm font-semibold text-primary"
+                    >
+                      24-EST70-0834
+                    </td>
+                    <td class="py-3.5 px-space-md">
+                      <div class="flex items-center gap-space-sm">
+                        <div
+                          class="w-9 h-9 rounded-full bg-surface-variant text-on-surface-variant flex items-center justify-center font-bold text-label-md shrink-0"
+                        >
+                          MP
+                        </div>
+                        <div>
+                          <span
+                            class="font-label-lg text-label-lg font-bold block text-primary"
+                            >MARTÍNEZ PADILLA SOFÍA</span
+                          >
+                          <span class="font-mono text-body-sm text-outline"
+                            >MAPS110305MDFZN04</span
+                          >
+                        </div>
+                      </div>
+                    </td>
+                    <td class="py-3.5 px-space-md">
+                      <span
+                        class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-md text-label-md font-bold"
+                      >
+                        1° - "B"
+                      </span>
+                    </td>
+                    <td class="py-3.5 px-space-md">
+                      <div class="flex items-center gap-1.5 text-body-sm">
+                        <span
+                          class="material-symbols-outlined text-tertiary-container text-[16px]"
+                          >bedtime</span
+                        >
+                        <span>Vespertino</span>
+                      </div>
+                    </td>
+                    <td class="py-3.5 px-space-md">
+                      <span
+                        class="font-label-md text-label-md text-on-surface font-semibold flex items-center gap-1.5"
+                      >
+                        <span class="w-2 h-2 rounded-full bg-primary"></span>
+                        Electricidad
+                      </span>
+                    </td>
+                    <td class="py-3.5 px-space-md">
+                      <span
+                        class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-surface-container text-on-surface font-label-sm text-label-sm uppercase font-bold"
+                      >
+                        <span
+                          class="material-symbols-outlined text-secondary text-[14px]"
+                          >check</span
+                        >
+                        Completo
+                      </span>
+                    </td>
+                    <td class="py-3.5 px-space-md text-right">
+                      <div class="flex items-center justify-end gap-1">
+                        <button
+                          class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-primary transition-all"
+                          title="Expediente Digital"
+                        >
+                          <span class="material-symbols-outlined text-[18px]"
+                            >folder_shared</span
+                          >
+                        </button>
+                        <button
+                          class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-primary transition-all"
+                          title="Credencial QR"
+                        >
+                          <span class="material-symbols-outlined text-[18px]"
+                            >qr_code_2</span
+                          >
+                        </button>
+                        <button
+                          class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-primary transition-all"
+                          title="Boleta de Calificaciones"
+                        >
+                          <span class="material-symbols-outlined text-[18px]"
+                            >receipt_long</span
+                          >
+                        </button>
+                        <button
+                          class="p-1.5 rounded hover:bg-surface-container text-secondary transition-all"
+                          title="Editar Registro"
+                        >
+                          <span class="material-symbols-outlined text-[18px]"
+                            >edit</span
+                          >
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <!-- Row 4 -->
+                  <tr
+                    class="hover:bg-surface-container-low transition-colors group"
+                  >
+                    <td
+                      class="py-3.5 px-space-md font-mono text-body-sm font-semibold text-primary"
+                    >
+                      24-EST70-1120
+                    </td>
+                    <td class="py-3.5 px-space-md">
+                      <div class="flex items-center gap-space-sm">
+                        <div
+                          class="w-9 h-9 rounded-full bg-surface-variant text-on-surface-variant flex items-center justify-center font-bold text-label-md shrink-0"
+                        >
+                          VN
+                        </div>
+                        <div>
+                          <span
+                            class="font-label-lg text-label-lg font-bold block text-primary"
+                            >VÁZQUEZ NAVARRO EMILIANO</span
+                          >
+                          <span class="font-mono text-body-sm text-outline"
+                            >VANE100918HDFX003</span
+                          >
+                        </div>
+                      </div>
+                    </td>
+                    <td class="py-3.5 px-space-md">
+                      <span
+                        class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-md text-label-md font-bold"
+                      >
+                        2° - "D"
+                      </span>
+                    </td>
+                    <td class="py-3.5 px-space-md">
+                      <div class="flex items-center gap-1.5 text-body-sm">
+                        <span
+                          class="material-symbols-outlined text-tertiary-container text-[16px]"
+                          >bedtime</span
+                        >
+                        <span>Vespertino</span>
+                      </div>
+                    </td>
+                    <td class="py-3.5 px-space-md">
+                      <span
+                        class="font-label-md text-label-md text-on-surface font-semibold flex items-center gap-1.5"
+                      >
+                        <span
+                          class="w-2 h-2 rounded-full bg-tertiary-container"
+                        ></span>
+                        Dibujo Técnico
+                      </span>
+                    </td>
+                    <td class="py-3.5 px-space-md">
+                      <span
+                        class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-surface-container text-on-surface font-label-sm text-label-sm uppercase font-bold"
+                      >
+                        <span
+                          class="material-symbols-outlined text-secondary text-[14px]"
+                          >check</span
+                        >
+                        Completo
+                      </span>
+                    </td>
+                    <td class="py-3.5 px-space-md text-right">
+                      <div class="flex items-center justify-end gap-1">
+                        <button
+                          class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-primary transition-all"
+                          title="Expediente Digital"
+                        >
+                          <span class="material-symbols-outlined text-[18px]"
+                            >folder_shared</span
+                          >
+                        </button>
+                        <button
+                          class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-primary transition-all"
+                          title="Credencial QR"
+                        >
+                          <span class="material-symbols-outlined text-[18px]"
+                            >qr_code_2</span
+                          >
+                        </button>
+                        <button
+                          class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-primary transition-all"
+                          title="Boleta de Calificaciones"
+                        >
+                          <span class="material-symbols-outlined text-[18px]"
+                            >receipt_long</span
+                          >
+                        </button>
+                        <button
+                          class="p-1.5 rounded hover:bg-surface-container text-secondary transition-all"
+                          title="Editar Registro"
+                        >
+                          <span class="material-symbols-outlined text-[18px]"
+                            >edit</span
+                          >
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <!-- Row 5 -->
+                  <tr
+                    class="hover:bg-surface-container-low transition-colors group"
+                  >
+                    <td
+                      class="py-3.5 px-space-md font-mono text-body-sm font-semibold text-primary"
+                    >
+                      24-EST70-0042
+                    </td>
+                    <td class="py-3.5 px-space-md">
+                      <div class="flex items-center gap-space-sm">
+                        <div
+                          class="w-9 h-9 rounded-full bg-surface-variant text-on-surface-variant flex items-center justify-center font-bold text-label-md shrink-0"
+                        >
+                          CL
+                        </div>
+                        <div>
+                          <span
+                            class="font-label-lg text-label-lg font-bold block text-primary"
+                            >CASTILLO LUNA VALERIA</span
+                          >
+                          <span class="font-mono text-body-sm text-outline"
+                            >CALV090214MDFBC08</span
+                          >
+                        </div>
+                      </div>
+                    </td>
+                    <td class="py-3.5 px-space-md">
+                      <span
+                        class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-md text-label-md font-bold"
+                      >
+                        3° - "B"
+                      </span>
+                    </td>
+                    <td class="py-3.5 px-space-md">
+                      <div class="flex items-center gap-1.5 text-body-sm">
+                        <span
+                          class="material-symbols-outlined text-secondary text-[16px]"
+                          >wb_sunny</span
+                        >
+                        <span>Matutino</span>
+                      </div>
+                    </td>
+                    <td class="py-3.5 px-space-md">
+                      <span
+                        class="font-label-md text-label-md text-on-surface font-semibold flex items-center gap-1.5"
+                      >
+                        <span class="w-2 h-2 rounded-full bg-outline"></span>
+                        Contabilidad
+                      </span>
+                    </td>
+                    <td class="py-3.5 px-space-md">
+                      <span
+                        class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-surface-container text-on-surface font-label-sm text-label-sm uppercase font-bold"
+                      >
+                        <span
+                          class="material-symbols-outlined text-secondary text-[14px]"
+                          >check</span
+                        >
+                        Completo
+                      </span>
+                    </td>
+                    <td class="py-3.5 px-space-md text-right">
+                      <div class="flex items-center justify-end gap-1">
+                        <button
+                          class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-primary transition-all"
+                          title="Expediente Digital"
+                        >
+                          <span class="material-symbols-outlined text-[18px]"
+                            >folder_shared</span
+                          >
+                        </button>
+                        <button
+                          class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-primary transition-all"
+                          title="Credencial QR"
+                        >
+                          <span class="material-symbols-outlined text-[18px]"
+                            >qr_code_2</span
+                          >
+                        </button>
+                        <button
+                          class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-primary transition-all"
+                          title="Boleta de Calificaciones"
+                        >
+                          <span class="material-symbols-outlined text-[18px]"
+                            >receipt_long</span
+                          >
+                        </button>
+                        <button
+                          class="p-1.5 rounded hover:bg-surface-container text-secondary transition-all"
+                          title="Editar Registro"
+                        >
+                          <span class="material-symbols-outlined text-[18px]"
+                            >edit</span
+                          >
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- Table Pagination & Count Footer -->
+            <div
+              class="p-space-md bg-surface-container-low flex flex-col sm:flex-row items-center justify-between gap-space-sm"
+            >
+              <span class="font-body-sm text-body-sm text-outline">
+                Mostrando <strong class="text-on-surface">5</strong> de
+                <strong class="text-on-surface">1,240</strong> alumnos
+                registrados (Padrón Oficial EST 70)
+              </span>
+              <div class="flex items-center gap-space-xs">
+                <button
+                  class="px-3 py-1.5 bg-surface-container rounded-lg font-label-sm text-label-sm text-outline cursor-not-allowed"
+                  disabled=""
+                >
+                  ← Anterior
+                </button>
+                <button
+                  class="px-3 py-1.5 bg-primary text-on-primary rounded-lg font-label-sm text-label-sm font-bold"
+                >
+                  1
+                </button>
+                <button
+                  class="px-3 py-1.5 bg-surface-container hover:bg-surface-container-high text-on-surface rounded-lg font-label-sm text-label-sm"
+                >
+                  2
+                </button>
+                <button
+                  class="px-3 py-1.5 bg-surface-container hover:bg-surface-container-high text-on-surface rounded-lg font-label-sm text-label-sm"
+                >
+                  3
+                </button>
+                <span class="px-2 text-outline">...</span>
+                <button
+                  class="px-3 py-1.5 bg-surface-container hover:bg-surface-container-high text-on-surface rounded-lg font-label-sm text-label-sm"
+                >
+                  124
+                </button>
+                <button
+                  class="px-3 py-1.5 bg-surface-container hover:bg-surface-container-high text-on-surface rounded-lg font-label-sm text-label-sm"
+                >
+                  Siguiente →
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Educational Workshop Info Cards Grid (Bottom Visual Texture) -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-space-md mb-space-xl">
+            <div
+              class="bg-surface-container-low p-space-lg rounded-xl flex items-start gap-space-md"
+            >
+              <div
+                class="w-12 h-12 rounded-xl bg-surface-container-highest flex items-center justify-center shrink-0"
+              >
+                <span
+                  class="material-symbols-outlined text-secondary text-[28px]"
+                  >qr_code</span
+                >
+              </div>
+              <div>
+                <h4 class="font-title-sm text-title-sm text-primary mb-1">
+                  Credencialización Inteligente
+                </h4>
+                <p class="font-body-sm text-body-sm text-on-surface-variant">
+                  Cada alumno dado de alta genera automáticamente un token QR
+                  encriptado para asistencia en pórtico y préstamo de
+                  herramienta de taller.
+                </p>
+              </div>
+            </div>
+            <div
+              class="bg-surface-container-low p-space-lg rounded-xl flex items-start gap-space-md"
+            >
+              <div
+                class="w-12 h-12 rounded-xl bg-surface-container-highest flex items-center justify-center shrink-0"
+              >
+                <span class="material-symbols-outlined text-primary text-[28px]"
+                  >cloud_sync</span
+                >
+              </div>
+              <div>
+                <h4 class="font-title-sm text-title-sm text-primary mb-1">
+                  Sincronización SIGED-SEP
+                </h4>
+                <p class="font-body-sm text-body-sm text-on-surface-variant">
+                  Los expedientes con estatus completo se transmiten al portal
+                  central de secundarias técnicas a las 23:59 hrs en lote
+                  diario.
+                </p>
+              </div>
+            </div>
+            <div
+              class="bg-surface-container-low p-space-lg rounded-xl flex items-start gap-space-md"
+            >
+              <div
+                class="w-12 h-12 rounded-xl bg-surface-container-highest flex items-center justify-center shrink-0"
+              >
+                <span
+                  class="material-symbols-outlined text-secondary-container text-[28px]"
+                  >health_and_safety</span
+                >
+              </div>
+              <div>
+                <h4 class="font-title-sm text-title-sm text-primary mb-1">
+                  Seguridad en Talleres
+                </h4>
+                <p class="font-body-sm text-body-sm text-on-surface-variant">
+                  El tipo de sangre y alergias se imprimen al reverso de la
+                  credencial oficial para acceso normativo a áreas de máquinas y
+                  electricidad.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Inline Script for Interactive Stepper, CURP validation, Table Filtering, and Panel Toggle -->
+          <script>
+            (function initControlEscolar() {
+              // Stepper logic
+              let currentStep = 1;
+              const totalSteps = 4;
+              const stepTabs = document.querySelectorAll(".form-step-tab");
+              const stepPanes = document.querySelectorAll(".step-pane");
+              const prevBtn = document.getElementById("prev-step-btn");
+              const nextBtn = document.getElementById("next-step-btn");
+              const submitBtn = document.getElementById("submit-form-btn");
+
+              function showStep(step) {
+                currentStep = step;
+                stepPanes.forEach((pane, idx) => {
+                  if (idx + 1 === step) {
+                    pane.classList.remove("hidden");
+                  } else {
+                    pane.classList.add("hidden");
+                  }
+                });
+
+                stepTabs.forEach((tab) => {
+                  const tabStep = parseInt(tab.dataset.step, 10);
+                  const circle = tab.querySelector("span");
+                  if (tabStep === step) {
+                    tab.className =
+                      "form-step-tab active flex items-center gap-space-xs px-space-md py-2.5 rounded-lg bg-surface-container-lowest shadow-sm text-primary font-label-lg text-label-lg transition-all";
+                    circle.className =
+                      "w-6 h-6 rounded-full bg-primary text-on-primary font-bold text-[12px] flex items-center justify-center";
+                  } else {
+                    tab.className =
+                      "form-step-tab flex items-center gap-space-xs px-space-md py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container font-label-lg text-label-lg transition-all";
+                    circle.className =
+                      "w-6 h-6 rounded-full bg-surface-variant text-on-surface-variant font-bold text-[12px] flex items-center justify-center";
+                  }
+                });
+
+                // Toggle buttons
+                if (currentStep === 1) {
+                  prevBtn.classList.add("hidden");
+                } else {
+                  prevBtn.classList.remove("hidden");
+                }
+
+                if (currentStep === totalSteps) {
+                  nextBtn.classList.add("hidden");
+                  submitBtn.classList.remove("hidden");
+                } else {
+                  nextBtn.classList.remove("hidden");
+                  submitBtn.classList.add("hidden");
+                }
+              }
+
+              stepTabs.forEach((tab) => {
+                tab.addEventListener("click", () => {
+                  showStep(parseInt(tab.dataset.step, 10));
+                });
+              });
+
+              nextBtn.addEventListener("click", () => {
+                if (currentStep < totalSteps) {
+                  showStep(currentStep + 1);
+                }
+              });
+
+              prevBtn.addEventListener("click", () => {
+                if (currentStep > 1) {
+                  showStep(currentStep - 1);
+                }
+              });
+
+              // Panel toggle / collapse
+              const togglePanelBtn =
+                document.getElementById("toggle-panel-btn");
+              const togglePanelIcon =
+                document.getElementById("toggle-panel-icon");
+              const formContent = document.getElementById("form-content");
+              let panelCollapsed = false;
+
+              function togglePanel() {
+                panelCollapsed = !panelCollapsed;
+                if (panelCollapsed) {
+                  formContent.classList.add("hidden");
+                  togglePanelIcon.textContent = "expand_more";
+                } else {
+                  formContent.classList.remove("hidden");
+                  togglePanelIcon.textContent = "expand_less";
+                }
+              }
+
+              togglePanelBtn.addEventListener("click", togglePanel);
+
+              const openRegisterBtn =
+                document.getElementById("open-register-btn");
+              openRegisterBtn.addEventListener("click", () => {
+                if (panelCollapsed) {
+                  togglePanel();
+                }
+                document
+                  .getElementById("registration-panel")
+                  .scrollIntoView({ behavior: "smooth" });
+              });
+
+              // Realtime CURP Validator feedback
+              const curpInput = document.getElementById("curp-input");
+              const curpStatus = document.getElementById("curp-status");
+              const curpIcon = document.getElementById("curp-icon");
+
+              curpInput.addEventListener("input", (e) => {
+                const val = e.target.value.toUpperCase();
+                e.target.value = val;
+                if (val.length === 18) {
+                  const curpRegex = /^[A-Z]{4}\d{6}[HM][A-Z]{5}[A-Z0-9]\d$/;
+                  if (curpRegex.test(val)) {
+                    curpStatus.textContent = "RENAPO VÁLIDO";
+                    curpStatus.className =
+                      "font-label-sm text-label-sm text-secondary uppercase font-bold";
+                    curpIcon.textContent = "verified_user";
+                    curpIcon.className =
+                      "material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-secondary text-[20px]";
+                  } else {
+                    curpStatus.textContent = "ESTRUCTURA NO VÁLIDA";
+                    curpStatus.className =
+                      "font-label-sm text-label-sm text-error uppercase font-bold";
+                    curpIcon.textContent = "error";
+                    curpIcon.className =
+                      "material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-error text-[20px]";
+                  }
+                } else if (val.length > 0) {
+                  curpStatus.textContent = `${val.length}/18 CARACTERES`;
+                  curpStatus.className =
+                    "font-label-sm text-label-sm text-outline uppercase font-bold";
+                  curpIcon.textContent = "fingerprint";
+                  curpIcon.className =
+                    "material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-outline text-[20px]";
+                } else {
+                  curpStatus.textContent = "SIN VERIFICAR";
+                  curpStatus.className =
+                    "font-label-sm text-label-sm text-outline uppercase font-bold";
+                  curpIcon.textContent = "fingerprint";
+                  curpIcon.className =
+                    "material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-outline text-[20px]";
+                }
+              });
+
+              // Alta form submission micro-interaction
+              const form = document.getElementById("student-alta-form");
+              form.addEventListener("submit", (e) => {
+                e.preventDefault();
+                alert(
+                  "Alumno inscrito exitosamente en el ciclo 2024-2025. Se ha generado la Cédula SEP F-EST-04 y la credencial con código QR provisional.",
+                );
+                form.reset();
+                showStep(1);
+              });
+
+              // Table quick search filter
+              const searchInput = document.getElementById("table-search-input");
+              const tableRows = document.querySelectorAll(
+                "#student-table-body tr",
+              );
+
+              searchInput.addEventListener("input", (e) => {
+                const query = e.target.value.toLowerCase();
+                tableRows.forEach((row) => {
+                  const text = row.textContent.toLowerCase();
+                  row.style.display = text.includes(query) ? "" : "none";
+                });
+              });
+
+              // Filter select elements
+              const gradeFilter = document.getElementById("filter-grade");
+              const shiftFilter = document.getElementById("filter-shift");
+              const techFilter = document.getElementById("filter-tech");
+              const resetBtn = document.getElementById("reset-filters");
+
+              function applyDropdownFilters() {
+                const gradeVal = gradeFilter.value;
+                const shiftVal = shiftFilter.value;
+                const techVal = techFilter.value;
+
+                tableRows.forEach((row) => {
+                  const rowText = row.textContent;
+                  const matchesGrade =
+                    gradeVal === "all" || rowText.includes(`${gradeVal}°`);
+                  const matchesShift =
+                    shiftVal === "all" || rowText.includes(shiftVal);
+                  const matchesTech =
+                    techVal === "all" || rowText.includes(techVal);
+
+                  row.style.display =
+                    matchesGrade && matchesShift && matchesTech ? "" : "none";
+                });
+              }
+
+              gradeFilter.addEventListener("change", applyDropdownFilters);
+              shiftFilter.addEventListener("change", applyDropdownFilters);
+              techFilter.addEventListener("change", applyDropdownFilters);
+
+              resetBtn.addEventListener("click", () => {
+                gradeFilter.value = "all";
+                shiftFilter.value = "all";
+                techFilter.value = "all";
+                searchInput.value = "";
+                tableRows.forEach((row) => (row.style.display = ""));
+              });
+            })();
+          </script>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
