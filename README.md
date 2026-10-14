@@ -1,0 +1,2 @@
+# SCHOLA
+Sistema Gestion Escolar 
